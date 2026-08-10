@@ -212,10 +212,6 @@
     aspect-ratio: auto;
 }
 
-.gallery__item--wide {
-    grid-column: span 2;
-}
-
 .gallery__item:hover {
     border-color: var(--border-light);
     box-shadow: var(--shadow-lg), 0 0 60px rgba(232, 176, 76, 0.06);
@@ -240,11 +236,11 @@
     left: 0;
     right: 0;
     padding: var(--sp-4) var(--sp-4) var(--sp-3);
-    background: linear-gradient(to top, rgba(10, 11, 15, 0.92), transparent);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
     font-family: var(--font-mono);
     font-size: var(--fs-xs);
     font-weight: 500;
-    color: var(--text);
+    color: #fff;
     margin: 0;
     opacity: 0;
     transition: opacity var(--t-base);
