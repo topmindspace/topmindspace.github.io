@@ -1,0 +1,614 @@
+/* Sections — Hero, Philosophy, Surfaces, Workflow, Install, Capabilities, Scroll Reveal */
+
+/* ============================================================
+   Hero
+   ============================================================ */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: calc(var(--nav-height) + var(--sp-16)) var(--sp-6) var(--sp-24);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.hero__grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 0%, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 0%, transparent 70%);
+    opacity: 0.5;
+}
+
+.hero__glow {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.15;
+}
+
+.hero__glow--1 {
+    top: -10%;
+    left: 10%;
+    background: var(--accent);
+}
+
+.hero__glow--2 {
+    bottom: -10%;
+    right: 10%;
+    background: var(--teal);
+    opacity: 0.08;
+}
+
+.hero__inner {
+    position: relative;
+    z-index: 1;
+    max-width: 880px;
+}
+
+.hero__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-2);
+    padding: var(--sp-1) var(--sp-4);
+    border: 1px solid var(--border);
+    border-radius: var(--r-full);
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-bottom: var(--sp-8);
+    background: var(--bg-card);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.hero__badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 8px var(--green);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}
+
+.hero__title {
+    font-size: clamp(2rem, 6.5vw, var(--fs-5xl));
+    font-weight: 400;
+    line-height: 1.1;
+    margin-bottom: var(--sp-6);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: baseline;
+    gap: var(--sp-3) var(--sp-4);
+}
+
+.hero__title-accent {
+    color: var(--accent);
+    font-style: italic;
+}
+
+.hero__arrow {
+    color: var(--text-muted);
+    font-family: var(--font-body);
+    font-size: 0.55em;
+    font-weight: 300;
+    vertical-align: middle;
+}
+
+.hero__subtitle {
+    font-size: clamp(var(--fs-base), 2.5vw, var(--fs-lg));
+    max-width: 620px;
+    margin: 0 auto var(--sp-10);
+    line-height: 1.7;
+}
+
+.hero__cta {
+    display: flex;
+    justify-content: center;
+    gap: var(--sp-3);
+    margin-bottom: var(--sp-16);
+    flex-wrap: wrap;
+}
+
+.hero__flow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sp-2);
+    flex-wrap: wrap;
+}
+
+.hero__flow-step {
+    padding: var(--sp-2) var(--sp-4);
+    border: 1px solid var(--border);
+    border-radius: var(--r-full);
+    font-size: var(--fs-sm);
+    font-weight: 500;
+    color: var(--text-secondary);
+    background: var(--bg-card);
+}
+
+.hero__flow-step--ai {
+    border-color: var(--teal);
+    color: var(--teal);
+    background: var(--teal-subtle);
+}
+
+.hero__flow-step--final {
+    border-color: var(--accent-border);
+    color: var(--accent);
+    background: var(--accent-subtle);
+}
+
+.hero__flow-line {
+    width: 24px;
+    height: 1px;
+    background: var(--border-light);
+}
+
+/* ============================================================
+   Pillars (Philosophy)
+   ============================================================ */
+
+.pillars {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--sp-4);
+}
+
+.pillar {
+    padding: var(--sp-8) var(--sp-6);
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    background: var(--bg-card);
+    transition: all var(--t-base);
+    position: relative;
+    overflow: hidden;
+}
+
+.pillar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent-border), transparent);
+    opacity: 0;
+    transition: opacity var(--t-base);
+}
+
+.pillar:hover {
+    border-color: var(--border-light);
+    transform: translateY(-2px);
+}
+
+.pillar:hover::before {
+    opacity: 1;
+}
+
+.pillar__icon {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--r-md);
+    background: var(--accent-subtle);
+    color: var(--accent);
+    margin-bottom: var(--sp-4);
+}
+
+.pillar__title {
+    font-size: var(--fs-lg);
+    margin-bottom: var(--sp-2);
+}
+
+.pillar__desc {
+    font-size: var(--fs-sm);
+    line-height: 1.65;
+}
+
+/* ============================================================
+   Surfaces (Products)
+   ============================================================ */
+
+.surfaces {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--sp-4);
+}
+
+.surface {
+    padding: var(--sp-8);
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    background: var(--bg-card);
+    display: flex;
+    flex-direction: column;
+    transition: all var(--t-base);
+    position: relative;
+}
+
+.surface:hover {
+    border-color: var(--border-light);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.surface__header {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--sp-3);
+    margin-bottom: var(--sp-4);
+}
+
+.surface__icon {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--r-md);
+    border: 1px solid var(--border);
+}
+
+.surface__icon--desktop    { color: var(--accent); background: var(--accent-subtle); border-color: var(--accent-border); }
+.surface__icon--obsidian   { color: #a78bfa; background: rgba(167, 139, 250, 0.08); border-color: rgba(167, 139, 250, 0.2); }
+.surface__icon--skills     { color: var(--teal); background: var(--teal-subtle); border-color: rgba(61, 214, 194, 0.2); }
+.surface__icon--utr        { color: #f87171; background: rgba(248, 113, 113, 0.08); border-color: rgba(248, 113, 113, 0.2); }
+.surface__icon--clip       { color: #60a5fa; background: rgba(96, 165, 250, 0.08); border-color: rgba(96, 165, 250, 0.2); }
+
+.surface__title {
+    font-size: var(--fs-lg);
+    margin-bottom: var(--sp-1);
+}
+
+.surface__tag {
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    color: var(--text-muted);
+}
+
+.surface__desc {
+    font-size: var(--fs-sm);
+    margin-bottom: var(--sp-4);
+    flex-grow: 1;
+}
+
+.surface__install {
+    margin-bottom: var(--sp-4);
+}
+
+.surface__links {
+    display: flex;
+    gap: var(--sp-4);
+    padding-top: var(--sp-3);
+    border-top: 1px solid var(--border);
+}
+
+/* ============================================================
+   Workflow
+   ============================================================ */
+
+.workflow {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--sp-4);
+    margin-bottom: var(--sp-16);
+}
+
+.workflow__step {
+    padding: var(--sp-8) var(--sp-6);
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    background: var(--bg-card);
+    position: relative;
+    transition: all var(--t-base);
+}
+
+.workflow__step:hover {
+    border-color: var(--border-light);
+}
+
+.workflow__num {
+    font-family: var(--font-mono);
+    font-size: var(--fs-sm);
+    font-weight: 500;
+    color: var(--accent);
+    margin-bottom: var(--sp-3);
+    letter-spacing: 0.05em;
+}
+
+.workflow__name {
+    font-size: var(--fs-xl);
+    margin-bottom: var(--sp-2);
+}
+
+.workflow__desc {
+    font-size: var(--fs-sm);
+    margin-bottom: var(--sp-4);
+}
+
+.workflow__target {
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    color: var(--text-muted);
+    padding-top: var(--sp-3);
+    border-top: 1px solid var(--border);
+}
+
+/* --- Directory Model --- */
+.dir-model {
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    background: var(--bg-card);
+    overflow: hidden;
+}
+
+.dir-model__head {
+    padding: var(--sp-6) var(--sp-8);
+    border-bottom: 1px solid var(--border);
+}
+
+.dir-model__title {
+    font-size: var(--fs-lg);
+    margin-bottom: var(--sp-1);
+}
+
+.dir-model__desc {
+    font-size: var(--fs-sm);
+}
+
+.dir-model__code {
+    padding: var(--sp-6) var(--sp-8);
+    overflow-x: auto;
+}
+
+.dir-model__code pre {
+    margin: 0;
+}
+
+.dir-model__code code {
+    font-size: var(--fs-sm);
+    line-height: 1.8;
+    color: var(--text-secondary);
+    display: block;
+}
+
+/* Syntax highlight */
+.c-comment { color: var(--text-muted); }
+.c-dir     { color: var(--accent); }
+.c-file    { color: var(--teal); }
+
+/* ============================================================
+   Install
+   ============================================================ */
+
+.install-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--sp-4);
+}
+
+.install-card {
+    padding: var(--sp-8) var(--sp-6);
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    background: var(--bg-card);
+    display: flex;
+    flex-direction: column;
+    transition: all var(--t-base);
+    position: relative;
+}
+
+.install-card:hover {
+    border-color: var(--border-light);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.install-card__num {
+    font-family: var(--font-display);
+    font-size: var(--fs-2xl);
+    font-weight: 600;
+    color: var(--accent);
+    opacity: 0.3;
+    margin-bottom: var(--sp-2);
+}
+
+.install-card__title {
+    font-size: var(--fs-lg);
+    margin-bottom: var(--sp-2);
+}
+
+.install-card__desc {
+    font-size: var(--fs-sm);
+    margin-bottom: var(--sp-4);
+    flex-grow: 1;
+}
+
+.install-card__cmd {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-2);
+    padding: var(--sp-2) var(--sp-3);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--r-sm);
+}
+
+.install-card__cmd code {
+    flex: 1;
+    font-size: var(--fs-xs);
+    color: var(--text);
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.install-card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-2);
+    font-size: var(--fs-sm);
+    font-weight: 500;
+    color: var(--accent);
+    margin-top: auto;
+    padding-top: var(--sp-2);
+}
+
+/* ============================================================
+   Capabilities (Honest Table)
+   ============================================================ */
+
+.cap-table {
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    background: var(--bg-card);
+    overflow: hidden;
+}
+
+.cap-table__head {
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr;
+    gap: var(--sp-4);
+    padding: var(--sp-4) var(--sp-6);
+    border-bottom: 1px solid var(--border);
+    background: var(--bg-elevated);
+}
+
+.cap-table__head .cap-table__col {
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+}
+
+.cap-table__row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr;
+    gap: var(--sp-4);
+    padding: var(--sp-4) var(--sp-6);
+    border-bottom: 1px solid var(--border);
+    align-items: center;
+    transition: background var(--t-fast);
+}
+
+.cap-table__row:last-child {
+    border-bottom: none;
+}
+
+.cap-table__row:hover {
+    background: var(--bg-hover);
+}
+
+.cap-table__col--ability {
+    font-size: var(--fs-sm);
+    font-weight: 500;
+    color: var(--text);
+}
+
+.cap-table__col--status {
+    display: flex;
+    align-items: center;
+}
+
+.cap-table__col--desc {
+    font-size: var(--fs-sm);
+    color: var(--text-secondary);
+}
+
+/* ============================================================
+   Scroll Reveal Animation
+   ============================================================ */
+
+[data-reveal] {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity var(--t-slow), transform var(--t-slow);
+}
+
+[data-reveal].is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+[data-reveal]:nth-child(2) { transition-delay: 0.08s; }
+[data-reveal]:nth-child(3) { transition-delay: 0.16s; }
+[data-reveal]:nth-child(4) { transition-delay: 0.24s; }
+[data-reveal]:nth-child(5) { transition-delay: 0.32s; }
+[data-reveal]:nth-child(6) { transition-delay: 0.40s; }
+
+/* ============================================================
+   Icons (Pillar & Surface)
+   ============================================================ */
+
+/* Pillar & Surface icon containers: size the Lucide SVG inside */
+.pillar__icon svg,
+.surface__icon svg {
+    width: 22px;
+    height: 22px;
+}
+
+/* ============================================================
+   Showcase (Product Screenshot)
+   ============================================================ */
+
+.showcase {
+    position: relative;
+    overflow: hidden;
+    padding: 0 var(--sp-6) var(--sp-16);
+    margin-top: calc(-1 * var(--sp-16));
+}
+
+.showcase__inner {
+    max-width: var(--container-max);
+    margin: 0 auto;
+}
+
+.showcase__frame {
+    position: relative;
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg), 0 0 80px rgba(232, 176, 76, 0.06);
+    border: 1px solid var(--border);
+    transform: perspective(1200px) rotateX(2deg);
+    transition: transform var(--t-slow), box-shadow var(--t-slow);
+}
+
+.showcase__frame:hover {
+    transform: perspective(1200px) rotateX(0deg);
+    box-shadow: var(--shadow-lg), 0 0 100px rgba(232, 176, 76, 0.1);
+}
+
+.showcase__img {
+    width: 100%;
+    height: auto;
+    display: block;
+}

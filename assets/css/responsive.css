@@ -1,0 +1,185 @@
+/* Responsive — Media Queries, Reduced Motion, Print */
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+    [data-reveal] {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@media (max-width: 860px) {
+    .nav__links {
+        display: none;
+    }
+
+    .nav__burger {
+        display: flex;
+    }
+
+    .nav.is-open .nav__links {
+        display: flex;
+        position: absolute;
+        top: var(--nav-height);
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background: var(--bg-elevated);
+        border-bottom: 1px solid var(--border);
+        padding: var(--sp-4) var(--sp-6);
+        gap: var(--sp-4);
+    }
+
+    .hero {
+        min-height: auto;
+        padding-top: calc(var(--nav-height) + var(--sp-12));
+        padding-bottom: var(--sp-16);
+    }
+
+    .hero__title {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--sp-1);
+    }
+
+    .hero__arrow {
+        display: none;
+    }
+
+    .hero__flow {
+        gap: var(--sp-1);
+    }
+
+    .hero__flow-line {
+        width: 16px;
+    }
+
+    .section {
+        padding: var(--sp-16) 0;
+    }
+
+    .footer__inner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer__nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .showcase {
+        margin-top: calc(-1 * var(--sp-8));
+        padding-bottom: var(--sp-10);
+    }
+
+    .showcase__frame {
+        transform: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero__cta {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .dir-model__code {
+        padding: var(--sp-4) var(--sp-5);
+    }
+
+    .dir-model__head {
+        padding: var(--sp-4) var(--sp-5);
+    }
+
+    /* Capabilities table → card layout on mobile */
+    .cap-table__head {
+        display: none;
+    }
+
+    .cap-table__row {
+        grid-template-columns: 1fr;
+        gap: var(--sp-2);
+        padding: var(--sp-4) var(--sp-5);
+    }
+
+    .cap-table__col--ability {
+        font-size: var(--fs-base);
+        font-weight: 600;
+    }
+
+    .cap-table__col--status {
+        margin-top: var(--sp-1);
+    }
+
+    .cap-table__col--desc {
+        margin-top: var(--sp-1);
+    }
+}
+
+@media print {
+    .nav,
+    .hero__bg,
+    .hero__flow,
+    .copy-btn,
+    .skip-link,
+    .nav__burger,
+    .lang-toggle,
+    .theme-toggle {
+        display: none !important;
+    }
+
+    body {
+        background: #fff;
+        color: #000;
+    }
+
+    .hero {
+        min-height: auto;
+        padding: var(--sp-4) 0;
+    }
+
+    .section {
+        padding: var(--sp-4) 0;
+    }
+
+    [data-reveal] {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    .cap-table {
+        border-color: #ccc;
+    }
+
+    .cap-table__head {
+        display: grid !important;
+    }
+
+    .cap-table__row {
+        grid-template-columns: 2fr 1fr 2fr !important;
+    }
+
+    .cap-table__row:hover {
+        background: none;
+    }
+
+    .badge {
+        border: 1px solid #999 !important;
+        color: #333 !important;
+        background: none !important;
+    }
+
+    a[href]::after {
+        content: ' (' attr(href) ')';
+        font-size: 0.8em;
+        color: #666;
+    }
+}

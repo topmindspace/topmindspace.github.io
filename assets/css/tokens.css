@@ -1,0 +1,129 @@
+/* Design Tokens — Color, Typography, Spacing, Radius, Shadow, Transition, Layout */
+
+:root {
+    /* --- Color: Dark Theme (default) --- */
+    --bg:           #0a0b0f;
+    --bg-elevated:  #111218;
+    --bg-card:      #16171f;
+    --bg-hover:     #1c1d27;
+    --border:       #232430;
+    --border-light: #2e3040;
+
+    --text:         #e9eaf0;
+    --text-secondary: #a4a7b8;
+    --text-muted:   #6b6e7d;
+
+    --accent:       #e8b04c;        /* warm amber */
+    --accent-hover:  #f0c060;
+    --accent-subtle: rgba(232, 176, 76, 0.08);
+    --accent-border: rgba(232, 176, 76, 0.25);
+
+    --teal:         #3dd6c2;        /* AI / intelligence */
+    --teal-subtle:  rgba(61, 214, 194, 0.08);
+
+    --green:        #4ade80;
+    --green-subtle: rgba(74, 222, 128, 0.1);
+
+    --amber:        #fbbf24;
+    --amber-subtle: rgba(251, 191, 36, 0.08);
+    --amber-border: rgba(251, 191, 36, 0.2);
+
+    --blue:         #60a5fa;
+    --blue-subtle:  rgba(96, 165, 250, 0.08);
+    --blue-border:  rgba(96, 165, 250, 0.2);
+
+    --on-accent:    #0a0b0f;       /* text on accent background */
+    --nav-bg:       rgba(10, 11, 15, 0.72);
+
+    /* --- Typography --- */
+    --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+    --font-body:    'Sora', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-mono:    'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace;
+
+    --fs-xs:  0.75rem;
+    --fs-sm:  0.875rem;
+    --fs-base: 1rem;
+    --fs-lg:  1.125rem;
+    --fs-xl:  1.375rem;
+    --fs-2xl: 1.75rem;
+    --fs-3xl: 2.5rem;
+    --fs-4xl: 3.5rem;
+    --fs-5xl: 4.5rem;
+
+    /* --- Spacing --- */
+    --sp-1:  0.25rem;
+    --sp-2:  0.5rem;
+    --sp-3:  0.75rem;
+    --sp-4:  1rem;
+    --sp-5:  1.25rem;
+    --sp-6:  1.5rem;
+    --sp-8:  2rem;
+    --sp-10: 2.5rem;
+    --sp-12: 3rem;
+    --sp-16: 4rem;
+    --sp-20: 5rem;
+    --sp-24: 6rem;
+
+    /* --- Radius --- */
+    --r-sm: 6px;
+    --r-md: 10px;
+    --r-lg: 16px;
+    --r-xl: 24px;
+    --r-full: 999px;
+
+    /* --- Shadow --- */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.25);
+    --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.3);
+    --shadow-glow: 0 0 40px rgba(232, 176, 76, 0.12);
+
+    /* --- Transition --- */
+    --t-fast: 0.15s ease;
+    --t-base: 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    --t-slow: 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+
+    /* --- Layout --- */
+    --container-max: 1120px;
+    --nav-height: 64px;
+}
+
+/* --- Color: Light Theme --- */
+[data-theme="light"] {
+    --bg:           #f5f4f0;
+    --bg-elevated:  #ffffff;
+    --bg-card:      #ffffff;
+    --bg-hover:     #faf9f6;
+    --border:       #e2dfd7;
+    --border-light: #d4d0c5;
+
+    --text:         #1a1b23;
+    --text-secondary: #4a4d5c;
+    --text-muted:   #646775;
+
+    --accent:       #96641a;
+    --accent-hover: #7d5314;
+    --accent-subtle: rgba(184, 132, 42, 0.06);
+    --accent-border: rgba(184, 132, 42, 0.2);
+
+    --teal:         #0d9488;
+    --teal-subtle:  rgba(13, 148, 136, 0.06);
+
+    --green:        #16a34a;
+    --green-subtle: rgba(22, 163, 74, 0.08);
+
+    --amber:        #d97706;
+    --amber-subtle: rgba(217, 119, 6, 0.06);
+    --amber-border: rgba(217, 119, 6, 0.2);
+
+    --blue:         #2563eb;
+    --blue-subtle:  rgba(37, 99, 235, 0.06);
+    --blue-border:  rgba(37, 99, 235, 0.2);
+
+    --on-accent:    #ffffff;
+    --nav-bg:       rgba(245, 244, 240, 0.82);
+
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.08);
+    --shadow-glow: 0 0 40px rgba(184, 132, 42, 0.08);
+}
