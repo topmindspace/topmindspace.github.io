@@ -225,6 +225,14 @@
     color: var(--text-secondary);
     overflow-x: auto;
     white-space: nowrap;
+    line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+    .cmd {
+        white-space: normal;
+        word-break: break-all;
+    }
 }
 
 /* --- Link --- */

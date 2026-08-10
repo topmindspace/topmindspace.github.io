@@ -1,4 +1,4 @@
-/* Sections — Hero, Philosophy, Surfaces, Workflow, Install, Capabilities, Scroll Reveal */
+/* Sections — Hero, Gallery, Philosophy, Surfaces, Workflow, Install, Capabilities, Scroll Reveal */
 
 /* ============================================================
    Hero
@@ -149,6 +149,7 @@
     font-weight: 500;
     color: var(--text-secondary);
     background: var(--bg-card);
+    white-space: nowrap;
 }
 
 .hero__flow-step--ai {
@@ -167,6 +168,90 @@
     width: 24px;
     height: 1px;
     background: var(--border-light);
+    flex-shrink: 0;
+}
+
+/* ============================================================
+   Section Head — Centered variant
+   ============================================================ */
+
+.section__head--center {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.section__head--center .section__eyebrow {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ============================================================
+   Gallery (Showcase)
+   ============================================================ */
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-4);
+}
+
+.gallery__item {
+    position: relative;
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    background: var(--bg-card);
+    transition: all var(--t-base);
+    aspect-ratio: 16 / 10;
+}
+
+.gallery__item--lg {
+    grid-column: span 2;
+    grid-row: span 2;
+    aspect-ratio: auto;
+}
+
+.gallery__item--wide {
+    grid-column: span 2;
+}
+
+.gallery__item:hover {
+    border-color: var(--border-light);
+    box-shadow: var(--shadow-lg), 0 0 60px rgba(232, 176, 76, 0.06);
+    transform: translateY(-3px);
+}
+
+.gallery__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform var(--t-slow);
+}
+
+.gallery__item:hover .gallery__img {
+    transform: scale(1.02);
+}
+
+.gallery__caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: var(--sp-4) var(--sp-4) var(--sp-3);
+    background: linear-gradient(to top, rgba(10, 11, 15, 0.92), transparent);
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    font-weight: 500;
+    color: var(--text);
+    margin: 0;
+    opacity: 0;
+    transition: opacity var(--t-base);
+}
+
+.gallery__item:hover .gallery__caption {
+    opacity: 1;
 }
 
 /* ============================================================
@@ -238,7 +323,7 @@
 
 .surfaces {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: var(--sp-4);
 }
 
@@ -251,6 +336,10 @@
     flex-direction: column;
     transition: all var(--t-base);
     position: relative;
+}
+
+.surface--wide {
+    grid-column: span 3;
 }
 
 .surface:hover {
@@ -286,6 +375,7 @@
 .surface__title {
     font-size: var(--fs-lg);
     margin-bottom: var(--sp-1);
+    word-break: keep-all;
 }
 
 .surface__tag {
@@ -298,6 +388,7 @@
     font-size: var(--fs-sm);
     margin-bottom: var(--sp-4);
     flex-grow: 1;
+    line-height: 1.6;
 }
 
 .surface__install {
@@ -319,7 +410,6 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: var(--sp-4);
-    margin-bottom: var(--sp-16);
 }
 
 .workflow__step {
@@ -333,6 +423,7 @@
 
 .workflow__step:hover {
     border-color: var(--border-light);
+    transform: translateY(-2px);
 }
 
 .workflow__num {
@@ -352,6 +443,7 @@
 .workflow__desc {
     font-size: var(--fs-sm);
     margin-bottom: var(--sp-4);
+    line-height: 1.6;
 }
 
 .workflow__target {
@@ -360,50 +452,8 @@
     color: var(--text-muted);
     padding-top: var(--sp-3);
     border-top: 1px solid var(--border);
+    word-break: break-all;
 }
-
-/* --- Directory Model --- */
-.dir-model {
-    border: 1px solid var(--border);
-    border-radius: var(--r-lg);
-    background: var(--bg-card);
-    overflow: hidden;
-}
-
-.dir-model__head {
-    padding: var(--sp-6) var(--sp-8);
-    border-bottom: 1px solid var(--border);
-}
-
-.dir-model__title {
-    font-size: var(--fs-lg);
-    margin-bottom: var(--sp-1);
-}
-
-.dir-model__desc {
-    font-size: var(--fs-sm);
-}
-
-.dir-model__code {
-    padding: var(--sp-6) var(--sp-8);
-    overflow-x: auto;
-}
-
-.dir-model__code pre {
-    margin: 0;
-}
-
-.dir-model__code code {
-    font-size: var(--fs-sm);
-    line-height: 1.8;
-    color: var(--text-secondary);
-    display: block;
-}
-
-/* Syntax highlight */
-.c-comment { color: var(--text-muted); }
-.c-dir     { color: var(--accent); }
-.c-file    { color: var(--teal); }
 
 /* ============================================================
    Install
@@ -450,6 +500,7 @@
     font-size: var(--fs-sm);
     margin-bottom: var(--sp-4);
     flex-grow: 1;
+    line-height: 1.6;
 }
 
 .install-card__cmd {
@@ -532,6 +583,7 @@
     font-size: var(--fs-sm);
     font-weight: 500;
     color: var(--text);
+    line-height: 1.5;
 }
 
 .cap-table__col--status {
@@ -542,6 +594,7 @@
 .cap-table__col--desc {
     font-size: var(--fs-sm);
     color: var(--text-secondary);
+    line-height: 1.5;
 }
 
 /* ============================================================
@@ -569,46 +622,8 @@
    Icons (Pillar & Surface)
    ============================================================ */
 
-/* Pillar & Surface icon containers: size the Lucide SVG inside */
 .pillar__icon svg,
 .surface__icon svg {
     width: 22px;
     height: 22px;
-}
-
-/* ============================================================
-   Showcase (Product Screenshot)
-   ============================================================ */
-
-.showcase {
-    position: relative;
-    overflow: hidden;
-    padding: 0 var(--sp-6) var(--sp-16);
-    margin-top: calc(-1 * var(--sp-16));
-}
-
-.showcase__inner {
-    max-width: var(--container-max);
-    margin: 0 auto;
-}
-
-.showcase__frame {
-    position: relative;
-    border-radius: var(--r-lg);
-    overflow: hidden;
-    box-shadow: var(--shadow-lg), 0 0 80px rgba(232, 176, 76, 0.06);
-    border: 1px solid var(--border);
-    transform: perspective(1200px) rotateX(2deg);
-    transition: transform var(--t-slow), box-shadow var(--t-slow);
-}
-
-.showcase__frame:hover {
-    transform: perspective(1200px) rotateX(0deg);
-    box-shadow: var(--shadow-lg), 0 0 100px rgba(232, 176, 76, 0.1);
-}
-
-.showcase__img {
-    width: 100%;
-    height: auto;
-    display: block;
 }

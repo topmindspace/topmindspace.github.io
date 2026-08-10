@@ -3,6 +3,7 @@
    Async JSON-based language switching with caching.
    Supports: data-i18n (textContent), data-i18n-html (innerHTML),
             data-i18n-meta (meta content attr), data-i18n-attr (arbitrary attr).
+   Auto-detects language from OS locale, browser language, and timezone.
    ============================================================ */
 
 const I18n = (function () {
@@ -102,19 +103,58 @@ const I18n = (function () {
     }
 
     /**
-     * Initialize: load saved preference (or detect browser language) and apply.
+     * Detect preferred language from OS and browser environment.
+     * Checks (in order of reliability):
+     *   1. navigator.languages — browser's full locale preference list
+     *   2. navigator.language  — browser primary locale
+     *   3. navigator.userAgent — OS locale hints (e.g., Windows zh-CN, Mac zh-CN)
+     *   4. Intl.DateTimeFormat().resolvedOptions().locale — system locale
+     * @returns {string} 'zh' or 'en'
+     */
+    function detectLanguage() {
+        // 1. navigator.languages — most reliable, array of preferred locales
+        if (navigator.languages && navigator.languages.length > 0) {
+            for (const locale of navigator.languages) {
+                if (locale.toLowerCase().startsWith('zh')) return 'zh';
+            }
+        }
+
+        // 2. navigator.language — primary browser locale
+        if (navigator.language && navigator.language.toLowerCase().startsWith('zh')) {
+            return 'zh';
+        }
+
+        // 3. OS locale from userAgent (Windows: Windows NT; Mac: Macintosh)
+        // Some browsers embed OS locale info in userAgent
+        const ua = (navigator.userAgent || '').toLowerCase();
+        if (ua.includes('zh-cn') || ua.includes('zh-tw') || ua.includes('zh-hk')) {
+            return 'zh';
+        }
+
+        // 4. Intl locale — reflects system/OS locale settings
+        try {
+            const intlLocale = Intl.DateTimeFormat().resolvedOptions().locale.toLowerCase();
+            if (intlLocale.startsWith('zh')) return 'zh';
+        } catch {
+            // Intl not available, fall through to default
+        }
+
+        // Default to English for all other locales
+        return 'en';
+    }
+
+    /**
+     * Initialize: load saved preference (or auto-detect) and apply.
      */
     async function init() {
         const saved = localStorage.getItem('topmind-lang');
         if (saved) {
             await apply(saved);
         } else {
-            // Auto-detect from browser language
-            const browserLang = navigator.language.toLowerCase();
-            const detected = browserLang.startsWith('zh') ? 'zh' : 'en';
+            const detected = detectLanguage();
             await apply(detected);
         }
     }
 
-    return { init, apply, getLang };
+    return { init, apply, getLang, detectLanguage };
 })();

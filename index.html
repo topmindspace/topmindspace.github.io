@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-i18n="meta_title">Topmind — Agent 时代的本地优先知识工作台</title>
     <meta name="description" content="Topmind 是一个本地优先的个人动态流与知识工作台。随便记下 → AI 自动建议与整理 → 你来确认 → 文件永远属于本地。支持 Desktop、Obsidian、Agent Skills、CLI/MCP 与浏览器剪藏。" data-i18n-meta="content:meta_description">
-    <meta name="keywords" content="Topmind, 知识管理, 个人知识库, AI 笔记, 本地优先, Obsidian 插件, Agent Skills, Markdown, MCP, CLI, 知识工作台, 动态流">
+    <meta name="keywords" content="Topmind, 知识管理, 个人知识库, AI 笔记, 本地优先, Obsidian 插件, Agent Skills, Markdown, MCP, CLI, 知识工作台, 动态流" data-i18n-meta="content:meta_keywords">
     <meta name="author" content="TopMindSpace">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#0a0b0f">
@@ -18,14 +18,14 @@
     <meta property="og:description" content="随便记下 → AI 自动建议与整理 → 你来确认 → 文件永远属于本地。Agent 时代的个人动态流与知识工作台。" data-i18n-meta="content:og_description">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://topmindspace.github.io/">
-    <meta property="og:image" content="https://topmindspace.github.io/assets/img/topminispace.png">
+    <meta property="og:image" content="https://topmindspace.github.io/assets/img/showcase-stream.jpg">
     <meta property="og:site_name" content="Topmind">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Topmind — 本地优先知识工作台" data-i18n-meta="content:og_title">
     <meta name="twitter:description" content="随便记下 → AI 自动建议与整理 → 你来确认 → 文件永远属于本地。" data-i18n-meta="content:og_description">
-    <meta name="twitter:image" content="https://topmindspace.github.io/assets/img/topminispace.png">
+    <meta name="twitter:image" content="https://topmindspace.github.io/assets/img/showcase-stream.jpg">
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/img/topminispace.png">
@@ -68,7 +68,7 @@
         },
         "license": "https://opensource.org/licenses/MIT",
         "softwareVersion": "latest",
-        "image": "https://topmindspace.github.io/assets/img/topminispace.png"
+        "image": "https://topmindspace.github.io/assets/img/showcase-stream.jpg"
     }
     </script>
 </head>
@@ -86,6 +86,7 @@
             </a>
             <div class="nav__links" id="navLinks">
                 <a href="#philosophy" class="nav__link" data-i18n="nav_philosophy">理念</a>
+                <a href="#showcase" class="nav__link" data-i18n="nav_showcase">预览</a>
                 <a href="#surfaces" class="nav__link" data-i18n="nav_surfaces">产品</a>
                 <a href="#workflow" class="nav__link" data-i18n="nav_workflow">工作流</a>
                 <a href="#install" class="nav__link" data-i18n="nav_install">安装</a>
@@ -155,17 +156,41 @@
         </div>
     </header>
 
-    <!-- ==================== SHOWCASE ==================== -->
-    <section class="showcase" aria-label="Product Preview">
-        <div class="showcase__inner">
-            <div class="showcase__frame" data-reveal>
-                <img src="assets/img/topmind-desktop-hero.jpg" alt="Topmind Desktop — 动态流与 AI 确认界面" class="showcase__img" width="1376" height="768" loading="eager">
+    <!-- ==================== SHOWCASE GALLERY ==================== -->
+    <section class="section showcase" id="showcase" aria-labelledby="showcase-title">
+        <div class="section__inner">
+            <div class="section__head section__head--center">
+                <span class="section__eyebrow" data-i18n="showcase_eyebrow">产品预览</span>
+                <h2 class="section__title" id="showcase-title" data-i18n="showcase_title">看见 Topmind</h2>
+                <p class="section__lead" data-i18n="showcase_lead">从动态流到 AI 确认，从编辑器到快速捕获——一览 Topmind Desktop 的真实工作界面。</p>
+            </div>
+            <div class="gallery" data-reveal>
+                <figure class="gallery__item gallery__item--lg">
+                    <img src="assets/img/showcase-stream.jpg" alt="Topmind 动态流界面" class="gallery__img" width="1440" height="847" loading="lazy">
+                    <figcaption class="gallery__caption" data-i18n="gallery_caption_stream">动态流 · 时间轴卡片视图</figcaption>
+                </figure>
+                <figure class="gallery__item">
+                    <img src="assets/img/showcase-ai-agent.jpg" alt="Topmind AI Agent 对话" class="gallery__img" width="1327" height="1440" loading="lazy">
+                    <figcaption class="gallery__caption" data-i18n="gallery_caption_ai">AI Agent · 侧栏对话</figcaption>
+                </figure>
+                <figure class="gallery__item">
+                    <img src="assets/img/showcase-editor.jpg" alt="Topmind 编辑器" class="gallery__img" width="1440" height="845" loading="lazy">
+                    <figcaption class="gallery__caption" data-i18n="gallery_caption_editor">编辑器 · Markdown 实时预览</figcaption>
+                </figure>
+                <figure class="gallery__item">
+                    <img src="assets/img/showcase-quick-capture.jpg" alt="Topmind 快速捕获" class="gallery__img" width="1283" height="1440" loading="lazy">
+                    <figcaption class="gallery__caption" data-i18n="gallery_caption_capture">快速捕获 · ⌘N 随时记一条</figcaption>
+                </figure>
+                <figure class="gallery__item gallery__item--wide">
+                    <img src="assets/img/showcase-ingest.jpg" alt="Topmind 文件入库" class="gallery__img" width="1440" height="862" loading="lazy">
+                    <figcaption class="gallery__caption" data-i18n="gallery_caption_ingest">文件入库 · 多源解析</figcaption>
+                </figure>
             </div>
         </div>
     </section>
 
     <!-- ==================== PHILOSOPHY ==================== -->
-    <section class="section" id="philosophy" aria-labelledby="philosophy-title">
+    <section class="section section--alt" id="philosophy" aria-labelledby="philosophy-title">
         <div class="section__inner">
             <div class="section__head">
                 <span class="section__eyebrow" data-i18n="philosophy_eyebrow">设计理念</span>
@@ -206,12 +231,12 @@
     </section>
 
     <!-- ==================== SURFACES ==================== -->
-    <section class="section section--alt" id="surfaces" aria-labelledby="surfaces-title">
+    <section class="section" id="surfaces" aria-labelledby="surfaces-title">
         <div class="section__inner">
             <div class="section__head">
                 <span class="section__eyebrow" data-i18n="surfaces_eyebrow">产品表面</span>
                 <h2 class="section__title" id="surfaces-title" data-i18n="surfaces_title">一个内核，多个入口</h2>
-                <p class="section__lead" data-i18n="surfaces_lead">Topmind 由四个核心表面与一个剪藏 companion 扩展组成。共享内容约定与行为契约，各表面独立版本管理。根据你的工作流习惯，选择最适合的入口。</p>
+                <p class="section__lead" data-i18n="surfaces_lead">Topmind 由四个核心表面与一个剪藏扩展组成，共享内容约定与行为契约，各表面独立版本管理。</p>
             </div>
             <div class="surfaces">
                 <!-- Desktop -->
@@ -225,7 +250,7 @@
                             <span class="surface__tag" data-i18n="surface_desktop_tag">独立富工作台</span>
                         </div>
                     </div>
-                    <p class="surface__desc" data-i18n="surface_desktop_desc">独立桌面应用，提供动态主表面、可视化 AI 确认界面与完整的编辑工作流。⌘N 随时随地极速记一条。</p>
+                    <p class="surface__desc" data-i18n="surface_desktop_desc">独立桌面应用，提供动态主表面、可视化 AI 确认界面与完整编辑工作流。⌘N 随时随地极速记一条。</p>
                     <div class="surface__install">
                         <code class="cmd" data-i18n="surface_desktop_cmd">brew install topmindspace/tap/topmind</code>
                     </div>
@@ -296,7 +321,7 @@
                 </article>
 
                 <!-- Clip -->
-                <article class="surface" data-reveal>
+                <article class="surface surface--wide" data-reveal>
                     <div class="surface__header">
                         <div class="surface__icon surface__icon--clip">
                             <i data-lucide="paperclip" aria-hidden="true"></i>
@@ -306,7 +331,7 @@
                             <span class="surface__tag" data-i18n="surface_clip_tag">浏览器剪藏</span>
                         </div>
                     </div>
-                    <p class="surface__desc" data-i18n="surface_clip_desc">Chrome / Edge 浏览器扩展，网页一键抓取与正文加工。Desktop 捕获 companion 分发面。</p>
+                    <p class="surface__desc" data-i18n="surface_clip_desc">Chrome / Edge 浏览器扩展，网页一键抓取与正文加工，Desktop 捕获 companion 分发面。</p>
                     <div class="surface__install">
                         <code class="cmd" data-i18n="surface_clip_cmd">设置 → 管理与更新 → 准备剪藏扩展</code>
                     </div>
@@ -319,7 +344,7 @@
     </section>
 
     <!-- ==================== WORKFLOW ==================== -->
-    <section class="section" id="workflow" aria-labelledby="workflow-title">
+    <section class="section section--alt" id="workflow" aria-labelledby="workflow-title">
         <div class="section__inner">
             <div class="section__head">
                 <span class="section__eyebrow" data-i18n="workflow_eyebrow">核心工作流</span>
@@ -352,32 +377,11 @@
                     <div class="workflow__target" data-i18n="wf_4_target">→ 99-归档/ · Loop 巡检</div>
                 </article>
             </div>
-
-            <!-- Directory model -->
-            <div class="dir-model" data-reveal>
-                <div class="dir-model__head">
-                    <h3 class="dir-model__title" data-i18n="dir_model_title">三平面目录模型</h3>
-                    <p class="dir-model__desc" data-i18n="dir_model_desc">工作区组织为清晰的三个平面，逻辑自洽且可预测。</p>
-                </div>
-                <div class="dir-model__code">
-                    <pre><code data-i18n-html="dir_model_code"><span class="c-comment"># 工作区根目录</span>
-<span class="c-dir">{工作区}/</span>
-├── <span class="c-file">topmind.yaml</span>          <span class="c-comment"># 系统平面：行为契约与门面配置</span>
-├── <span class="c-dir">00-收件箱/</span>             <span class="c-comment"># 内容平面：临时缓冲</span>
-├── <span class="c-dir">10-动态/</span>               <span class="c-comment"># 内容平面：周期本（{YYYY}/周期本.md）</span>
-├── <span class="c-dir">20-专题/2026-某主题/</span>   <span class="c-comment"># 内容平面：涌现专题目录</span>
-│   └── <span class="c-file">topic.md</span>          <span class="c-comment"># 专题首页</span>
-├── <span class="c-dir">88-输出/</span>               <span class="c-comment"># 内容平面：扁平交付文件</span>
-├── <span class="c-dir">99-归档/</span>               <span class="c-comment"># 内容平面安全层：backups · trash · receipts</span>
-├── <span class="c-dir">memory/</span>               <span class="c-comment"># 语义平面：profile (画像) · periodic (反思)</span>
-└── <span class="c-dir">.topmind/</span>             <span class="c-comment"># 系统平面：索引与日志 (可随时删除与重建)</span></code></pre>
-                </div>
-            </div>
         </div>
     </section>
 
     <!-- ==================== INSTALL ==================== -->
-    <section class="section section--alt" id="install" aria-labelledby="install-title">
+    <section class="section" id="install" aria-labelledby="install-title">
         <div class="section__inner">
             <div class="section__head">
                 <span class="section__eyebrow" data-i18n="install_eyebrow">快速上手</span>
@@ -432,7 +436,7 @@
     </section>
 
     <!-- ==================== CAPABILITIES ==================== -->
-    <section class="section" id="capabilities" aria-labelledby="capabilities-title">
+    <section class="section section--alt" id="capabilities" aria-labelledby="capabilities-title">
         <div class="section__inner">
             <div class="section__head">
                 <span class="section__eyebrow" data-i18n="cap_eyebrow">核心能力</span>
@@ -461,7 +465,7 @@
                     <span class="cap-table__col cap-table__col--desc" data-i18n="cap_3_desc">自动过滤与清洗思考标签</span>
                 </div>
                 <div class="cap-table__row">
-                    <span class="cap-table__col cap-table__col--ability" data-i18n="cap_4_name">关键词搜索诚实截断 · 无 embedding 全库语义检索</span>
+                    <span class="cap-table__col cap-table__col--ability" data-i18n="cap_4_name">关键词搜索诚实截断 · 无全库语义检索</span>
                     <span class="cap-table__col cap-table__col--status"><span class="badge badge--design" data-i18n="cap_4_status">设计如此</span></span>
                     <span class="cap-table__col cap-table__col--desc" data-i18n="cap_4_desc">保持轻量与透明，防全库泛滥</span>
                 </div>
