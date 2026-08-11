@@ -9,6 +9,9 @@
         opacity: 1;
         transform: none;
     }
+    .hero__scroll {
+        animation: none;
+    }
 }
 
 /* Tablet & below */
@@ -38,6 +41,10 @@
         min-height: auto;
         padding-top: calc(var(--nav-height) + var(--sp-12));
         padding-bottom: var(--sp-16);
+    }
+
+    .hero__scroll {
+        display: none;
     }
 
     .hero__title {
@@ -120,11 +127,16 @@
 
     .gallery__item--lg {
         grid-column: span 1;
+        grid-row: span 1;
     }
 
     .gallery__caption {
         opacity: 1;
         padding: var(--sp-3);
+    }
+
+    .gallery__zoom {
+        opacity: 1;
     }
 
     /* Surfaces → 1 column on mobile */
@@ -175,6 +187,7 @@
     .nav,
     .hero__bg,
     .hero__flow,
+    .hero__scroll,
     .copy-btn,
     .skip-link,
     .nav__burger,

@@ -10,7 +10,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: calc(var(--nav-height) + var(--sp-16)) var(--sp-6) var(--sp-24);
+    padding: calc(var(--nav-height) + var(--sp-16)) var(--sp-6) var(--sp-20);
     position: relative;
     overflow: hidden;
 }
@@ -129,7 +129,7 @@
     display: flex;
     justify-content: center;
     gap: var(--sp-3);
-    margin-bottom: var(--sp-16);
+    margin-bottom: var(--sp-12);
     flex-wrap: wrap;
 }
 
@@ -171,6 +171,36 @@
     flex-shrink: 0;
 }
 
+/* --- Scroll Down Indicator --- */
+.hero__scroll {
+    position: absolute;
+    bottom: var(--sp-8);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--sp-2);
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    z-index: 1;
+    animation: float 2.5s ease-in-out infinite;
+}
+
+.hero__scroll-line {
+    width: 1px;
+    height: 32px;
+    background: linear-gradient(to bottom, var(--text-muted), transparent);
+}
+
+@keyframes float {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(6px); }
+}
+
 /* ============================================================
    Section Head — Centered variant
    ============================================================ */
@@ -210,7 +240,6 @@
 .gallery__item--lg {
     grid-column: span 2;
     grid-row: span 2;
-    aspect-ratio: auto;
 }
 
 .gallery__item:hover {
@@ -228,7 +257,37 @@
 }
 
 .gallery__item:hover .gallery__img {
-    transform: scale(1.02);
+    transform: scale(1.03);
+}
+
+/* Expand icon overlay — signals clickability */
+.gallery__zoom {
+    position: absolute;
+    top: var(--sp-3);
+    right: var(--sp-3);
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--r-sm);
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    color: #fff;
+    opacity: 0;
+    transition: opacity var(--t-base);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.gallery__item:hover .gallery__zoom {
+    opacity: 1;
+}
+
+.gallery__zoom svg {
+    width: 16px;
+    height: 16px;
 }
 
 .gallery__caption {
@@ -286,6 +345,7 @@
 .pillar:hover {
     border-color: var(--border-light);
     transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
 }
 
 .pillar:hover::before {
@@ -358,11 +418,29 @@
     background: var(--bg-card);
     position: relative;
     transition: all var(--t-base);
+    overflow: hidden;
+}
+
+.workflow__step::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent-border), transparent);
+    opacity: 0;
+    transition: opacity var(--t-base);
 }
 
 .workflow__step:hover {
     border-color: var(--border-light);
     transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.workflow__step:hover::before {
+    opacity: 1;
 }
 
 .workflow__num {
@@ -415,6 +493,19 @@
     flex-direction: column;
     transition: all var(--t-base);
     position: relative;
+    overflow: hidden;
+}
+
+.surface::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent-border), transparent);
+    opacity: 0;
+    transition: opacity var(--t-base);
 }
 
 .surface--wide {
@@ -425,6 +516,10 @@
     border-color: var(--border-light);
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
+}
+
+.surface:hover::before {
+    opacity: 1;
 }
 
 .surface__header {

@@ -59,7 +59,7 @@
 
 .nav__link {
     font-size: var(--fs-sm);
-    font-weight: 400;
+    font-weight: 500;
     color: var(--text-secondary);
     transition: color var(--t-fast);
     white-space: nowrap;
