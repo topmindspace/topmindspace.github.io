@@ -85,11 +85,9 @@
                 <span class="nav__name">Topmind</span>
             </a>
             <div class="nav__links" id="navLinks">
-                <a href="#philosophy" class="nav__link" data-i18n="nav_philosophy">理念</a>
                 <a href="#showcase" class="nav__link" data-i18n="nav_showcase">预览</a>
-                <a href="#surfaces" class="nav__link" data-i18n="nav_surfaces">产品</a>
-                <a href="#workflow" class="nav__link" data-i18n="nav_workflow">工作流</a>
-                <a href="#install" class="nav__link" data-i18n="nav_install">安装</a>
+                <a href="#philosophy" class="nav__link" data-i18n="nav_philosophy">理念</a>
+                <a href="#products" class="nav__link" data-i18n="nav_products">产品</a>
                 <a href="#capabilities" class="nav__link" data-i18n="nav_capabilities">能力</a>
                 <a href="https://github.com/topmindspace/topmind" target="_blank" rel="noopener noreferrer" class="nav__link nav__link--gh">
                     <i data-lucide="github" class="icon-sm" aria-hidden="true"></i>
@@ -136,7 +134,7 @@
                 Agent 时代的本地优先个人动态流与知识工作台。突发想法、网页剪藏、文档抓取一站式完成，AI 主动给出整理与待办建议，确认后沉淀为本地 Markdown 文件——文件永远属于你。
             </p>
             <div class="hero__cta">
-                <a href="#install" class="btn btn--primary" data-i18n="hero_cta_primary">快速上手</a>
+                <a href="#products" class="btn btn--primary" data-i18n="hero_cta_primary">快速上手</a>
                 <a href="https://github.com/topmindspace/topmind" target="_blank" rel="noopener noreferrer" class="btn btn--ghost">
                     <i data-lucide="github" class="icon-sm" aria-hidden="true"></i>
                     <span data-i18n="hero_cta_secondary">查看源码</span>
@@ -162,7 +160,7 @@
             <div class="section__head section__head--center">
                 <span class="section__eyebrow" data-i18n="showcase_eyebrow">产品预览</span>
                 <h2 class="section__title" id="showcase-title" data-i18n="showcase_title">看见 Topmind</h2>
-                <p class="section__lead" data-i18n="showcase_lead">从动态流到 AI 确认，从编辑器到快速捕获——一览 Topmind Desktop 的真实工作界面。</p>
+                <p class="section__lead" data-i18n="showcase_lead">从动态流到 AI 确认，从编辑器到快速捕获——一览 Topmind Desktop 的真实工作界面。点击图片可放大查看。</p>
             </div>
             <div class="gallery" data-reveal>
                 <figure class="gallery__item gallery__item--lg">
@@ -193,9 +191,10 @@
         </div>
     </section>
 
-    <!-- ==================== PHILOSOPHY ==================== -->
+    <!-- ==================== PHILOSOPHY + WORKFLOW (merged) ==================== -->
     <section class="section section--alt" id="philosophy" aria-labelledby="philosophy-title">
         <div class="section__inner">
+            <!-- Part 1: Design Philosophy -->
             <div class="section__head">
                 <span class="section__eyebrow" data-i18n="philosophy_eyebrow">设计理念</span>
                 <h2 class="section__title" id="philosophy-title" data-i18n="philosophy_title">为什么选择 Topmind？</h2>
@@ -231,16 +230,51 @@
                     <p class="pillar__desc" data-i18n="pillar_4_desc">纯标准 Markdown 文件夹存储。文件即真源，永远存放在本地磁盘，无专有数据库绑定。</p>
                 </article>
             </div>
+
+            <!-- Part 2: Core Workflow (sub-section) -->
+            <div class="subsection" data-reveal>
+                <div class="subsection__head">
+                    <span class="section__eyebrow" data-i18n="workflow_eyebrow">核心工作流</span>
+                    <h3 class="subsection__title" data-i18n="workflow_title">收进来 → 继续做 → 交付沉淀 → 找回调整</h3>
+                    <p class="subsection__lead" data-i18n="workflow_lead">一条完整的个人知识流转闭环，从零摩擦捕捉到安全归档，每一步都有明确的默认落点。</p>
+                </div>
+                <div class="workflow">
+                    <article class="workflow__step" data-reveal>
+                        <div class="workflow__num">01</div>
+                        <h4 class="workflow__name" data-i18n="wf_1_name">收进来</h4>
+                        <p class="workflow__desc" data-i18n="wf_1_desc">快捷键速记 · 网页剪藏 · Office/PDF 入队，零摩擦极速捕捉。</p>
+                        <div class="workflow__target" data-i18n="wf_1_target">→ 10-动态/ · 00-收件箱/</div>
+                    </article>
+                    <article class="workflow__step" data-reveal>
+                        <div class="workflow__num">02</div>
+                        <h4 class="workflow__name" data-i18n="wf_2_name">继续做</h4>
+                        <p class="workflow__desc" data-i18n="wf_2_desc">编辑 · 行内 AI · 侧栏 Agent · 整理专题，动态卡片流与专题沉淀。</p>
+                        <div class="workflow__target" data-i18n="wf_2_target">→ {大类}/{YYYY-主题}/</div>
+                    </article>
+                    <article class="workflow__step" data-reveal>
+                        <div class="workflow__num">03</div>
+                        <h4 class="workflow__name" data-i18n="wf_3_name">交付 / 沉淀</h4>
+                        <p class="workflow__desc" data-i18n="wf_3_desc">写出成品 · 确认后写入 profile / topics，产出成品文件，更新个人画像。</p>
+                        <div class="workflow__target" data-i18n="wf_3_target">→ 88-输出/ · memory/profile.md</div>
+                    </article>
+                    <article class="workflow__step" data-reveal>
+                        <div class="workflow__num">04</div>
+                        <h4 class="workflow__name" data-i18n="wf_4_name">找回 / 调整</h4>
+                        <p class="workflow__desc" data-i18n="wf_4_desc">搜索 · 恢复 · 周期维护，安全归档与快速检索。</p>
+                        <div class="workflow__target" data-i18n="wf_4_target">→ 99-归档/ · Loop 巡检</div>
+                    </article>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- ==================== SURFACES ==================== -->
-    <section class="section" id="surfaces" aria-labelledby="surfaces-title">
+    <!-- ==================== PRODUCTS + INSTALL (merged) ==================== -->
+    <section class="section" id="products" aria-labelledby="products-title">
         <div class="section__inner">
             <div class="section__head">
-                <span class="section__eyebrow" data-i18n="surfaces_eyebrow">产品表面</span>
-                <h2 class="section__title" id="surfaces-title" data-i18n="surfaces_title">一个内核，多个入口</h2>
-                <p class="section__lead" data-i18n="surfaces_lead">Topmind 由四个核心表面与一个剪藏扩展组成，共享内容约定与行为契约，各表面独立版本管理。</p>
+                <span class="section__eyebrow" data-i18n="products_eyebrow">产品与安装</span>
+                <h2 class="section__title" id="products-title" data-i18n="products_title">一个内核，多个入口</h2>
+                <p class="section__lead" data-i18n="products_lead">Topmind 由四个核心表面与一个剪藏扩展组成，共享内容约定与行为契约。选择你的入口，一键安装上手。</p>
             </div>
             <div class="surfaces">
                 <!-- Desktop -->
@@ -256,7 +290,12 @@
                     </div>
                     <p class="surface__desc" data-i18n="surface_desktop_desc">独立桌面应用，提供动态主表面、可视化 AI 确认界面与完整编辑工作流。⌘N 随时随地极速记一条。</p>
                     <div class="surface__install">
-                        <code class="cmd" data-i18n="surface_desktop_cmd">brew install topmindspace/tap/topmind</code>
+                        <div class="cmd-block">
+                            <code class="cmd-block__code" data-i18n="surface_desktop_cmd">brew install topmindspace/tap/topmind</code>
+                            <button class="copy-btn" data-copy="brew install topmindspace/tap/topmind" data-i18n-attr="aria-label:copy_aria" aria-label="复制">
+                                <i data-lucide="copy" class="icon-xs" aria-hidden="true"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="surface__links">
                         <a href="https://github.com/topmindspace/topmind/releases" target="_blank" rel="noopener noreferrer" class="link link--text" data-i18n="surface_download">下载安装包</a>
@@ -277,7 +316,12 @@
                     </div>
                     <p class="surface__desc" data-i18n="surface_obsidian_desc">在现有 Obsidian Vault 中直接使用动态流。支持社区插件市场、BRAT 一键安装与手动安装三种方式。</p>
                     <div class="surface__install">
-                        <code class="cmd" data-i18n="surface_obsidian_cmd">BRAT → topmindspace/topmind</code>
+                        <div class="cmd-block">
+                            <code class="cmd-block__code" data-i18n="surface_obsidian_cmd">BRAT → topmindspace/topmind</code>
+                            <button class="copy-btn" data-copy="topmindspace/topmind" data-i18n-attr="aria-label:copy_aria" aria-label="复制">
+                                <i data-lucide="copy" class="icon-xs" aria-hidden="true"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="surface__links">
                         <a href="https://github.com/topmindspace/topmind/blob/main/obsidian-plugin/README.zh-CN.md" target="_blank" rel="noopener noreferrer" class="link link--text" data-i18n="surface_docs">详细指南</a>
@@ -297,7 +341,12 @@
                     </div>
                     <p class="surface__desc" data-i18n="surface_skills_desc">为 Claude Code / OpenCode / Codex 等 AI Agent 导入 Topmind 技能包，驱动本地知识工作流。</p>
                     <div class="surface__install">
-                        <code class="cmd" data-i18n="surface_skills_cmd">npx skills add topmindspace/topmind -g -y</code>
+                        <div class="cmd-block">
+                            <code class="cmd-block__code" data-i18n="surface_skills_cmd">npx skills add topmindspace/topmind -g -y</code>
+                            <button class="copy-btn" data-copy="npx skills add topmindspace/topmind -g -y" data-i18n-attr="aria-label:copy_aria" aria-label="复制">
+                                <i data-lucide="copy" class="icon-xs" aria-hidden="true"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="surface__links">
                         <a href="https://github.com/topmindspace/topmind/blob/main/skills/INSTALL.md" target="_blank" rel="noopener noreferrer" class="link link--text" data-i18n="surface_docs">详细指南</a>
@@ -317,7 +366,12 @@
                     </div>
                     <p class="surface__desc" data-i18n="surface_utr_desc">Terminal 命令行与 MCP Server 环境中的确定性工具集。8 域 28 命令，随 Desktop 打包分发。</p>
                     <div class="surface__install">
-                        <code class="cmd" data-i18n="surface_utr_cmd">npm run utr:list  # 查看 8 域 28 命令</code>
+                        <div class="cmd-block">
+                            <code class="cmd-block__code" data-i18n="surface_utr_cmd">npm run utr:list</code>
+                            <button class="copy-btn" data-copy="npm run utr:list" data-i18n-attr="aria-label:copy_aria" aria-label="复制">
+                                <i data-lucide="copy" class="icon-xs" aria-hidden="true"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="surface__links">
                         <a href="https://github.com/topmindspace/topmind/blob/main/TOOLS.md" target="_blank" rel="noopener noreferrer" class="link link--text" data-i18n="surface_docs">详细指南</a>
@@ -337,103 +391,14 @@
                     </div>
                     <p class="surface__desc" data-i18n="surface_clip_desc">Chrome / Edge 浏览器扩展，网页一键抓取与正文加工，Desktop 捕获 companion 分发面。</p>
                     <div class="surface__install">
-                        <code class="cmd" data-i18n="surface_clip_cmd">设置 → 管理与更新 → 准备剪藏扩展</code>
+                        <div class="cmd-block cmd-block--info">
+                            <i data-lucide="info" class="icon-xs cmd-block__icon" aria-hidden="true"></i>
+                            <span class="cmd-block__text" data-i18n="surface_clip_cmd">设置 → 管理与更新 → 准备剪藏扩展</span>
+                        </div>
                     </div>
                     <div class="surface__links">
                         <a href="https://github.com/topmindspace/topmind/blob/main/browser-extension/README.md" target="_blank" rel="noopener noreferrer" class="link link--text" data-i18n="surface_docs">详细指南</a>
                     </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== WORKFLOW ==================== -->
-    <section class="section section--alt" id="workflow" aria-labelledby="workflow-title">
-        <div class="section__inner">
-            <div class="section__head">
-                <span class="section__eyebrow" data-i18n="workflow_eyebrow">核心工作流</span>
-                <h2 class="section__title" id="workflow-title" data-i18n="workflow_title">收进来 → 继续做 → 交付沉淀 → 找回调整</h2>
-                <p class="section__lead" data-i18n="workflow_lead">一条完整的个人知识流转闭环，从零摩擦捕捉到安全归档，每一步都有明确的默认落点。</p>
-            </div>
-            <div class="workflow">
-                <article class="workflow__step" data-reveal>
-                    <div class="workflow__num">01</div>
-                    <h3 class="workflow__name" data-i18n="wf_1_name">收进来</h3>
-                    <p class="workflow__desc" data-i18n="wf_1_desc">快捷键速记 · 网页剪藏 · Office/PDF 入队，零摩擦极速捕捉。</p>
-                    <div class="workflow__target" data-i18n="wf_1_target">→ 10-动态/ · 00-收件箱/</div>
-                </article>
-                <article class="workflow__step" data-reveal>
-                    <div class="workflow__num">02</div>
-                    <h3 class="workflow__name" data-i18n="wf_2_name">继续做</h3>
-                    <p class="workflow__desc" data-i18n="wf_2_desc">编辑 · 行内 AI · 侧栏 Agent · 整理专题，动态卡片流与专题沉淀。</p>
-                    <div class="workflow__target" data-i18n="wf_2_target">→ {大类}/{YYYY-主题}/</div>
-                </article>
-                <article class="workflow__step" data-reveal>
-                    <div class="workflow__num">03</div>
-                    <h3 class="workflow__name" data-i18n="wf_3_name">交付 / 沉淀</h3>
-                    <p class="workflow__desc" data-i18n="wf_3_desc">写出成品 · 确认后写入 profile / topics，产出成品文件，更新个人画像。</p>
-                    <div class="workflow__target" data-i18n="wf_3_target">→ 88-输出/ · memory/profile.md</div>
-                </article>
-                <article class="workflow__step" data-reveal>
-                    <div class="workflow__num">04</div>
-                    <h3 class="workflow__name" data-i18n="wf_4_name">找回 / 调整</h3>
-                    <p class="workflow__desc" data-i18n="wf_4_desc">搜索 · 恢复 · 周期维护，安全归档与快速检索。</p>
-                    <div class="workflow__target" data-i18n="wf_4_target">→ 99-归档/ · Loop 巡检</div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== INSTALL ==================== -->
-    <section class="section" id="install" aria-labelledby="install-title">
-        <div class="section__inner">
-            <div class="section__head">
-                <span class="section__eyebrow" data-i18n="install_eyebrow">快速上手</span>
-                <h2 class="section__title" id="install-title" data-i18n="install_title">选择你的入口</h2>
-                <p class="section__lead" data-i18n="install_lead">四种安装场景，总有一种适合你的工作流。</p>
-            </div>
-            <div class="install-grid">
-                <article class="install-card" data-reveal>
-                    <div class="install-card__num">A</div>
-                    <h3 class="install-card__title" data-i18n="install_a_title">macOS 桌面端 · Homebrew</h3>
-                    <p class="install-card__desc" data-i18n="install_a_desc">推荐方式，一键安装并自动清理 quarantine 属性。</p>
-                    <div class="install-card__cmd">
-                        <code>brew install topmindspace/tap/topmind</code>
-                        <button class="copy-btn" data-copy="brew install topmindspace/tap/topmind" aria-label="Copy">
-                            <i data-lucide="copy" class="icon-xs" aria-hidden="true"></i>
-                        </button>
-                    </div>
-                </article>
-
-                <article class="install-card" data-reveal>
-                    <div class="install-card__num">B</div>
-                    <h3 class="install-card__title" data-i18n="install_b_title">Obsidian · BRAT 安装</h3>
-                    <p class="install-card__desc" data-i18n="install_b_desc">在 BRAT 插件中添加 GitHub 仓库快捷安装。</p>
-                    <div class="install-card__cmd">
-                        <code>BRAT → topmindspace/topmind</code>
-                    </div>
-                </article>
-
-                <article class="install-card" data-reveal>
-                    <div class="install-card__num">C</div>
-                    <h3 class="install-card__title" data-i18n="install_c_title">Agent Skills · npx</h3>
-                    <p class="install-card__desc" data-i18n="install_c_desc">为 Claude Code / OpenCode / Codex 导入 Topmind 技能包。</p>
-                    <div class="install-card__cmd">
-                        <code>npx skills add topmindspace/topmind -g -y</code>
-                        <button class="copy-btn" data-copy="npx skills add topmindspace/topmind -g -y" aria-label="Copy">
-                            <i data-lucide="copy" class="icon-xs" aria-hidden="true"></i>
-                        </button>
-                    </div>
-                </article>
-
-                <article class="install-card" data-reveal>
-                    <div class="install-card__num">D</div>
-                    <h3 class="install-card__title" data-i18n="install_d_title">桌面端 · 下载安装包</h3>
-                    <p class="install-card__desc" data-i18n="install_d_desc">从 GitHub Releases 下载 .dmg / .exe / .AppImage / .deb。</p>
-                    <a href="https://github.com/topmindspace/topmind/releases" target="_blank" rel="noopener noreferrer" class="install-card__link">
-                        <span data-i18n="install_d_link">前往 Releases</span>
-                        <i data-lucide="arrow-right" class="icon-xs" aria-hidden="true"></i>
-                    </a>
                 </article>
             </div>
         </div>
@@ -508,6 +473,26 @@
             <div class="footer__copy" data-i18n="footer_copy">© 2026 TopMindSpace · MIT License</div>
         </div>
     </footer>
+
+    <!-- ==================== LIGHTBOX ==================== -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true">
+        <button class="lightbox__close" id="lightboxClose" aria-label="Close" data-i18n-attr="aria-label:lightbox_close">
+            <i data-lucide="x" aria-hidden="true"></i>
+        </button>
+        <button class="lightbox__nav lightbox__nav--prev" id="lightboxPrev" aria-label="Previous" data-i18n-attr="aria-label:lightbox_prev">
+            <i data-lucide="chevron-left" aria-hidden="true"></i>
+        </button>
+        <button class="lightbox__nav lightbox__nav--next" id="lightboxNext" aria-label="Next" data-i18n-attr="aria-label:lightbox_next">
+            <i data-lucide="chevron-right" aria-hidden="true"></i>
+        </button>
+        <figure class="lightbox__figure">
+            <img class="lightbox__img" id="lightboxImg" src="" alt="">
+            <figcaption class="lightbox__caption" id="lightboxCaption"></figcaption>
+        </figure>
+    </div>
+
+    <!-- ==================== TOAST ==================== -->
+    <div class="toast" id="toast" role="status" aria-live="polite" data-i18n="toast_copied">已复制</div>
 
     <!-- Scripts: i18n engine (must load before main) + main logic -->
     <script src="assets/js/i18n.js"></script>

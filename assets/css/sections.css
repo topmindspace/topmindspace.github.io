@@ -1,4 +1,4 @@
-/* Sections — Hero, Gallery, Philosophy, Surfaces, Workflow, Install, Capabilities, Scroll Reveal */
+/* Sections — Hero, Gallery, Philosophy + Workflow, Products, Capabilities, Scroll Reveal */
 
 /* ============================================================
    Hero
@@ -204,6 +204,7 @@
     background: var(--bg-card);
     transition: all var(--t-base);
     aspect-ratio: 16 / 10;
+    cursor: pointer;
 }
 
 .gallery__item--lg {
@@ -314,6 +315,88 @@
 }
 
 /* ============================================================
+   Subsection (Workflow within Philosophy)
+   ============================================================ */
+
+.subsection {
+    margin-top: var(--sp-20);
+    padding-top: var(--sp-16);
+    border-top: 1px solid var(--border);
+}
+
+.subsection__head {
+    max-width: 720px;
+    margin-bottom: var(--sp-10);
+}
+
+.subsection__title {
+    font-size: clamp(1.5rem, 3vw, var(--fs-2xl));
+    margin-bottom: var(--sp-3);
+    font-weight: 500;
+}
+
+.subsection__lead {
+    font-size: var(--fs-lg);
+    line-height: 1.7;
+    color: var(--text-secondary);
+}
+
+/* ============================================================
+   Workflow
+   ============================================================ */
+
+.workflow {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--sp-4);
+}
+
+.workflow__step {
+    padding: var(--sp-8) var(--sp-6);
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    background: var(--bg-card);
+    position: relative;
+    transition: all var(--t-base);
+}
+
+.workflow__step:hover {
+    border-color: var(--border-light);
+    transform: translateY(-2px);
+}
+
+.workflow__num {
+    font-family: var(--font-mono);
+    font-size: var(--fs-sm);
+    font-weight: 500;
+    color: var(--accent);
+    margin-bottom: var(--sp-3);
+    letter-spacing: 0.05em;
+}
+
+.workflow__name {
+    font-size: var(--fs-xl);
+    margin-bottom: var(--sp-2);
+    font-family: var(--font-display);
+    font-weight: 500;
+}
+
+.workflow__desc {
+    font-size: var(--fs-sm);
+    margin-bottom: var(--sp-4);
+    line-height: 1.6;
+}
+
+.workflow__target {
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    color: var(--text-muted);
+    padding-top: var(--sp-3);
+    border-top: 1px solid var(--border);
+    word-break: break-all;
+}
+
+/* ============================================================
    Surfaces (Products)
    ============================================================ */
 
@@ -396,136 +479,6 @@
     gap: var(--sp-4);
     padding-top: var(--sp-3);
     border-top: 1px solid var(--border);
-}
-
-/* ============================================================
-   Workflow
-   ============================================================ */
-
-.workflow {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: var(--sp-4);
-}
-
-.workflow__step {
-    padding: var(--sp-8) var(--sp-6);
-    border: 1px solid var(--border);
-    border-radius: var(--r-lg);
-    background: var(--bg-card);
-    position: relative;
-    transition: all var(--t-base);
-}
-
-.workflow__step:hover {
-    border-color: var(--border-light);
-    transform: translateY(-2px);
-}
-
-.workflow__num {
-    font-family: var(--font-mono);
-    font-size: var(--fs-sm);
-    font-weight: 500;
-    color: var(--accent);
-    margin-bottom: var(--sp-3);
-    letter-spacing: 0.05em;
-}
-
-.workflow__name {
-    font-size: var(--fs-xl);
-    margin-bottom: var(--sp-2);
-}
-
-.workflow__desc {
-    font-size: var(--fs-sm);
-    margin-bottom: var(--sp-4);
-    line-height: 1.6;
-}
-
-.workflow__target {
-    font-family: var(--font-mono);
-    font-size: var(--fs-xs);
-    color: var(--text-muted);
-    padding-top: var(--sp-3);
-    border-top: 1px solid var(--border);
-    word-break: break-all;
-}
-
-/* ============================================================
-   Install
-   ============================================================ */
-
-.install-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--sp-4);
-}
-
-.install-card {
-    padding: var(--sp-8) var(--sp-6);
-    border: 1px solid var(--border);
-    border-radius: var(--r-lg);
-    background: var(--bg-card);
-    display: flex;
-    flex-direction: column;
-    transition: all var(--t-base);
-    position: relative;
-}
-
-.install-card:hover {
-    border-color: var(--border-light);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
-}
-
-.install-card__num {
-    font-family: var(--font-display);
-    font-size: var(--fs-2xl);
-    font-weight: 600;
-    color: var(--accent);
-    opacity: 0.3;
-    margin-bottom: var(--sp-2);
-}
-
-.install-card__title {
-    font-size: var(--fs-lg);
-    margin-bottom: var(--sp-2);
-}
-
-.install-card__desc {
-    font-size: var(--fs-sm);
-    margin-bottom: var(--sp-4);
-    flex-grow: 1;
-    line-height: 1.6;
-}
-
-.install-card__cmd {
-    display: flex;
-    align-items: center;
-    gap: var(--sp-2);
-    padding: var(--sp-2) var(--sp-3);
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: var(--r-sm);
-}
-
-.install-card__cmd code {
-    flex: 1;
-    font-size: var(--fs-xs);
-    color: var(--text);
-    overflow-x: auto;
-    white-space: nowrap;
-}
-
-.install-card__link {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--sp-2);
-    font-size: var(--fs-sm);
-    font-weight: 500;
-    color: var(--accent);
-    margin-top: auto;
-    padding-top: var(--sp-2);
 }
 
 /* ============================================================
