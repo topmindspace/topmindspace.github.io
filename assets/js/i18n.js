@@ -103,6 +103,20 @@ const I18n = (function () {
     }
 
     /**
+     * Translate a key to the current language.
+     * Returns the key itself if translation is not found.
+     * @param {string} key - Translation key
+     * @returns {string} Translated string
+     */
+    function t(key) {
+        const dict = cache[currentLang];
+        if (dict && dict[key] != null) {
+            return interpolate(String(dict[key]));
+        }
+        return key;
+    }
+
+    /**
      * Detect preferred language from OS and browser environment.
      * Checks (in order of reliability):
      *   1. navigator.languages — browser's full locale preference list
@@ -156,5 +170,5 @@ const I18n = (function () {
         }
     }
 
-    return { init, apply, getLang, detectLanguage };
+    return { init, apply, getLang, detectLanguage, t };
 })();

@@ -46,13 +46,13 @@ assets/
   │   ├── tokens.css        # Design tokens (colors, typography, spacing)
   │   ├── base.css          # Reset, typography, layout primitives
   │   ├── components.css    # Nav, buttons, cmd-block, copy, lightbox, toast
-  │   ├── sections.css      # Hero, gallery, philosophy, products, capabilities
+  │   ├── sections.css      # Hero, showcase, philosophy, products, capabilities
   │   ├── responsive.css    # Media queries, reduced motion, print
   │   └── main.css          # Entry point (imports all modules)
   ├── js/
-  │   ├── i18n.js           # i18n engine (async JSON loading + caching)
-  │   └── main.js           # Theme, nav, scroll spy, reveal, copy, lightbox
-  └── img/                  # Screenshots & icons
+  │   ├── i18n.js           # i18n engine (async JSON loading + caching + t())
+  │   └── main.js           # Theme, nav, scroll spy, reveal, copy, showcase, lightbox
+  └── img/                  # Screenshots, hero image & logo
 i18n/
   ├── zh.json               # Chinese translations
   └── en.json               # English translations

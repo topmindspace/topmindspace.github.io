@@ -18,14 +18,14 @@
     <meta property="og:description" content="随便记下 → AI 自动建议与整理 → 你来确认 → 文件永远属于本地。Agent 时代的个人动态流与知识工作台。" data-i18n-meta="content:og_description">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://topmindspace.github.io/">
-    <meta property="og:image" content="https://topmindspace.github.io/assets/img/showcase-stream.jpg">
+    <meta property="og:image" content="https://topmindspace.github.io/assets/img/topmind-desktop-hero.jpg">
     <meta property="og:site_name" content="Topmind">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Topmind — 本地优先知识工作台" data-i18n-meta="content:og_title">
     <meta name="twitter:description" content="随便记下 → AI 自动建议与整理 → 你来确认 → 文件永远属于本地。" data-i18n-meta="content:og_description">
-    <meta name="twitter:image" content="https://topmindspace.github.io/assets/img/showcase-stream.jpg">
+    <meta name="twitter:image" content="https://topmindspace.github.io/assets/img/topmind-desktop-hero.jpg">
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/img/topminispace.png">
@@ -68,7 +68,7 @@
         },
         "license": "https://opensource.org/licenses/MIT",
         "softwareVersion": "latest",
-        "image": "https://topmindspace.github.io/assets/img/showcase-stream.jpg"
+        "image": "https://topmindspace.github.io/assets/img/topmind-desktop-hero.jpg"
     }
     </script>
 </head>
@@ -119,6 +119,9 @@
             <div class="hero__glow hero__glow--2"></div>
         </div>
         <div class="hero__inner">
+            <div class="hero__logo-wrap">
+                <img src="assets/img/topminispace.png" alt="Topmind" class="hero__logo" width="48" height="48">
+            </div>
             <div class="hero__badge">
                 <span class="hero__badge-dot" aria-hidden="true"></span>
                 <span data-i18n="hero_badge">Local-first · AI-native · Open Source</span>
@@ -158,45 +161,64 @@
         </div>
     </header>
 
-    <!-- ==================== SHOWCASE GALLERY ==================== -->
-    <section class="section" id="showcase" aria-labelledby="showcase-title">
+    <!-- ==================== SHOWCASE — Main Image + Thumbnail Switcher ==================== -->
+    <section class="section showcase-section" id="showcase" aria-labelledby="showcase-title">
         <div class="section__inner">
             <div class="section__head section__head--center">
                 <span class="section__eyebrow" data-i18n="showcase_eyebrow">产品预览</span>
                 <h2 class="section__title" id="showcase-title" data-i18n="showcase_title">看见 Topmind</h2>
-                <p class="section__lead" data-i18n="showcase_lead">从动态流到 AI 确认，从编辑器到快速捕获——一览 Topmind Desktop 的真实工作界面。点击图片可放大查看。</p>
+                <p class="section__lead" data-i18n="showcase_lead">从动态流到 AI 确认，从编辑器到快速捕获——一览 Topmind Desktop 的真实工作界面。点击缩略图切换，点击主图可放大查看。</p>
             </div>
-            <div class="gallery" data-reveal>
-                <figure class="gallery__item gallery__item--lg">
-                    <img src="assets/img/showcase-stream.jpg" alt="Topmind 动态流界面" class="gallery__img" width="1440" height="847" loading="lazy">
-                    <div class="gallery__zoom"><i data-lucide="maximize-2" aria-hidden="true"></i></div>
-                    <figcaption class="gallery__caption" data-i18n="gallery_caption_stream">动态流 · 时间轴卡片视图</figcaption>
-                </figure>
-                <figure class="gallery__item">
-                    <img src="assets/img/showcase-ai-agent.jpg" alt="Topmind AI Agent 对话" class="gallery__img" width="1327" height="1440" loading="lazy">
-                    <div class="gallery__zoom"><i data-lucide="maximize-2" aria-hidden="true"></i></div>
-                    <figcaption class="gallery__caption" data-i18n="gallery_caption_ai">AI Agent · 侧栏对话</figcaption>
-                </figure>
-                <figure class="gallery__item">
-                    <img src="assets/img/showcase-editor.jpg" alt="Topmind 编辑器" class="gallery__img" width="1440" height="845" loading="lazy">
-                    <div class="gallery__zoom"><i data-lucide="maximize-2" aria-hidden="true"></i></div>
-                    <figcaption class="gallery__caption" data-i18n="gallery_caption_editor">编辑器 · Markdown 实时预览</figcaption>
-                </figure>
-                <figure class="gallery__item">
-                    <img src="assets/img/showcase-quick-capture.jpg" alt="Topmind 快速捕获" class="gallery__img" width="1283" height="1440" loading="lazy">
-                    <div class="gallery__zoom"><i data-lucide="maximize-2" aria-hidden="true"></i></div>
-                    <figcaption class="gallery__caption" data-i18n="gallery_caption_capture">快速捕获 · ⌘N 随时记一条</figcaption>
-                </figure>
-                <figure class="gallery__item">
-                    <img src="assets/img/showcase-ingest.jpg" alt="Topmind 文件入库" class="gallery__img" width="1440" height="862" loading="lazy">
-                    <div class="gallery__zoom"><i data-lucide="maximize-2" aria-hidden="true"></i></div>
-                    <figcaption class="gallery__caption" data-i18n="gallery_caption_ingest">文件入库 · 多源解析</figcaption>
-                </figure>
-                <figure class="gallery__item">
-                    <img src="assets/img/showcase-home.jpg" alt="Topmind 工作区主页" class="gallery__img" width="1440" height="846" loading="lazy">
-                    <div class="gallery__zoom"><i data-lucide="maximize-2" aria-hidden="true"></i></div>
-                    <figcaption class="gallery__caption" data-i18n="gallery_caption_home">工作区 · 主页概览</figcaption>
-                </figure>
+
+            <!-- Main showcase viewer -->
+            <div class="showcase" data-reveal>
+                <div class="showcase__main" id="showcaseMain">
+                    <img src="assets/img/topmind-desktop-hero.jpg" alt="Topmind Desktop — 动态流与 AI 确认界面" class="showcase__img showcase__img--active" id="showcaseMainImg" width="1376" height="768" loading="eager">
+                    <div class="showcase__overlay">
+                        <div class="showcase__caption" id="showcaseCaption" data-i18n="gallery_caption_hero">Topmind Desktop · 全景概览</div>
+                        <button class="showcase__zoom" id="showcaseZoom" aria-label="放大查看" data-i18n-attr="aria-label:showcase_zoom_aria">
+                            <i data-lucide="maximize-2" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <div class="showcase__nav showcase__nav--prev" id="showcasePrev" role="button" tabindex="0" aria-label="上一张" data-i18n-attr="aria-label:lightbox_prev">
+                        <i data-lucide="chevron-left" aria-hidden="true"></i>
+                    </div>
+                    <div class="showcase__nav showcase__nav--next" id="showcaseNext" role="button" tabindex="0" aria-label="下一张" data-i18n-attr="aria-label:lightbox_next">
+                        <i data-lucide="chevron-right" aria-hidden="true"></i>
+                    </div>
+                </div>
+
+                <!-- Thumbnail selector -->
+                <div class="showcase__thumbs" id="showcaseThumbs" role="tablist" aria-label="截图切换">
+                    <button class="showcase__thumb showcase__thumb--active" role="tab" aria-selected="true" data-img="topmind-desktop-hero.jpg" data-caption-i18n="gallery_caption_hero" data-alt="Topmind Desktop — 动态流与 AI 确认界面">
+                        <img src="assets/img/topmind-desktop-hero.jpg" alt="" loading="lazy">
+                        <span class="showcase__thumb-label" data-i18n="gallery_thumb_hero">概览</span>
+                    </button>
+                    <button class="showcase__thumb" role="tab" aria-selected="false" data-img="showcase-stream.jpg" data-caption-i18n="gallery_caption_stream" data-alt="Topmind 动态流界面">
+                        <img src="assets/img/showcase-stream.jpg" alt="" loading="lazy">
+                        <span class="showcase__thumb-label" data-i18n="gallery_thumb_stream">动态流</span>
+                    </button>
+                    <button class="showcase__thumb" role="tab" aria-selected="false" data-img="showcase-ai-agent.jpg" data-caption-i18n="gallery_caption_ai" data-alt="Topmind AI Agent 对话">
+                        <img src="assets/img/showcase-ai-agent.jpg" alt="" loading="lazy">
+                        <span class="showcase__thumb-label" data-i18n="gallery_thumb_ai">AI Agent</span>
+                    </button>
+                    <button class="showcase__thumb" role="tab" aria-selected="false" data-img="showcase-editor.jpg" data-caption-i18n="gallery_caption_editor" data-alt="Topmind 编辑器">
+                        <img src="assets/img/showcase-editor.jpg" alt="" loading="lazy">
+                        <span class="showcase__thumb-label" data-i18n="gallery_thumb_editor">编辑器</span>
+                    </button>
+                    <button class="showcase__thumb" role="tab" aria-selected="false" data-img="showcase-quick-capture.jpg" data-caption-i18n="gallery_caption_capture" data-alt="Topmind 快速捕获">
+                        <img src="assets/img/showcase-quick-capture.jpg" alt="" loading="lazy">
+                        <span class="showcase__thumb-label" data-i18n="gallery_thumb_capture">快速捕获</span>
+                    </button>
+                    <button class="showcase__thumb" role="tab" aria-selected="false" data-img="showcase-ingest.jpg" data-caption-i18n="gallery_caption_ingest" data-alt="Topmind 文件入库">
+                        <img src="assets/img/showcase-ingest.jpg" alt="" loading="lazy">
+                        <span class="showcase__thumb-label" data-i18n="gallery_thumb_ingest">入库</span>
+                    </button>
+                    <button class="showcase__thumb" role="tab" aria-selected="false" data-img="showcase-home.jpg" data-caption-i18n="gallery_caption_home" data-alt="Topmind 工作区主页">
+                        <img src="assets/img/showcase-home.jpg" alt="" loading="lazy">
+                        <span class="showcase__thumb-label" data-i18n="gallery_thumb_home">主页</span>
+                    </button>
+                </div>
             </div>
         </div>
     </section>

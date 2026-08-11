@@ -46,13 +46,13 @@ assets/
   │   ├── tokens.css        # 设计令牌（颜色、字体、间距）
   │   ├── base.css          # 重置、排版、布局原语
   │   ├── components.css    # 导航、按钮、命令块、复制、灯箱、Toast
-  │   ├── sections.css      # Hero、画廊、理念、产品、能力
+  │   ├── sections.css      # Hero、展示区、理念、产品、能力
   │   ├── responsive.css    # 媒体查询、减弱动效、打印
   │   └── main.css          # 入口文件（导入所有模块）
   ├── js/
-  │   ├── i18n.js           # i18n 引擎（异步 JSON 加载 + 缓存）
-  │   └── main.js           # 主题、导航、滚动监听、揭示动画、复制、灯箱
-  └── img/                  # 截图与图标
+  │   ├── i18n.js           # i18n 引擎（异步 JSON 加载 + 缓存 + t()）
+  │   └── main.js           # 主题、导航、滚动监听、揭示动画、复制、展示区、灯箱
+  └── img/                  # 截图、主图与 logo
 i18n/
   ├── zh.json               # 中文翻译
   └── en.json               # 英文翻译

@@ -261,27 +261,6 @@
     border-style: dashed;
 }
 
-/* Legacy .cmd class — kept for backward compatibility */
-.cmd {
-    display: block;
-    padding: var(--sp-2) var(--sp-3);
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: var(--r-sm);
-    font-size: var(--fs-xs);
-    color: var(--text-secondary);
-    overflow-x: auto;
-    white-space: nowrap;
-    line-height: 1.6;
-}
-
-@media (max-width: 600px) {
-    .cmd {
-        white-space: normal;
-        word-break: break-all;
-    }
-}
-
 /* ============================================================
    Link
    ============================================================ */
