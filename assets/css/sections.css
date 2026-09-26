@@ -838,6 +838,11 @@
     margin-top: var(--sp-8);
 }
 
+.tms-visuals--single {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 720px;
+}
+
 .tms-visual {
     margin: 0;
     border: 1px solid var(--border);
