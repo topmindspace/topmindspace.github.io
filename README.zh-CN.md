@@ -68,6 +68,15 @@ i18n/
 
 默认使用深色主题。通过导航栏的太阳/月亮按钮切换，选择会持久化保存在 `localStorage` 的 `topmind-theme` 键下。
 
+## 姊妹产品：tms-skills
+
+[tms-skills](https://github.com/topmindspace/tms-skills) / top-ppt-html 演示文稿技能的在线展示：
+
+- 落地页：https://topmindspace.github.io/tms-skills/
+- Showcase 演示文稿：https://topmindspace.github.io/tms-skills/showcase.html
+- 风格画廊：https://topmindspace.github.io/tms-skills/style-gallery.html
+- 官网专区：https://topmindspace.github.io/#tms-skills
+
 ## 相关链接
 
 - [Topmind GitHub](https://github.com/topmindspace/topmind)

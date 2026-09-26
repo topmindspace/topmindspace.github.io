@@ -71,9 +71,19 @@ saved to `localStorage`.
 Dark theme is default. Toggle via the sun/moon button in the nav. The choice
 is persisted in `localStorage` under the key `topmind-theme`.
 
+## Sister product: tms-skills
+
+Live showcase for the [tms-skills](https://github.com/topmindspace/tms-skills) / top-ppt-html presentation skill:
+
+- Landing: https://topmindspace.github.io/tms-skills/
+- Showcase deck: https://topmindspace.github.io/tms-skills/showcase.html
+- Style gallery: https://topmindspace.github.io/tms-skills/style-gallery.html
+- Homepage section: https://topmindspace.github.io/#tms-skills
+
 ## Links
 
 - [Topmind GitHub](https://github.com/topmindspace/topmind)
+- [tms-skills GitHub](https://github.com/topmindspace/tms-skills)
 - [Releases](https://github.com/topmindspace/topmind/releases)
 - [Documentation](https://github.com/topmindspace/topmind/blob/main/docs/README.md)
 
