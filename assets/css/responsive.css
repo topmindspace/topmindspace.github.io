@@ -143,6 +143,20 @@
         grid-template-columns: 1fr;
     }
 
+    .tms-visuals {
+        grid-template-columns: 1fr;
+    }
+
+    .tms-cta {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .tms-cta .btn {
+        justify-content: center;
+    }
+
+
     .surface--wide {
         grid-column: span 1;
     }

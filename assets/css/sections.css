@@ -825,3 +825,63 @@
     width: 22px;
     height: 22px;
 }
+
+
+/* ============================================================
+   tms-skills (sister product section)
+   ============================================================ */
+
+.tms-visuals {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-4);
+    margin-top: var(--sp-8);
+}
+
+.tms-visual {
+    margin: 0;
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    background: var(--bg-card);
+    overflow: hidden;
+    transition: border-color var(--t-base), transform var(--t-base), box-shadow var(--t-base);
+}
+
+.tms-visual:hover {
+    border-color: var(--border-light);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.tms-visual img {
+    width: 100%;
+    display: block;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    background: var(--bg-elevated);
+}
+
+.tms-visual figcaption {
+    padding: var(--sp-3) var(--sp-4);
+    font-size: var(--fs-sm);
+    color: var(--text-muted);
+    border-top: 1px solid var(--border);
+}
+
+.tms-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-3);
+    margin-top: var(--sp-8);
+}
+
+.tms-install {
+    margin-top: var(--sp-6);
+    max-width: 560px;
+}
+
+.surface__icon--tms {
+    color: var(--blue);
+    background: var(--blue-subtle);
+    border-color: var(--blue-border);
+}
