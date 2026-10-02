@@ -1,8 +1,8 @@
-# Topmind — Official Homepage
+# Topmindspace homepage
 
-> A local-first personal stream & knowledge workbench for the Agent era
+> Topmind is the primary project. The same page introduces presentation, writing skills, and handoff.
 
-The official website for the [Topmind](https://github.com/topmindspace/topmind) project, hosted on GitHub Pages.
+GitHub Pages for [Topmindspace](https://topmindspace.github.io/). The primary project is [Topmind](https://github.com/topmindspace/topmind).
 
 **[中文文档](./README.zh-CN.md)**
 
@@ -19,8 +19,8 @@ The official website for the [Topmind](https://github.com/topmindspace/topmind) 
 
 | Category | Technology |
 |----------|-----------|
-| Fonts | Fraunces + Sora + JetBrains Mono (Google Fonts) |
-| Icons | [Lucide Icons](https://lucide.dev/) (CDN) |
+| Fonts | Noto Serif SC + Noto Sans SC + JetBrains Mono (Google Fonts) |
+| Icons | No icon library |
 | i18n | JSON translation files + async loading engine |
 | Styling | Modular CSS (tokens → base → components → sections → responsive) |
 
@@ -62,30 +62,18 @@ i18n/
 
 ### Language
 
-The site auto-detects language from browser/OS settings. Users can also toggle
-manually via the language button in the navigation bar — the preference is
-saved to `localStorage`.
+Chinese is the default. The nav can switch to English. The choice is stored in `localStorage`.
 
 ### Theme
 
-Dark theme is default. Toggle via the sun/moon button in the nav. The choice
-is persisted in `localStorage` under the key `topmind-theme`.
+Cream light theme by default. The nav can switch to a navy dark theme, stored in `localStorage` as `topmind-theme`.
 
-## Sister product: tms-skills
+## Projects
 
-Live showcase for the [tms-skills](https://github.com/topmindspace/tms-skills) / top-ppt-html presentation skill:
-
-- Landing: https://topmindspace.github.io/tms-skills/
-- Showcase deck: https://topmindspace.github.io/tms-skills/showcase.html
-- Style gallery: https://topmindspace.github.io/tms-skills/style-gallery.html
-- Homepage section: https://topmindspace.github.io/#tms-skills
-
-## Links
-
-- [Topmind GitHub](https://github.com/topmindspace/topmind)
-- [tms-skills GitHub](https://github.com/topmindspace/tms-skills)
-- [Releases](https://github.com/topmindspace/topmind/releases)
-- [Documentation](https://github.com/topmindspace/topmind/blob/main/docs/README.md)
+- [Topmind](https://github.com/topmindspace/topmind) — primary
+- [Topmind Presentation](https://github.com/topmindspace/topmind-presentation) — formal business presentations. The live showcase remains at [showcase](https://topmindspace.github.io/tms-skills/showcase.html) and the [style gallery](https://topmindspace.github.io/tms-skills/style-gallery.html)
+- [Topmind Writing Skills](https://github.com/topmindspace/topmind-writing-skills)
+- [Topmind Handoff](https://github.com/topmindspace/topmind-handoff)
 
 ---
 

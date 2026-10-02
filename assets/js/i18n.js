@@ -162,12 +162,8 @@ const I18n = (function () {
      */
     async function init() {
         const saved = localStorage.getItem('topmind-lang');
-        if (saved) {
-            await apply(saved);
-        } else {
-            const detected = detectLanguage();
-            await apply(detected);
-        }
+        // Chinese is the default. A saved toggle still wins.
+        await apply(saved === 'en' || saved === 'zh' ? saved : 'zh');
     }
 
     return { init, apply, getLang, detectLanguage, t };
