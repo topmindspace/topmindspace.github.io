@@ -1,8 +1,8 @@
-# Topmind — 官方主页
+# Topmindspace 主页
 
-> Agent 时代的本地优先个人动态流与知识工作台
+> Topmind 是主项目。同页还有演示文稿、写作技能与上下文交接。
 
-[Topmind](https://github.com/topmindspace/topmind) 项目的官方网站，托管于 GitHub Pages。
+[Topmindspace](https://topmindspace.github.io/) 的 GitHub Pages。主项目是 [Topmind](https://github.com/topmindspace/topmind)。
 
 **[English](./README.md)**
 
@@ -19,8 +19,8 @@
 
 | 分类 | 技术 |
 |------|------|
-| 字体 | Fraunces + Sora + JetBrains Mono（Google Fonts） |
-| 图标 | [Lucide Icons](https://lucide.dev/)（CDN） |
+| 字体 | Noto Serif SC + Noto Sans SC + JetBrains Mono（Google Fonts） |
+| 图标 | 无图标库 |
 | i18n | JSON 翻译文件 + 异步加载引擎 |
 | 样式 | 模块化 CSS（tokens → base → components → sections → responsive） |
 
@@ -62,26 +62,18 @@ i18n/
 
 ### 语言
 
-站点会根据浏览器/操作系统设置自动检测语言。用户也可通过导航栏的语言按钮手动切换，偏好会保存到 `localStorage`。
+默认中文。导航栏可切到英文，偏好保存在 `localStorage`。
 
 ### 主题
 
-默认使用深色主题。通过导航栏的太阳/月亮按钮切换，选择会持久化保存在 `localStorage` 的 `topmind-theme` 键下。
+默认米白浅色。导航栏可切到海军蓝深色，保存在 `localStorage` 的 `topmind-theme`。
 
-## 姊妹产品：tms-skills
+## 项目
 
-[tms-skills](https://github.com/topmindspace/tms-skills) / top-ppt-html 演示文稿技能的在线展示：
-
-- 落地页：https://topmindspace.github.io/tms-skills/
-- Showcase 演示文稿：https://topmindspace.github.io/tms-skills/showcase.html
-- 风格画廊：https://topmindspace.github.io/tms-skills/style-gallery.html
-- 官网专区：https://topmindspace.github.io/#tms-skills
-
-## 相关链接
-
-- [Topmind GitHub](https://github.com/topmindspace/topmind)
-- [Releases](https://github.com/topmindspace/topmind/releases)
-- [文档](https://github.com/topmindspace/topmind/blob/main/docs/README.md)
+- [Topmind](https://github.com/topmindspace/topmind) — 主项目
+- [Topmind Presentation](https://github.com/topmindspace/topmind-presentation) — 正式商务演示文稿。在线演示仍在 [showcase](https://topmindspace.github.io/tms-skills/showcase.html) 与 [风格画廊](https://topmindspace.github.io/tms-skills/style-gallery.html)
+- [Topmind Writing Skills](https://github.com/topmindspace/topmind-writing-skills)
+- [Topmind Handoff](https://github.com/topmindspace/topmind-handoff)
 
 ---
 

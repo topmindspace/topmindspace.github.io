@@ -15,7 +15,7 @@
         var toggle = document.getElementById('themeToggle');
         if (!toggle) return;
 
-        var saved = localStorage.getItem('topmind-theme') || 'dark';
+        var saved = localStorage.getItem('topmind-theme') || 'light';
         applyTheme(saved);
 
         toggle.addEventListener('click', function () {
@@ -32,7 +32,7 @@
         // Sync <meta name="theme-color"> with current theme
         var metaThemeColor = document.querySelector('meta[name="theme-color"]');
         if (metaThemeColor) {
-            metaThemeColor.setAttribute('content', theme === 'dark' ? '#0a0b0f' : '#f5f4f0');
+            metaThemeColor.setAttribute('content', theme === 'dark' ? '#141c2e' : '#f4efe6');
         }
     }
 
