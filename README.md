@@ -1,6 +1,6 @@
 # Topmindspace homepage
 
-> Topmind is the primary project. The same page introduces presentation, writing skills, and handoff.
+> Topmind is a local-first personal stream. The same page links presentations, writing skills, and handoff.
 
 GitHub Pages for [Topmindspace](https://topmindspace.github.io/). The primary project is [Topmind](https://github.com/topmindspace/topmind).
 
