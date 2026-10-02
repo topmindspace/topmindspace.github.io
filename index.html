@@ -3,23 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="meta_title">Topmindspace — Topmind 与相关作品</title>
-    <meta name="description" content="Topmind 是主项目：本地优先的个人动态流与知识工作台。同页还有 Topmind Presentation、Writing Skills 与 Handoff。" data-i18n-meta="content:meta_description">
+    <title data-i18n="meta_title">Topmindspace</title>
+    <meta name="description" content="Topmind：本地优先的个人动态流。同页还有演示文稿、写作技能和交接包。" data-i18n-meta="content:meta_description">
     <meta name="author" content="TopMindSpace">
     <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#f4efe6">
+    <meta name="theme-color" content="#f3eee6">
     <link rel="canonical" href="https://topmindspace.github.io/">
 
-    <meta property="og:title" content="Topmindspace — Topmind 与相关作品" data-i18n-meta="content:og_title">
-    <meta property="og:description" content="Topmind 是主项目。同页介绍演示文稿、写作技能与上下文交接。" data-i18n-meta="content:og_description">
+    <meta property="og:title" content="Topmindspace" data-i18n-meta="content:og_title">
+    <meta property="og:description" content="Topmind：本地优先的个人动态流。同页还有演示文稿、写作技能和交接包。" data-i18n-meta="content:og_description">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://topmindspace.github.io/">
     <meta property="og:image" content="https://topmindspace.github.io/assets/img/showcase-stream.jpg">
     <meta property="og:site_name" content="Topmindspace">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Topmindspace — Topmind 与相关作品" data-i18n-meta="content:og_title">
-    <meta name="twitter:description" content="Topmind 是主项目。同页介绍演示文稿、写作技能与上下文交接。" data-i18n-meta="content:og_description">
+    <meta name="twitter:title" content="Topmindspace" data-i18n-meta="content:og_title">
+    <meta name="twitter:description" content="Topmind：本地优先的个人动态流。同页还有演示文稿、写作技能和交接包。" data-i18n-meta="content:og_description">
     <meta name="twitter:image" content="https://topmindspace.github.io/assets/img/showcase-stream.jpg">
 
     <link rel="icon" type="image/png" href="assets/img/topminispace.png">
@@ -81,40 +81,29 @@
     <main id="main" tabindex="-1">
         <section class="feature" id="topmind" aria-labelledby="topmind-title">
             <div class="feature__copy">
-                <p class="kicker" data-i18n="topmind_kicker">主项目</p>
                 <h1 id="topmind-title">Topmind</h1>
-                <p class="lede" data-i18n="topmind_lede">本地优先的个人动态流与知识工作台。先记下，AI 提出整理与待办建议，确认后再写入本地 Markdown。</p>
+                <p class="lede" data-i18n="topmind_lede">本地优先的个人动态流。AI 可以建议整理和待办，确认后写入本地 Markdown。</p>
                 <div class="cmd">
                     <code>brew install topmindspace/tap/topmind</code>
                     <button class="copy-btn" type="button" data-copy="brew install topmindspace/tap/topmind" data-i18n="copy_label" data-i18n-attr="aria-label:copy_aria">复制</button>
                 </div>
-                <p class="note" data-i18n="topmind_note">macOS 推荐。Obsidian、技能包与其他入口见仓库说明。</p>
-                <div class="actions">
-                    <a class="btn btn--primary" href="https://github.com/topmindspace/topmind" target="_blank" rel="noopener noreferrer">GitHub</a>
-                    <a class="btn" href="https://github.com/topmindspace/topmind/releases" target="_blank" rel="noopener noreferrer" data-i18n="link_releases">Releases</a>
-                    <a class="btn" href="https://github.com/topmindspace/topmind#快速上手与安装入口" target="_blank" rel="noopener noreferrer" data-i18n="link_install">安装说明</a>
-                </div>
+                <p class="links">
+                    <a href="https://github.com/topmindspace/topmind" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a href="https://github.com/topmindspace/topmind/releases" target="_blank" rel="noopener noreferrer" data-i18n="link_releases">Releases</a>
+                </p>
             </div>
             <figure class="feature__shot">
-                <img src="assets/img/showcase-stream.jpg" alt="Topmind Desktop 动态流，右侧为待确认的整理建议" width="1440" height="847" data-i18n-attr="alt:topmind_img_alt">
-                <figcaption data-i18n="topmind_img_cap">Desktop · 动态流与建议确认</figcaption>
+                <img src="assets/img/showcase-stream.jpg" alt="Topmind Desktop 动态流" width="1440" height="847" data-i18n-attr="alt:topmind_img_alt">
             </figure>
         </section>
 
         <section class="peers" id="projects" aria-labelledby="peers-title">
-            <div class="peers__head">
-                <p class="kicker" data-i18n="peers_kicker">同组织</p>
-                <h2 id="peers-title" data-i18n="peers_title">另外三件</h2>
-            </div>
+            <h2 id="peers-title" class="sr-only" data-i18n="peers_title">演示、写作、交接</h2>
             <div id="tms-skills"></div>
             <div class="peers__grid">
                 <article class="card" id="presentation">
-                    <a class="card__media" href="assets/img/projects/presentation-theme-overview.jpg" target="_blank" rel="noopener noreferrer">
-                        <img src="assets/img/projects/presentation-theme-overview.jpg" alt="Topmind Presentation 主题总览，business-blue 等风格样张" width="1400" height="2329" loading="lazy" data-i18n-attr="alt:pres_img_alt">
-                    </a>
-                    <div class="card__body">
-                        <h3>Topmind Presentation</h3>
-                        <p data-i18n="pres_lede">正式商务演示文稿。HTML 与 PPT 双交付，参考 MD3 的信息密度与克制。</p>
+                    <h3>Topmind Presentation</h3>
+                        <p class="lede" data-i18n="pres_lede">正式商务演示。HTML 幻灯片，需要时导出可编辑 PPT。</p>
                         <div class="cmd cmd--compact">
                             <code>git clone https://github.com/<wbr>topmindspace/<wbr>topmind-presentation.git</code>
                             <button class="copy-btn" type="button" data-copy="git clone https://github.com/topmindspace/topmind-presentation.git" data-i18n="copy_label" data-i18n-attr="aria-label:copy_aria">复制</button>
@@ -125,16 +114,11 @@
                             <a href="https://github.com/topmindspace/topmind-presentation" target="_blank" rel="noopener noreferrer">GitHub</a>
                             <a href="https://www.npmjs.com/package/@topmindspace/topmind-presentation" target="_blank" rel="noopener noreferrer">npm</a>
                         </p>
-                    </div>
                 </article>
 
                 <article class="card" id="writing">
-                    <div class="card__media">
-                        <img src="assets/img/projects/writing-cover.jpg" alt="Topmind Writing Skills 封面：公众号、X 长文、干货短文、封面配图" width="1600" height="640" loading="lazy" data-i18n-attr="alt:write_img_alt">
-                    </div>
-                    <div class="card__body">
-                        <h3>Topmind Writing Skills</h3>
-                        <p data-i18n="write_lede">写作技能合集：公众号文章、X 长文、干货短文、封面配图。四个技能，一个仓库。</p>
+                    <h3>Topmind Writing Skills</h3>
+                        <p class="lede" data-i18n="write_lede">公众号、X 长文、干货短文、封面图。</p>
                         <div class="cmd cmd--compact">
                             <code>npx @topmindspace/<wbr>topmind-writing-skills list</code>
                             <button class="copy-btn" type="button" data-copy="npx @topmindspace/topmind-writing-skills list" data-i18n="copy_label" data-i18n-attr="aria-label:copy_aria">复制</button>
@@ -143,17 +127,11 @@
                             <a href="https://github.com/topmindspace/topmind-writing-skills" target="_blank" rel="noopener noreferrer">GitHub</a>
                             <a href="https://www.npmjs.com/package/@topmindspace/topmind-writing-skills" target="_blank" rel="noopener noreferrer">npm</a>
                         </p>
-                    </div>
                 </article>
 
-                <article class="card card--quiet" id="handoff">
-                    <div class="card__media card__media--quiet">
-                        <p class="quiet__file">称呼-handoff-YYYYMMDD.md</p>
-                        <p class="quiet__hint" data-i18n="hand_hint">单个 Markdown 文件</p>
-                    </div>
-                    <div class="card__body">
-                        <h3>Topmind Handoff</h3>
-                        <p data-i18n="hand_lede">把工作习惯、偏好、项目与记忆收成一份 Markdown 交接包，在不同 AI 工具之间导出、导入与合并。</p>
+                <article class="card" id="handoff">
+                    <h3>Topmind Handoff</h3>
+                        <p class="lede" data-i18n="hand_lede">一份 Markdown，在不同 AI 工具之间导出、导入、合并。</p>
                         <div class="cmd cmd--compact">
                             <code>npm i @topmindspace/<wbr>topmind-handoff</code>
                             <button class="copy-btn" type="button" data-copy="npm i @topmindspace/topmind-handoff" data-i18n="copy_label" data-i18n-attr="aria-label:copy_aria">复制</button>
@@ -162,7 +140,6 @@
                             <a href="https://github.com/topmindspace/topmind-handoff" target="_blank" rel="noopener noreferrer">GitHub</a>
                             <a href="https://www.npmjs.com/package/@topmindspace/topmind-handoff" target="_blank" rel="noopener noreferrer">npm</a>
                         </p>
-                    </div>
                 </article>
             </div>
         </section>
@@ -174,7 +151,7 @@
             <nav class="footer__nav" aria-label="页脚" data-i18n-attr="aria-label:footer_aria">
                 <a href="https://github.com/topmindspace/topmind" target="_blank" rel="noopener noreferrer">Topmind</a>
                 <a href="https://github.com/topmindspace/topmind-presentation" target="_blank" rel="noopener noreferrer">Presentation</a>
-                <a href="tms-skills/showcase.html" data-i18n="footer_showcase">演示 Showcase</a>
+                <a href="tms-skills/showcase.html" data-i18n="footer_showcase">在线演示</a>
                 <a href="https://github.com/topmindspace/topmind-writing-skills" target="_blank" rel="noopener noreferrer">Writing</a>
                 <a href="https://github.com/topmindspace/topmind-handoff" target="_blank" rel="noopener noreferrer">Handoff</a>
             </nav>

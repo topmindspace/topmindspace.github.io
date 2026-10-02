@@ -32,7 +32,7 @@
         // Sync <meta name="theme-color"> with current theme
         var metaThemeColor = document.querySelector('meta[name="theme-color"]');
         if (metaThemeColor) {
-            metaThemeColor.setAttribute('content', theme === 'dark' ? '#141c2e' : '#f4efe6');
+            metaThemeColor.setAttribute('content', theme === 'dark' ? '#141c2e' : '#f3eee6');
         }
     }
 

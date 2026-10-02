@@ -1,6 +1,6 @@
 # Topmindspace 主页
 
-> Topmind 是主项目。同页还有演示文稿、写作技能与上下文交接。
+> Topmind：本地优先的个人动态流。同页还有演示文稿、写作技能和交接包。
 
 [Topmindspace](https://topmindspace.github.io/) 的 GitHub Pages。主项目是 [Topmind](https://github.com/topmindspace/topmind)。
 
