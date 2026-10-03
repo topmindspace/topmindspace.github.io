@@ -19,7 +19,7 @@
 
 | 分类 | 技术 |
 |------|------|
-| 字体 | Noto Serif SC + Noto Sans SC + JetBrains Mono（Google Fonts） |
+| 字体 | Noto Sans SC + JetBrains Mono（Google Fonts） |
 | 图标 | 无图标库 |
 | i18n | JSON 翻译文件 + 异步加载引擎 |
 | 样式 | 模块化 CSS（tokens → base → components → sections → responsive） |
@@ -66,7 +66,7 @@ i18n/
 
 ### 主题
 
-默认米白浅色。导航栏可切到海军蓝深色，保存在 `localStorage` 的 `topmind-theme`。
+浅色为 MD3 米白表面加海军蓝主色，深色对调。偏好保存在 `localStorage` 的 `topmind-theme`。
 
 ## 项目
 

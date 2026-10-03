@@ -27,5 +27,6 @@
   "toast_copied": "Copied",
   "footer_aria": "Footer",
   "footer_showcase": "Live presentation",
-  "footer_copy": "© {{year}} TopMindSpace · MIT"
+  "footer_copy": "© {{year}} TopMindSpace · MIT",
+  "install_label": "Install"
 }

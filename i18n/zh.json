@@ -27,5 +27,6 @@
   "toast_copied": "已复制",
   "footer_aria": "页脚",
   "footer_showcase": "在线演示",
-  "footer_copy": "© {{year}} TopMindSpace · MIT"
+  "footer_copy": "© {{year}} TopMindSpace · MIT",
+  "install_label": "安装"
 }

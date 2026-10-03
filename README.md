@@ -19,7 +19,7 @@ GitHub Pages for [Topmindspace](https://topmindspace.github.io/). The primary pr
 
 | Category | Technology |
 |----------|-----------|
-| Fonts | Noto Serif SC + Noto Sans SC + JetBrains Mono (Google Fonts) |
+| Fonts | Noto Sans SC + JetBrains Mono (Google Fonts) |
 | Icons | No icon library |
 | i18n | JSON translation files + async loading engine |
 | Styling | Modular CSS (tokens → base → components → sections → responsive) |
@@ -66,7 +66,7 @@ Chinese is the default. The nav can switch to English. The choice is stored in `
 
 ### Theme
 
-Cream light theme by default. The nav can switch to a navy dark theme, stored in `localStorage` as `topmind-theme`.
+Light theme uses an MD3 cream surface and a navy primary. Dark theme inverts that pair. The choice is stored in `localStorage` as `topmind-theme`.
 
 ## Projects
 

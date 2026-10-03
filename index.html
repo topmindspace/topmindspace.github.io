@@ -7,7 +7,7 @@
     <meta name="description" content="Topmind：本地优先的个人动态流。同页还有演示文稿、写作技能和交接包。" data-i18n-meta="content:meta_description">
     <meta name="author" content="TopMindSpace">
     <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#f3eee6">
+    <meta name="theme-color" content="#f7f3ec">
     <link rel="canonical" href="https://topmindspace.github.io/">
 
     <meta property="og:title" content="Topmindspace" data-i18n-meta="content:og_title">
@@ -27,7 +27,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500&family=Noto+Serif+SC:wght@500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;600&display=swap" rel="stylesheet">
 
     <script>
         (function () {
@@ -43,27 +43,31 @@
         "@type": "Organization",
         "name": "TopMindSpace",
         "url": "https://topmindspace.github.io/",
-        "sameAs": "https://github.com/topmindspace"
+        "sameAs": [
+            "https://github.com/topmindspace",
+            "https://x.com/mspd4100"
+        ]
     }
     </script>
 </head>
 <body>
     <a href="#main" class="skip-link" data-i18n="skip_link">跳到主要内容</a>
 
-    <nav class="nav" id="nav" aria-label="主导航" data-i18n-attr="aria-label:nav_aria_label">
-        <div class="nav__inner">
-            <a href="#topmind" class="nav__brand">
-                <img src="assets/img/topminispace.png" alt="" class="nav__logo" width="28" height="28">
-                <span class="nav__name">Topmindspace</span>
+    <header class="topbar nav" id="nav">
+        <div class="topbar__inner">
+            <a href="#topmind" class="topbar__brand">
+                <img src="assets/img/topminispace.png" alt="" class="topbar__logo" width="32" height="32">
+                <span class="topbar__name">Topmindspace</span>
             </a>
-            <div class="nav__links" id="navLinks">
-                <a href="#topmind" class="nav__link" data-i18n="nav_topmind">Topmind</a>
-                <a href="#presentation" class="nav__link" data-i18n="nav_presentation">演示</a>
-                <a href="#writing" class="nav__link" data-i18n="nav_writing">写作</a>
-                <a href="#handoff" class="nav__link" data-i18n="nav_handoff">交接</a>
-                <a href="https://github.com/topmindspace" target="_blank" rel="noopener noreferrer" class="nav__link">GitHub</a>
-            </div>
-            <div class="nav__actions">
+            <nav class="topbar__links" id="navLinks" aria-label="主导航" data-i18n-attr="aria-label:nav_aria_label">
+                <a href="#topmind" class="topbar__link nav__link" data-i18n="nav_topmind">Topmind</a>
+                <a href="#presentation" class="topbar__link nav__link" data-i18n="nav_presentation">演示</a>
+                <a href="#writing" class="topbar__link nav__link" data-i18n="nav_writing">写作</a>
+                <a href="#handoff" class="topbar__link nav__link" data-i18n="nav_handoff">交接</a>
+                <a href="https://github.com/topmindspace" target="_blank" rel="noopener noreferrer" class="topbar__link nav__link">GitHub</a>
+                <a href="https://x.com/mspd4100" target="_blank" rel="noopener noreferrer" class="topbar__link nav__link">@mspd4100</a>
+            </nav>
+            <div class="topbar__actions">
                 <button class="text-btn" id="langToggle" type="button" aria-label="切换到英文">
                     <span class="lang-toggle__current" id="langCurrent">中</span>
                 </button>
@@ -71,75 +75,94 @@
                     <span class="when-light" data-i18n="theme_to_dark">深色</span>
                     <span class="when-dark" data-i18n="theme_to_light">浅色</span>
                 </button>
-                <button class="nav__burger" id="navBurger" type="button" aria-label="菜单" aria-expanded="false" aria-controls="navLinks" data-i18n-attr="aria-label:nav_menu">
+                <button class="topbar__burger" id="navBurger" type="button" aria-label="菜单" aria-expanded="false" aria-controls="navLinks" data-i18n-attr="aria-label:nav_menu">
                     <span></span><span></span>
                 </button>
             </div>
         </div>
-    </nav>
+    </header>
 
     <main id="main" tabindex="-1">
-        <section class="feature" id="topmind" aria-labelledby="topmind-title">
-            <div class="feature__copy">
-                <h1 id="topmind-title">Topmind</h1>
-                <p class="lede" data-i18n="topmind_lede">本地优先的个人动态流。AI 可以建议整理和待办，确认后写入本地 Markdown。</p>
-                <div class="cmd">
-                    <code>brew install topmindspace/tap/topmind</code>
-                    <button class="copy-btn" type="button" data-copy="brew install topmindspace/tap/topmind" data-i18n="copy_label" data-i18n-attr="aria-label:copy_aria">复制</button>
+        <section class="hero" id="topmind" aria-labelledby="topmind-title">
+            <div class="hero__copy">
+                <h1 id="topmind-title" class="display">Topmind</h1>
+                <p class="body-lg" data-i18n="topmind_lede">本地优先的个人动态流。AI 可以建议整理和待办，确认后写入本地 Markdown。</p>
+                <div class="install">
+                    <p class="label" data-i18n="install_label">安装</p>
+                    <pre class="install__pre"><code>brew install topmindspace/tap/topmind</code></pre>
+                    <button class="text-btn copy-btn" type="button" data-copy="brew install topmindspace/tap/topmind" data-i18n="copy_label" data-i18n-attr="aria-label:copy_aria">复制</button>
                 </div>
                 <p class="links">
                     <a href="https://github.com/topmindspace/topmind" target="_blank" rel="noopener noreferrer">GitHub</a>
                     <a href="https://github.com/topmindspace/topmind/releases" target="_blank" rel="noopener noreferrer" data-i18n="link_releases">Releases</a>
                 </p>
             </div>
-            <figure class="feature__shot">
+            <figure class="hero__shot">
                 <img src="assets/img/showcase-stream.jpg" alt="Topmind Desktop 动态流" width="1440" height="847" data-i18n-attr="alt:topmind_img_alt">
             </figure>
         </section>
 
-        <section class="peers" id="projects" aria-labelledby="peers-title">
-            <h2 id="peers-title" class="sr-only" data-i18n="peers_title">演示、写作、交接</h2>
-            <div id="tms-skills"></div>
-            <div class="peers__grid">
-                <article class="card" id="presentation">
-                    <h3>Topmind Presentation</h3>
-                        <p class="lede" data-i18n="pres_lede">正式商务演示。HTML 幻灯片，需要时导出可编辑 PPT。</p>
-                        <div class="cmd cmd--compact">
-                            <code>git clone https://github.com/<wbr>topmindspace/<wbr>topmind-presentation.git</code>
-                            <button class="copy-btn" type="button" data-copy="git clone https://github.com/topmindspace/topmind-presentation.git" data-i18n="copy_label" data-i18n-attr="aria-label:copy_aria">复制</button>
-                        </div>
+        <section class="band" id="projects" aria-labelledby="peers-title">
+            <div class="band__inner">
+                <h2 id="peers-title" class="headline" data-i18n="peers_title">演示、写作、交接</h2>
+                <div id="tms-skills"></div>
+
+                <article class="surface" id="presentation">
+                    <div class="surface__copy">
+                        <h3 class="title">Topmind Presentation</h3>
+                        <p class="body" data-i18n="pres_lede">正式商务演示。HTML 幻灯片，需要时导出可编辑 PPT。</p>
                         <p class="links">
                             <a href="tms-skills/showcase.html" data-i18n="pres_showcase">在线演示</a>
                             <a href="tms-skills/style-gallery.html" data-i18n="pres_gallery">风格画廊</a>
                             <a href="https://github.com/topmindspace/topmind-presentation" target="_blank" rel="noopener noreferrer">GitHub</a>
                             <a href="https://www.npmjs.com/package/@topmindspace/topmind-presentation" target="_blank" rel="noopener noreferrer">npm</a>
                         </p>
+                    </div>
+                    <div class="install">
+                        <p class="label" data-i18n="install_label">安装</p>
+                        <pre class="install__pre"><code>npm install @topmindspace/topmind-presentation</code></pre>
+                        <button class="text-btn copy-btn" type="button" data-copy="npm install @topmindspace/topmind-presentation" data-i18n="copy_label" data-i18n-attr="aria-label:copy_aria">复制</button>
+                    </div>
                 </article>
 
-                <article class="card" id="writing">
-                    <h3>Topmind Writing Skills</h3>
-                        <p class="lede" data-i18n="write_lede">公众号、X 长文、干货短文、封面图。</p>
-                        <div class="cmd cmd--compact">
-                            <code>npx @topmindspace/<wbr>topmind-writing-skills list</code>
-                            <button class="copy-btn" type="button" data-copy="npx @topmindspace/topmind-writing-skills list" data-i18n="copy_label" data-i18n-attr="aria-label:copy_aria">复制</button>
-                        </div>
+                <article class="surface" id="writing">
+                    <div class="surface__copy">
+                        <h3 class="title">Topmind Writing Skills</h3>
+                        <p class="body" data-i18n="write_lede">公众号、X 长文、干货短文、封面图。</p>
                         <p class="links">
                             <a href="https://github.com/topmindspace/topmind-writing-skills" target="_blank" rel="noopener noreferrer">GitHub</a>
                             <a href="https://www.npmjs.com/package/@topmindspace/topmind-writing-skills" target="_blank" rel="noopener noreferrer">npm</a>
                         </p>
+                    </div>
+                    <div class="install">
+                        <p class="label" data-i18n="install_label">安装</p>
+                        <pre class="install__pre"><code>npx @topmindspace/topmind-writing-skills list
+npx @topmindspace/topmind-writing-skills install topmind-wechat-post
+npx @topmindspace/topmind-writing-skills install topmind-x-article
+npx @topmindspace/topmind-writing-skills install topmind-briefs
+npx @topmindspace/topmind-writing-skills install topmind-cover</code></pre>
+                        <button class="text-btn copy-btn" type="button" data-copy="npx @topmindspace/topmind-writing-skills list
+npx @topmindspace/topmind-writing-skills install topmind-wechat-post
+npx @topmindspace/topmind-writing-skills install topmind-x-article
+npx @topmindspace/topmind-writing-skills install topmind-briefs
+npx @topmindspace/topmind-writing-skills install topmind-cover" data-i18n="copy_label" data-i18n-attr="aria-label:copy_aria">复制</button>
+                    </div>
                 </article>
 
-                <article class="card" id="handoff">
-                    <h3>Topmind Handoff</h3>
-                        <p class="lede" data-i18n="hand_lede">一份 Markdown，在不同 AI 工具之间导出、导入、合并。</p>
-                        <div class="cmd cmd--compact">
-                            <code>npm i @topmindspace/<wbr>topmind-handoff</code>
-                            <button class="copy-btn" type="button" data-copy="npm i @topmindspace/topmind-handoff" data-i18n="copy_label" data-i18n-attr="aria-label:copy_aria">复制</button>
-                        </div>
+                <article class="surface" id="handoff">
+                    <div class="surface__copy">
+                        <h3 class="title">Topmind Handoff</h3>
+                        <p class="body" data-i18n="hand_lede">一份 Markdown，在不同 AI 工具之间导出、导入、合并。</p>
                         <p class="links">
                             <a href="https://github.com/topmindspace/topmind-handoff" target="_blank" rel="noopener noreferrer">GitHub</a>
                             <a href="https://www.npmjs.com/package/@topmindspace/topmind-handoff" target="_blank" rel="noopener noreferrer">npm</a>
                         </p>
+                    </div>
+                    <div class="install">
+                        <p class="label" data-i18n="install_label">安装</p>
+                        <pre class="install__pre"><code>npm i @topmindspace/topmind-handoff</code></pre>
+                        <button class="text-btn copy-btn" type="button" data-copy="npm i @topmindspace/topmind-handoff" data-i18n="copy_label" data-i18n-attr="aria-label:copy_aria">复制</button>
+                    </div>
                 </article>
             </div>
         </section>
@@ -154,6 +177,7 @@
                 <a href="tms-skills/showcase.html" data-i18n="footer_showcase">在线演示</a>
                 <a href="https://github.com/topmindspace/topmind-writing-skills" target="_blank" rel="noopener noreferrer">Writing</a>
                 <a href="https://github.com/topmindspace/topmind-handoff" target="_blank" rel="noopener noreferrer">Handoff</a>
+                <a href="https://x.com/mspd4100" target="_blank" rel="noopener noreferrer">@mspd4100</a>
             </nav>
             <p class="footer__copy" data-i18n="footer_copy">© {{year}} TopMindSpace · MIT</p>
         </div>
