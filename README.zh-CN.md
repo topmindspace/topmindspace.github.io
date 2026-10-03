@@ -1,6 +1,6 @@
 # Topmindspace 主页
 
-> Topmind：本地优先的个人动态流。同页还有演示文稿、写作技能和交接包。
+> Topmind 把记录留在本机 Markdown 时间轴上。同页安装演示、写作技能和交接包。
 
 [Topmindspace](https://topmindspace.github.io/) 的 GitHub Pages。主项目是 [Topmind](https://github.com/topmindspace/topmind)。
 
@@ -66,7 +66,7 @@ i18n/
 
 ### 主题
 
-浅色为 MD3 米白表面加海军蓝主色，深色对调。偏好保存在 `localStorage` 的 `topmind-theme`。
+浅色是暖调 MD3 表面加一个琥珀色主色，和正文色分开。深色用同一色相的浅调。偏好保存在 `localStorage` 的 `topmind-theme`。
 
 ## 项目
 

@@ -1,80 +1,144 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-i18n-base="../i18n">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Topmind Presentation · Showcase</title>
-  <meta name="description" content="Topmind Presentation — 正式商务演示文稿。HTML 与 PPT 双交付，参考 MD3 的信息密度与克制。本页保留原 Showcase 地址。" />
-  <meta name="theme-color" content="#0a0b0f" />
-  <link rel="canonical" href="https://topmindspace.github.io/tms-skills/" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Sora:wght@400;500;600&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --bg: #0a0b0f; --bg-card: #12141a; --text: #e8eaef; --muted: #9aa3b2;
-      --accent: #6ea8fe; --teal: #3dd6c2; --border: rgba(255,255,255,0.08);
-      --r: 14px; --font: Sora, system-ui, sans-serif; --display: Fraunces, Georgia, serif;
-    }
-    * { box-sizing: border-box; }
-    body { margin: 0; font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.6; }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .wrap { max-width: 960px; margin: 0 auto; padding: 48px 20px 80px; }
-    .eyebrow { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal); font-weight: 600; }
-    h1 { font-family: var(--display); font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 600; margin: 8px 0 12px; }
-    .lead { color: var(--muted); font-size: 1.05rem; max-width: 42rem; }
-    .cta { display: flex; flex-wrap: wrap; gap: 12px; margin: 28px 0 40px; }
-    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 18px; border-radius: 10px;
-      border: 1px solid var(--border); background: var(--bg-card); color: var(--text); font-weight: 600; }
-    .btn--primary { background: var(--accent); color: #0a0b0f; border-color: transparent; }
-    .btn:hover { text-decoration: none; filter: brightness(1.05); }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-top: 24px; }
-    figure { margin: 0; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; }
-    figure img { width: 100%; display: block; aspect-ratio: 16/9; object-fit: cover; }
-    figcaption { padding: 10px 14px; font-size: 0.85rem; color: var(--muted); }
-    .meta { margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--border); font-size: 0.9rem; color: var(--muted); }
-    code { font-size: 0.85em; background: rgba(255,255,255,0.06); padding: 2px 6px; border-radius: 4px; }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="pres_meta_title">Topmind Presentation｜HTML 幻灯片与可编辑 PPT</title>
+  <meta name="description" content="Topmind Presentation 做正式商务演示：台上演示、研究报告、架构说明。日常交付可翻页 HTML，需要时导出可编辑 PPTX。" data-i18n-meta="content:pres_meta_description">
+  <meta name="author" content="TopMindSpace">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#fbf8f4">
+  <link rel="canonical" href="https://topmindspace.github.io/tms-skills/">
+
+  <meta property="og:title" content="Topmind Presentation｜HTML 幻灯片与可编辑 PPT" data-i18n-meta="content:pres_meta_title">
+  <meta property="og:description" content="Topmind Presentation 做正式商务演示：台上演示、研究报告、架构说明。日常交付可翻页 HTML，需要时导出可编辑 PPTX。" data-i18n-meta="content:pres_meta_description">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://topmindspace.github.io/tms-skills/">
+  <meta property="og:image" content="https://topmindspace.github.io/tms-skills/site-assets/theme-overview.png">
+  <meta property="og:site_name" content="Topmindspace">
+  <meta property="og:locale" content="zh_CN" data-i18n-meta="content:og_locale">
+  <meta property="og:locale:alternate" content="en_US">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Topmind Presentation｜HTML 幻灯片与可编辑 PPT" data-i18n-meta="content:pres_meta_title">
+  <meta name="twitter:description" content="Topmind Presentation 做正式商务演示：台上演示、研究报告、架构说明。日常交付可翻页 HTML，需要时导出可编辑 PPTX。" data-i18n-meta="content:pres_meta_description">
+  <meta name="twitter:image" content="https://topmindspace.github.io/tms-skills/site-assets/theme-overview.png">
+  <meta name="twitter:site" content="@mspd4100">
+
+  <link rel="icon" type="image/png" href="../assets/img/topminispace.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <script>
+    (function () {
+      var t = localStorage.getItem('topmind-theme');
+      if (t !== 'dark' && t !== 'light') t = 'light';
+      document.documentElement.setAttribute('data-theme', t);
+      var meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) meta.setAttribute('content', t === 'dark' ? '#14140f' : '#fbf8f4');
+      if (localStorage.getItem('topmind-lang') === 'en') {
+        document.documentElement.setAttribute('data-pending-lang', 'en');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="../assets/css/home.css">
 </head>
 <body>
-  <main class="wrap">
-    <p class="eyebrow">TopMindspace · Agent Skills</p>
-    <h1>Topmind Presentation</h1>
-    <p class="lead">正式商务演示文稿。<strong>HTML 与 PPT 双交付</strong>：日常用可翻页 HTML，需要时再导出可编辑 PPTX。参考 MD3 的信息密度与克制。此地址仍是在线 Showcase。</p>
-    <div class="cta">
-      <a class="btn btn--primary" href="./showcase.html">打开 Showcase 演示文稿</a>
-      <a class="btn" href="./style-gallery.html">风格画廊</a>
-      <a class="btn" href="https://github.com/topmindspace/topmind-presentation">GitHub</a>
-      <a class="btn" href="https://www.npmjs.com/package/@topmindspace/topmind-presentation">npm</a>
-      <a class="btn" href="https://topmindspace.github.io/">← Topmind 官网</a>
+  <a href="#main" class="skip-link" data-i18n="skip_link">跳到主要内容</a>
+
+  <header class="topbar nav" id="nav">
+    <div class="topbar__inner">
+      <a href="../" class="topbar__brand">
+        <img src="../assets/img/topminispace.png" alt="" class="topbar__logo" width="32" height="32">
+        <span class="topbar__name">Topmindspace</span>
+      </a>
+      <nav class="topbar__links" id="navLinks" aria-label="主导航" data-i18n-attr="aria-label:nav_aria_label">
+        <a href="../#topmind" class="topbar__link nav__link" data-i18n="nav_topmind">Topmind</a>
+        <a href="./" class="topbar__link nav__link is-active" data-i18n="nav_presentation" aria-current="page">演示</a>
+        <a href="../#writing" class="topbar__link nav__link" data-i18n="nav_writing">写作</a>
+        <a href="../#handoff" class="topbar__link nav__link" data-i18n="nav_handoff">交接</a>
+        <a href="https://github.com/topmindspace" target="_blank" rel="noopener noreferrer" class="topbar__link nav__link">GitHub</a>
+        <a href="https://x.com/mspd4100" target="_blank" rel="noopener noreferrer" class="topbar__link nav__link">@mspd4100</a>
+      </nav>
+      <div class="topbar__actions">
+        <button class="text-btn" id="langToggle" type="button" aria-label="切换到英文">
+          <span class="lang-toggle__current" id="langCurrent">中</span>
+        </button>
+        <button class="text-btn" id="themeToggle" type="button" aria-label="切换浅色或深色" data-i18n-attr="aria-label:theme_aria">
+          <span class="when-light" data-i18n="theme_to_dark">深色</span>
+          <span class="when-dark" data-i18n="theme_to_light">浅色</span>
+        </button>
+        <button class="topbar__burger" id="navBurger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navLinks" data-i18n-attr="aria-label:nav_menu">
+          <span></span><span></span>
+        </button>
+      </div>
     </div>
-    <h2 style="font-family:var(--display);font-size:1.35rem;margin:0 0 8px">主题总览（Gate 0）</h2>
-    <div class="grid" style="grid-template-columns:1fr">
-      <figure>
-        <img src="./site-assets/theme-overview.png" alt="演示 · business-blue" loading="lazy" />
-        <figcaption>演示 · business-blue（默认）· 另见 <a href="./style-gallery.html">风格画廊</a> · 研究/架构总览见技能包 <code>theme-overview-*.png</code></figcaption>
-      </figure>
+  </header>
+
+  <main id="main" class="page" tabindex="-1">
+    <div class="page__intro">
+      <h1 class="display">Topmind Presentation</h1>
+      <p class="body-lg" data-i18n="pres_page_lede">技能名 topmind-presentation。三种成稿：台上讲的演示、研究报告、架构说明。打开的是可翻页 HTML，要改版式时再导出可编辑 PPTX。九套风格在同一份文件里切换。</p>
+      <p class="links">
+        <a href="./showcase.html" data-i18n="pres_open">打开在线演示</a>
+        <a href="./style-gallery.html" data-i18n="pres_gallery">风格画廊</a>
+        <a href="https://github.com/topmindspace/topmind-presentation" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.npmjs.com/package/@topmindspace/topmind-presentation" target="_blank" rel="noopener noreferrer">npm</a>
+        <a href="../" data-i18n="pres_page_back">返回首页</a>
+      </p>
     </div>
-    <h2 style="font-family:var(--display);font-size:1.35rem;margin:36px 0 8px">产品 Showcase 样张</h2>
-    <div class="grid">
-      <figure>
-        <img src="./site-assets/showcase-cover.png" alt="Showcase cover" loading="lazy" />
-        <figcaption>Cover</figcaption>
-      </figure>
-      <figure>
-        <img src="./site-assets/showcase-s4.png" alt="三模式" loading="lazy" />
-        <figcaption>三模式</figcaption>
-      </figure>
-      <figure>
-        <img src="./site-assets/showcase-s6.png" alt="质量门禁" loading="lazy" />
-        <figcaption>质量门禁</figcaption>
-      </figure>
+
+    <div class="install">
+      <p class="label" data-i18n="install_label">安装</p>
+      <pre class="install__pre"><code>npm install @topmindspace/topmind-presentation</code></pre>
+      <button class="text-btn copy-btn" type="button" data-copy="npm install @topmindspace/topmind-presentation" data-i18n="copy_label" data-i18n-attr="aria-label:copy_aria">复制</button>
     </div>
-    <div class="meta">
-      <p>安装：<code>git clone https://github.com/topmindspace/topmind-presentation.git</code></p>
-      <p>姊妹产品：<a href="https://topmindspace.github.io/">Topmind</a> 本地优先知识工作台 · MIT © TopMindSpace</p>
-    </div>
+
+    <section aria-labelledby="themes-title">
+      <h2 id="themes-title" class="headline" data-i18n="pres_themes_title">默认风格</h2>
+      <figure class="shot">
+        <img src="./site-assets/theme-overview.png" alt="演示模式 business-blue 主题总览" width="860" height="484" data-i18n-attr="alt:pres_themes_caption">
+        <figcaption data-i18n="pres_themes_caption">演示模式 · business-blue。另外八套在风格画廊里。</figcaption>
+      </figure>
+    </section>
+
+    <section aria-labelledby="shots-title">
+      <h2 id="shots-title" class="headline" data-i18n="pres_shots_title">样张</h2>
+      <div class="shots shots--row">
+        <figure class="shot">
+          <img src="./site-assets/showcase-cover.png" alt="封面" data-i18n-attr="alt:pres_shot_cover">
+          <figcaption data-i18n="pres_shot_cover">封面</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="./site-assets/showcase-s4.png" alt="三种成稿" data-i18n-attr="alt:pres_shot_modes">
+          <figcaption data-i18n="pres_shot_modes">三种成稿</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="./site-assets/showcase-s6.png" alt="质量门禁" data-i18n-attr="alt:pres_shot_gates">
+          <figcaption data-i18n="pres_shot_gates">质量门禁</figcaption>
+        </figure>
+      </div>
+    </section>
   </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <p class="footer__name">Topmindspace</p>
+      <nav class="footer__nav" aria-label="页脚" data-i18n-attr="aria-label:footer_aria">
+        <a href="https://github.com/topmindspace/topmind" target="_blank" rel="noopener noreferrer">Topmind</a>
+        <a href="https://github.com/topmindspace/topmind-presentation" target="_blank" rel="noopener noreferrer">Presentation</a>
+        <a href="./showcase.html" data-i18n="footer_showcase">在线演示</a>
+        <a href="https://github.com/topmindspace/topmind-writing-skills" target="_blank" rel="noopener noreferrer">Writing</a>
+        <a href="https://github.com/topmindspace/topmind-handoff" target="_blank" rel="noopener noreferrer">Handoff</a>
+        <a href="https://x.com/mspd4100" target="_blank" rel="noopener noreferrer">@mspd4100</a>
+      </nav>
+      <p class="footer__copy" data-i18n="footer_copy">© {{year}} TopMindSpace · MIT</p>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" data-i18n="toast_copied">已复制</div>
+  <script src="../assets/js/i18n.js"></script>
+  <script src="../assets/js/main.js"></script>
 </body>
 </html>

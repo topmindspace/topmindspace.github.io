@@ -3,24 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="meta_title">Topmindspace</title>
-    <meta name="description" content="Topmind：本地优先的个人动态流。同页还有演示文稿、写作技能和交接包。" data-i18n-meta="content:meta_description">
+    <title data-i18n="meta_title">Topmindspace｜本地动态流、演示、写作与交接</title>
+    <meta name="description" content="Topmind 把记录留在本机 Markdown 时间轴上，整理和待办确认后才写入。同页还有演示文稿（可翻页 HTML 与可编辑 PPT）、写作技能，以及一份可带走的交接包。" data-i18n-meta="content:meta_description">
     <meta name="author" content="TopMindSpace">
     <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#f7f3ec">
+    <meta name="theme-color" content="#fbf8f4">
     <link rel="canonical" href="https://topmindspace.github.io/">
 
-    <meta property="og:title" content="Topmindspace" data-i18n-meta="content:og_title">
-    <meta property="og:description" content="Topmind：本地优先的个人动态流。同页还有演示文稿、写作技能和交接包。" data-i18n-meta="content:og_description">
+    <meta property="og:title" content="Topmindspace｜本地动态流、演示、写作与交接" data-i18n-meta="content:og_title">
+    <meta property="og:description" content="Topmind 把记录留在本机 Markdown 时间轴上。同页还有 Presentation、Writing Skills 和 Handoff。" data-i18n-meta="content:og_description">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://topmindspace.github.io/">
     <meta property="og:image" content="https://topmindspace.github.io/assets/img/showcase-stream.jpg">
+    <meta property="og:image:alt" content="Topmind 桌面版动态流" data-i18n-meta="content:topmind_img_alt">
     <meta property="og:site_name" content="Topmindspace">
+    <meta property="og:locale" content="zh_CN" data-i18n-meta="content:og_locale">
+    <meta property="og:locale:alternate" content="en_US">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Topmindspace" data-i18n-meta="content:og_title">
-    <meta name="twitter:description" content="Topmind：本地优先的个人动态流。同页还有演示文稿、写作技能和交接包。" data-i18n-meta="content:og_description">
+    <meta name="twitter:title" content="Topmindspace｜本地动态流、演示、写作与交接" data-i18n-meta="content:og_title">
+    <meta name="twitter:description" content="Topmind 把记录留在本机 Markdown 时间轴上。同页还有 Presentation、Writing Skills 和 Handoff。" data-i18n-meta="content:og_description">
     <meta name="twitter:image" content="https://topmindspace.github.io/assets/img/showcase-stream.jpg">
+    <meta name="twitter:site" content="@mspd4100">
 
     <link rel="icon" type="image/png" href="assets/img/topminispace.png">
     <link rel="apple-touch-icon" href="assets/img/topminispace.png">
@@ -31,8 +35,14 @@
 
     <script>
         (function () {
-            var t = localStorage.getItem('topmind-theme') || 'light';
+            var t = localStorage.getItem('topmind-theme');
+            if (t !== 'dark' && t !== 'light') t = 'light';
             document.documentElement.setAttribute('data-theme', t);
+            var meta = document.querySelector('meta[name="theme-color"]');
+            if (meta) meta.setAttribute('content', t === 'dark' ? '#14140f' : '#fbf8f4');
+            if (localStorage.getItem('topmind-lang') === 'en') {
+                document.documentElement.setAttribute('data-pending-lang', 'en');
+            }
         })();
     </script>
     <link rel="stylesheet" href="assets/css/home.css">
@@ -40,12 +50,53 @@
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "TopMindSpace",
-        "url": "https://topmindspace.github.io/",
-        "sameAs": [
-            "https://github.com/topmindspace",
-            "https://x.com/mspd4100"
+        "@graph": [
+            {
+                "@type": "Organization",
+                "name": "TopMindSpace",
+                "url": "https://topmindspace.github.io/",
+                "sameAs": [
+                    "https://github.com/topmindspace",
+                    "https://x.com/mspd4100"
+                ]
+            },
+            {
+                "@type": "WebSite",
+                "name": "Topmindspace",
+                "url": "https://topmindspace.github.io/",
+                "inLanguage": ["zh-CN", "en"],
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "TopMindSpace",
+                    "url": "https://github.com/topmindspace"
+                }
+            },
+            {
+                "@type": "SoftwareApplication",
+                "name": "Topmind",
+                "applicationCategory": "ProductivityApplication",
+                "operatingSystem": "macOS, Windows, Linux",
+                "url": "https://github.com/topmindspace/topmind",
+                "downloadUrl": "https://github.com/topmindspace/topmind/releases"
+            },
+            {
+                "@type": "SoftwareApplication",
+                "name": "Topmind Presentation",
+                "applicationCategory": "DeveloperApplication",
+                "url": "https://github.com/topmindspace/topmind-presentation"
+            },
+            {
+                "@type": "SoftwareApplication",
+                "name": "Topmind Writing Skills",
+                "applicationCategory": "DeveloperApplication",
+                "url": "https://github.com/topmindspace/topmind-writing-skills"
+            },
+            {
+                "@type": "SoftwareApplication",
+                "name": "Topmind Handoff",
+                "applicationCategory": "DeveloperApplication",
+                "url": "https://github.com/topmindspace/topmind-handoff"
+            }
         ]
     }
     </script>
@@ -71,11 +122,11 @@
                 <button class="text-btn" id="langToggle" type="button" aria-label="切换到英文">
                     <span class="lang-toggle__current" id="langCurrent">中</span>
                 </button>
-                <button class="text-btn" id="themeToggle" type="button" aria-label="切换主题" data-i18n-attr="aria-label:theme_aria">
+                <button class="text-btn" id="themeToggle" type="button" aria-label="切换浅色或深色" data-i18n-attr="aria-label:theme_aria">
                     <span class="when-light" data-i18n="theme_to_dark">深色</span>
                     <span class="when-dark" data-i18n="theme_to_light">浅色</span>
                 </button>
-                <button class="topbar__burger" id="navBurger" type="button" aria-label="菜单" aria-expanded="false" aria-controls="navLinks" data-i18n-attr="aria-label:nav_menu">
+                <button class="topbar__burger" id="navBurger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navLinks" data-i18n-attr="aria-label:nav_menu">
                     <span></span><span></span>
                 </button>
             </div>
@@ -86,7 +137,8 @@
         <section class="hero" id="topmind" aria-labelledby="topmind-title">
             <div class="hero__copy">
                 <h1 id="topmind-title" class="display">Topmind</h1>
-                <p class="body-lg" data-i18n="topmind_lede">本地优先的个人动态流。AI 可以建议整理和待办，确认后写入本地 Markdown。</p>
+                <p class="body-lg" data-i18n="topmind_lede">本地优先的个人动态流。想法、剪藏和文档先记在时间轴上，文件是工作区里的 Markdown。整理和待办可以先出建议，你确认后才写入。</p>
+                <p class="body" data-i18n="topmind_note">桌面版覆盖 macOS、Windows 和 Linux。下面这条是 macOS 的 Homebrew 安装。</p>
                 <div class="install">
                     <p class="label" data-i18n="install_label">安装</p>
                     <pre class="install__pre"><code>brew install topmindspace/tap/topmind</code></pre>
@@ -98,19 +150,22 @@
                 </p>
             </div>
             <figure class="hero__shot">
-                <img src="assets/img/showcase-stream.jpg" alt="Topmind Desktop 动态流" width="1440" height="847" data-i18n-attr="alt:topmind_img_alt">
+                <img src="assets/img/showcase-stream.jpg" alt="Topmind 桌面版：左侧导航、中间本周动态、右侧建议与待办" width="1440" height="847" data-i18n-attr="alt:topmind_img_alt">
             </figure>
         </section>
 
         <section class="band" id="projects" aria-labelledby="peers-title">
             <div class="band__inner">
-                <h2 id="peers-title" class="headline" data-i18n="peers_title">演示、写作、交接</h2>
+                <div class="band__head">
+                    <h2 id="peers-title" class="headline" data-i18n="peers_title">演示、写作、交接</h2>
+                    <p class="body" data-i18n="peers_lead">三件分开安装。演示负责成稿，写作负责文章和封面，交接负责把上下文带到另一个工具。</p>
+                </div>
                 <div id="tms-skills"></div>
 
                 <article class="surface" id="presentation">
                     <div class="surface__copy">
                         <h3 class="title">Topmind Presentation</h3>
-                        <p class="body" data-i18n="pres_lede">正式商务演示。HTML 幻灯片，需要时导出可编辑 PPT。</p>
+                        <p class="body" data-i18n="pres_lede">正式商务演示技能。三种成稿：台上讲的演示、研究报告、架构说明。日常是可翻页的 HTML，需要改版式时再导出可编辑 PPTX。九套风格在同一份文件里切换。</p>
                         <p class="links">
                             <a href="tms-skills/showcase.html" data-i18n="pres_showcase">在线演示</a>
                             <a href="tms-skills/style-gallery.html" data-i18n="pres_gallery">风格画廊</a>
@@ -128,7 +183,7 @@
                 <article class="surface" id="writing">
                     <div class="surface__copy">
                         <h3 class="title">Topmind Writing Skills</h3>
-                        <p class="body" data-i18n="write_lede">公众号、X 长文、干货短文、封面图。</p>
+                        <p class="body" data-i18n="write_lede">一个安装器，四件分开装。公众号从改稿到微信内联排版；X 长文把 Markdown 转成可以粘贴的文本；短文只讲透一件事；封面按 X 和公众号两种尺寸裁切。</p>
                         <p class="links">
                             <a href="https://github.com/topmindspace/topmind-writing-skills" target="_blank" rel="noopener noreferrer">GitHub</a>
                             <a href="https://www.npmjs.com/package/@topmindspace/topmind-writing-skills" target="_blank" rel="noopener noreferrer">npm</a>
@@ -152,7 +207,7 @@ npx @topmindspace/topmind-writing-skills install topmind-cover" data-i18n="copy_
                 <article class="surface" id="handoff">
                     <div class="surface__copy">
                         <h3 class="title">Topmind Handoff</h3>
-                        <p class="body" data-i18n="hand_lede">一份 Markdown，在不同 AI 工具之间导出、导入、合并。</p>
+                        <p class="body" data-i18n="hand_lede">把做事习惯、项目和记忆收成一份 Markdown（文件头加六节）。换工具时导出、对照差异，确认后再合并。不建账号，也不经过服务器。</p>
                         <p class="links">
                             <a href="https://github.com/topmindspace/topmind-handoff" target="_blank" rel="noopener noreferrer">GitHub</a>
                             <a href="https://www.npmjs.com/package/@topmindspace/topmind-handoff" target="_blank" rel="noopener noreferrer">npm</a>
