@@ -43,5 +43,7 @@
   "pres_shot_cover": "Cover",
   "pres_shot_modes": "Three shapes",
   "pres_shot_gates": "Quality gates",
-  "pres_open": "Open the live deck"
+  "pres_open": "Open the live deck",
+  "pres_img_alt": "Topmind Presentation style matrix: talk, research, and architecture modes across nine styles",
+  "write_img_alt": "Topmind Writing Skills cover: WeChat posts, X longform, briefs, and covers"
 }

@@ -7,7 +7,7 @@
     <meta name="description" content="Topmind 把记录留在本机 Markdown 时间轴上，整理和待办确认后才写入。同页还有演示文稿（可翻页 HTML 与可编辑 PPT）、写作技能，以及一份可带走的交接包。" data-i18n-meta="content:meta_description">
     <meta name="author" content="TopMindSpace">
     <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#fbf8f4">
+    <meta name="theme-color" content="#f7f9fc">
     <link rel="canonical" href="https://topmindspace.github.io/">
 
     <meta property="og:title" content="Topmindspace｜本地动态流、演示、写作与交接" data-i18n-meta="content:og_title">
@@ -39,7 +39,7 @@
             if (t !== 'dark' && t !== 'light') t = 'light';
             document.documentElement.setAttribute('data-theme', t);
             var meta = document.querySelector('meta[name="theme-color"]');
-            if (meta) meta.setAttribute('content', t === 'dark' ? '#14140f' : '#fbf8f4');
+            if (meta) meta.setAttribute('content', t === 'dark' ? '#0f141b' : '#f7f9fc');
             if (localStorage.getItem('topmind-lang') === 'en') {
                 document.documentElement.setAttribute('data-pending-lang', 'en');
             }
@@ -163,6 +163,9 @@
                 <div id="tms-skills"></div>
 
                 <article class="surface" id="presentation">
+                    <figure class="surface__shot">
+                        <img src="assets/img/projects/presentation-theme-overview.jpg" alt="Topmind Presentation 风格矩阵：演示、研究、架构三种模式与九套风格" width="1400" height="2329" loading="lazy" data-i18n-attr="alt:pres_img_alt">
+                    </figure>
                     <div class="surface__copy">
                         <h3 class="title">Topmind Presentation</h3>
                         <p class="body" data-i18n="pres_lede">正式商务演示技能。三种成稿：台上讲的演示、研究报告、架构说明。日常是可翻页的 HTML，需要改版式时再导出可编辑 PPTX。九套风格在同一份文件里切换。</p>
@@ -181,6 +184,9 @@
                 </article>
 
                 <article class="surface" id="writing">
+                    <figure class="surface__shot surface__shot--cover">
+                        <img src="assets/img/projects/writing-cover.jpg" alt="Topmind Writing Skills 封面：公众号文章、X 长文、干货短文、封面配图" width="1600" height="640" loading="lazy" data-i18n-attr="alt:write_img_alt">
+                    </figure>
                     <div class="surface__copy">
                         <h3 class="title">Topmind Writing Skills</h3>
                         <p class="body" data-i18n="write_lede">一个安装器，四件分开装。公众号从改稿到微信内联排版；X 长文把 Markdown 转成可以粘贴的文本；短文只讲透一件事；封面按 X 和公众号两种尺寸裁切。</p>

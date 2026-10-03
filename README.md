@@ -66,7 +66,7 @@ Chinese is the default. The nav can switch to English. The choice is stored in `
 
 ### Theme
 
-Light theme uses warm MD3 tonal surfaces and one amber primary, separate from body text. Dark theme uses the same hue at a lighter tone. The choice is stored in `localStorage` as `topmind-theme`.
+Light theme uses white and pale blue MD3 tonal surfaces with one blue primary, separate from body text. Dark theme uses the same blue hue on darker blue-gray surfaces. The choice is stored in `localStorage` as `topmind-theme`.
 
 ## Projects
 
