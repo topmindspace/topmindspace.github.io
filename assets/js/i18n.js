@@ -17,10 +17,15 @@ const I18n = (function () {
      * @param {string} lang - Language code ('zh' or 'en')
      * @returns {Promise<Object>} Translation dictionary
      */
+    function translationBase() {
+        const base = document.documentElement.getAttribute('data-i18n-base') || 'i18n';
+        return base.replace(/\/$/, '');
+    }
+
     async function loadTranslations(lang) {
         if (cache[lang]) return cache[lang];
-        const resp = await fetch(`./i18n/${lang}.json`);
-        if (!resp.ok) throw new Error(`Failed to load i18n/${lang}.json`);
+        const resp = await fetch(`${translationBase()}/${lang}.json`);
+        if (!resp.ok) throw new Error(`Failed to load ${translationBase()}/${lang}.json`);
         cache[lang] = await resp.json();
         return cache[lang];
     }
@@ -90,8 +95,11 @@ const I18n = (function () {
             );
         }
 
+        document.documentElement.removeAttribute('data-pending-lang');
+
         // Persist preference
         localStorage.setItem('topmind-lang', lang);
+        document.dispatchEvent(new CustomEvent('i18n:applied'));
     }
 
     /**
@@ -163,7 +171,12 @@ const I18n = (function () {
     async function init() {
         const saved = localStorage.getItem('topmind-lang');
         // Chinese is the default. A saved toggle still wins.
-        await apply(saved === 'en' || saved === 'zh' ? saved : 'zh');
+        try {
+            await apply(saved === 'en' || saved === 'zh' ? saved : 'zh');
+        } catch (err) {
+            document.documentElement.removeAttribute('data-pending-lang');
+            throw err;
+        }
     }
 
     return { init, apply, getLang, detectLanguage, t };

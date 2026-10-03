@@ -32,7 +32,7 @@
         // Sync <meta name="theme-color"> with current theme
         var metaThemeColor = document.querySelector('meta[name="theme-color"]');
         if (metaThemeColor) {
-            metaThemeColor.setAttribute('content', theme === 'dark' ? '#141c2e' : '#f7f3ec');
+            metaThemeColor.setAttribute('content', theme === 'dark' ? '#14140f' : '#fbf8f4');
         }
     }
 
@@ -60,6 +60,15 @@
     /* ----------------------------------------
        3. Nav: scroll state + burger menu
        ---------------------------------------- */
+    function menuLabel(isOpen) {
+        if (typeof I18n !== 'undefined' && I18n.t) {
+            var key = isOpen ? 'nav_menu_close' : 'nav_menu';
+            var label = I18n.t(key);
+            if (label && label !== key) return label;
+        }
+        return isOpen ? '关闭菜单' : '打开菜单';
+    }
+
     function initNav() {
         var nav = document.getElementById('nav');
         var burger = document.getElementById('navBurger');
@@ -79,6 +88,7 @@
             burger.addEventListener('click', function () {
                 var isOpen = nav.classList.toggle('is-open');
                 burger.setAttribute('aria-expanded', String(isOpen));
+                burger.setAttribute('aria-label', menuLabel(isOpen));
             });
 
             // Close on link click
@@ -86,7 +96,13 @@
                 link.addEventListener('click', function () {
                     nav.classList.remove('is-open');
                     burger.setAttribute('aria-expanded', 'false');
+                    burger.setAttribute('aria-label', menuLabel(false));
                 });
+            });
+
+            document.addEventListener('i18n:applied', function () {
+                var open = nav.classList.contains('is-open');
+                burger.setAttribute('aria-label', menuLabel(open));
             });
 
             // Close on Escape
@@ -94,6 +110,7 @@
                 if (e.key === 'Escape' && nav.classList.contains('is-open')) {
                     nav.classList.remove('is-open');
                     burger.setAttribute('aria-expanded', 'false');
+                    burger.setAttribute('aria-label', menuLabel(false));
                     burger.focus();
                 }
             });

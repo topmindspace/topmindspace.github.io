@@ -1,6 +1,6 @@
 # Topmindspace homepage
 
-> Topmind is a local-first personal stream. The same page links presentations, writing skills, and handoff.
+> Topmind keeps a personal stream in local Markdown. The same page installs presentation, writing, and handoff skills.
 
 GitHub Pages for [Topmindspace](https://topmindspace.github.io/). The primary project is [Topmind](https://github.com/topmindspace/topmind).
 
@@ -66,7 +66,7 @@ Chinese is the default. The nav can switch to English. The choice is stored in `
 
 ### Theme
 
-Light theme uses an MD3 cream surface and a navy primary. Dark theme inverts that pair. The choice is stored in `localStorage` as `topmind-theme`.
+Light theme uses warm MD3 tonal surfaces and one amber primary, separate from body text. Dark theme uses the same hue at a lighter tone. The choice is stored in `localStorage` as `topmind-theme`.
 
 ## Projects
 
