@@ -1,79 +1,69 @@
 # Topmindspace homepage
 
-> Topmind keeps a personal stream in local Markdown. The same page installs presentation, writing, and handoff skills.
+> Open-source tools built around local Markdown: knowledge management, writing, and presentations.
 
-GitHub Pages for [Topmindspace](https://topmindspace.github.io/). The primary project is [Topmind](https://github.com/topmindspace/topmind).
+GitHub Pages for [Topmindspace](https://topmindspace.github.io/), published from the root of `main`.
 
 **[中文文档](./README.zh-CN.md)**
 
 ## Features
 
-- **Pure static** — HTML + CSS + Vanilla JS, no build tools or framework dependencies
-- **Bilingual** — Full Chinese/English i18n with auto-detection and manual toggle
-- **Dark/Light theme** — System-aware with persistent preference
-- **Accessible** — Keyboard navigation, ARIA labels, reduced-motion support
-- **Responsive** — Optimized for desktop, tablet, and mobile
-- **SEO-ready** — Open Graph, Twitter Cards, JSON-LD structured data, sitemap
+- **Pure static**: HTML, CSS, and vanilla JS, with no build tools or framework dependencies
+- **Bilingual**: full Chinese and English i18n with a manual toggle, stored in `localStorage`
+- **Light and dark themes**: light uses white and pale blue MD3 surfaces, dark uses the same blue hue
+- **Accessible**: keyboard navigation, ARIA labels, reduced-motion support
+- **Responsive**: desktop, tablet, and phone; screenshot strips scroll sideways on phones
+- **SEO**: Open Graph, Twitter Cards, JSON-LD, sitemap
 
-## Tech Stack
+## Page structure
 
-| Category | Technology |
-|----------|-----------|
-| Fonts | Noto Sans SC + JetBrains Mono (Google Fonts) |
-| Icons | No icon library |
-| i18n | JSON translation files + async loading engine |
-| Styling | Modular CSS (tokens → base → components → sections → responsive) |
+The site presents five projects, each as what it is, who it is for, and how to install it:
 
-## Local Preview
+1. Knowledge: Topmind desktop, Topmind Stream (Obsidian plugin), topmind-skills
+2. Writing and presentations: topmind-writing-skills, topmind-presentation (full page at `presentation/`)
+
+Earlier links to the project page, the live deck, and the style gallery are static redirect pages that land on `presentation/`.
+
+## Updating version info
+
+Versions, install commands, and skill lists come from each repository's README and Releases. When they change, update:
+
+- the version tags in `index.html` and `softwareVersion` in the JSON-LD
+- the version tag and JSON-LD in `presentation/index.html`
+- `i18n/zh.json` and `i18n/en.json`
+- `lastmod` in `sitemap.xml`
+
+## Local preview
 
 ```bash
-python -m http.server 8000
+python3 -m http.server 8000
 # Visit http://localhost:8000
 ```
 
-Or with Node.js:
-
-```bash
-npx serve .
-```
-
-## File Structure
+## File structure
 
 ```
-index.html                  # Main page
+index.html                  # Home page
+presentation/
+  └── index.html            # Topmind Presentation project page
 assets/
-  ├── css/
-  │   ├── tokens.css        # Design tokens (colors, typography, spacing)
-  │   ├── base.css          # Reset, typography, layout primitives
-  │   ├── components.css    # Nav, buttons, cmd-block, copy, lightbox, toast
-  │   ├── sections.css      # Hero, showcase, philosophy, products, capabilities
-  │   ├── responsive.css    # Media queries, reduced motion, print
-  │   └── main.css          # Entry point (imports all modules)
+  ├── css/home.css          # Site styles (tokens, components, responsive)
   ├── js/
-  │   ├── i18n.js           # i18n engine (async JSON loading + caching + t())
-  │   └── main.js           # Theme, nav, scroll spy, reveal, copy, showcase, lightbox
-  └── img/                  # Screenshots, hero image & logo
+  │   ├── i18n.js           # i18n engine (async JSON, data-i18n, data-i18n-attr, ...)
+  │   └── main.js           # Theme, language, nav, scroll spy, copy
+  └── img/                  # Screenshots and logo; presentation/ holds the project page samples
 i18n/
-  ├── zh.json               # Chinese translations
-  └── en.json               # English translations
+  ├── zh.json               # Chinese
+  └── en.json               # English
 ```
-
-## Customization
-
-### Language
-
-Chinese is the default. The nav can switch to English. The choice is stored in `localStorage`.
-
-### Theme
-
-Light theme uses white and pale blue MD3 tonal surfaces with one blue primary, separate from body text. Dark theme uses the same blue hue on darker blue-gray surfaces. The choice is stored in `localStorage` as `topmind-theme`.
 
 ## Projects
 
-- [Topmind](https://github.com/topmindspace/topmind) — primary
-- [Topmind Presentation](https://github.com/topmindspace/topmind-presentation) — formal business presentations. The live showcase remains at [showcase](https://topmindspace.github.io/tms-skills/showcase.html) and the [style gallery](https://topmindspace.github.io/tms-skills/style-gallery.html)
-- [Topmind Writing Skills](https://github.com/topmindspace/topmind-writing-skills)
-- [Topmind Handoff](https://github.com/topmindspace/topmind-handoff)
+- [Topmind](https://github.com/topmindspace/topmind): desktop app
+- [topmind-obsidian](https://github.com/topmindspace/topmind-obsidian): Obsidian plugin
+- [topmind-skills](https://github.com/topmindspace/topmind-skills): skill pack
+- [topmind-writing-skills](https://github.com/topmindspace/topmind-writing-skills): writing and images
+- [topmind-presentation](https://github.com/topmindspace/topmind-presentation): presentations
 
 ---
 

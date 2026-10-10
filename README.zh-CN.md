@@ -1,79 +1,69 @@
 # Topmindspace 主页
 
-> Topmind 把记录留在本机 Markdown 时间轴上。同页安装演示、写作技能和交接包。
+> 围绕本地 Markdown 的开源工具：知识管理、写作与演示。
 
-[Topmindspace](https://topmindspace.github.io/) 的 GitHub Pages。主项目是 [Topmind](https://github.com/topmindspace/topmind)。
+[Topmindspace](https://topmindspace.github.io/) 的 GitHub Pages，从 `main` 根目录发布。
 
 **[English](./README.md)**
 
 ## 特性
 
-- **纯静态** — HTML + CSS + 原生 JS，无构建工具、无框架依赖
-- **双语支持** — 完整中英文 i18n，自动检测语言并支持手动切换
-- **深色/浅色主题** — 跟随系统并持久化保存用户偏好
-- **无障碍** — 键盘导航、ARIA 标签、减弱动效支持
-- **响应式** — 针对桌面、平板和移动端优化
-- **SEO 就绪** — Open Graph、Twitter Cards、JSON-LD 结构化数据、站点地图
+- **纯静态**：HTML、CSS、原生 JS，无构建工具、无框架依赖
+- **中英双语**：完整 i18n，可手动切换，偏好保存在 `localStorage`
+- **浅色与深色主题**：浅色为白底加淡蓝 MD3 表面，深色用同一蓝色相
+- **无障碍**：键盘导航、ARIA 标签、减弱动效支持
+- **响应式**：桌面、平板和手机；截图在手机上改为横向滑动
+- **SEO**：Open Graph、Twitter Cards、JSON-LD、站点地图
 
-## 技术栈
+## 页面结构
 
-| 分类 | 技术 |
-|------|------|
-| 字体 | Noto Sans SC + JetBrains Mono（Google Fonts） |
-| 图标 | 无图标库 |
-| i18n | JSON 翻译文件 + 异步加载引擎 |
-| 样式 | 模块化 CSS（tokens → base → components → sections → responsive） |
+站点介绍五个项目，每个项目按「是什么、适合谁、怎么装」组织：
+
+1. 知识管理：Topmind 桌面版、Topmind Stream（Obsidian 插件）、topmind-skills
+2. 写作与演示：topmind-writing-skills、topmind-presentation（详细介绍在 `presentation/`）
+
+早期的项目页、在线演示和风格画廊链接已改成静态跳转页，统一指向 `presentation/`。
+
+## 更新版本信息
+
+版本号、安装命令和技能清单以各仓库的 README 与 Release 为准。更新时同步修改：
+
+- `index.html` 里的版本标签和 JSON-LD 的 `softwareVersion`
+- `presentation/index.html` 里的版本标签和 JSON-LD
+- `i18n/zh.json` 与 `i18n/en.json`
+- `sitemap.xml` 的 `lastmod`
 
 ## 本地预览
 
 ```bash
-python -m http.server 8000
+python3 -m http.server 8000
 # 访问 http://localhost:8000
-```
-
-或使用 Node.js：
-
-```bash
-npx serve .
 ```
 
 ## 文件结构
 
 ```
-index.html                  # 主页面
+index.html                  # 首页
+presentation/
+  └── index.html            # Topmind Presentation 项目页
 assets/
-  ├── css/
-  │   ├── tokens.css        # 设计令牌（颜色、字体、间距）
-  │   ├── base.css          # 重置、排版、布局原语
-  │   ├── components.css    # 导航、按钮、命令块、复制、灯箱、Toast
-  │   ├── sections.css      # Hero、展示区、理念、产品、能力
-  │   ├── responsive.css    # 媒体查询、减弱动效、打印
-  │   └── main.css          # 入口文件（导入所有模块）
+  ├── css/home.css          # 全站样式（设计令牌、组件、响应式）
   ├── js/
-  │   ├── i18n.js           # i18n 引擎（异步 JSON 加载 + 缓存 + t()）
-  │   └── main.js           # 主题、导航、滚动监听、揭示动画、复制、展示区、灯箱
-  └── img/                  # 截图、主图与 logo
+  │   ├── i18n.js           # i18n 引擎（异步加载 JSON，支持 data-i18n、data-i18n-attr 等）
+  │   └── main.js           # 主题、语言、导航、滚动高亮、复制
+  └── img/                  # 截图与 logo；presentation/ 为演示项目页的样张
 i18n/
-  ├── zh.json               # 中文翻译
-  └── en.json               # 英文翻译
+  ├── zh.json               # 中文
+  └── en.json               # 英文
 ```
-
-## 自定义
-
-### 语言
-
-默认中文。导航栏可切到英文，偏好保存在 `localStorage`。
-
-### 主题
-
-浅色是白底加淡蓝 MD3 表面，主色是蓝色，和正文色分开。深色用同一蓝色相，表面更暗。偏好保存在 `localStorage` 的 `topmind-theme`。
 
 ## 项目
 
-- [Topmind](https://github.com/topmindspace/topmind) — 主项目
-- [Topmind Presentation](https://github.com/topmindspace/topmind-presentation) — 正式商务演示文稿。在线演示仍在 [showcase](https://topmindspace.github.io/tms-skills/showcase.html) 与 [风格画廊](https://topmindspace.github.io/tms-skills/style-gallery.html)
-- [Topmind Writing Skills](https://github.com/topmindspace/topmind-writing-skills)
-- [Topmind Handoff](https://github.com/topmindspace/topmind-handoff)
+- [Topmind](https://github.com/topmindspace/topmind)：桌面版
+- [topmind-obsidian](https://github.com/topmindspace/topmind-obsidian)：Obsidian 插件
+- [topmind-skills](https://github.com/topmindspace/topmind-skills)：技能包
+- [topmind-writing-skills](https://github.com/topmindspace/topmind-writing-skills)：写作与出图
+- [topmind-presentation](https://github.com/topmindspace/topmind-presentation)：演示
 
 ---
 
