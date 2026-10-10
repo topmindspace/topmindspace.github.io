@@ -64,21 +64,17 @@ const I18n = (function () {
         });
 
         // Meta tag content attribute (data-i18n-meta="attrName:key")
-        document.querySelectorAll('[data-i18n-meta]').forEach((el) => {
-            const spec = el.getAttribute('data-i18n-meta');
-            const [attr, key] = spec.split(':');
-            if (dict[key] != null) {
-                el.setAttribute(attr, interpolate(String(dict[key])));
-            }
-        });
-
-        // Arbitrary attribute (data-i18n-attr="attrName:key")
-        document.querySelectorAll('[data-i18n-attr]').forEach((el) => {
-            const spec = el.getAttribute('data-i18n-attr');
-            const [attr, key] = spec.split(':');
-            if (dict[key] != null) {
-                el.setAttribute(attr, interpolate(String(dict[key])));
-            }
+        // Arbitrary attribute (data-i18n-attr="attrName:key"); several pairs may be
+        // separated by ";", e.g. data-i18n-attr="src:img_src;alt:img_alt".
+        ['data-i18n-meta', 'data-i18n-attr'].forEach((name) => {
+            document.querySelectorAll('[' + name + ']').forEach((el) => {
+                el.getAttribute(name).split(';').forEach((spec) => {
+                    const [attr, key] = spec.trim().split(':');
+                    if (attr && key && dict[key] != null) {
+                        el.setAttribute(attr, interpolate(String(dict[key])));
+                    }
+                });
+            });
         });
 
         // Update <html lang="...">
