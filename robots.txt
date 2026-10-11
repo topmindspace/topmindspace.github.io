@@ -1,0 +1,5 @@
+# https://topmindspace.github.io/
+User-agent: *
+Allow: /
+
+Sitemap: https://topmindspace.github.io/sitemap.xml

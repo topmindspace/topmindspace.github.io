@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-i18n-base="../i18n">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="pp_meta_title">Topmind Presentation｜HTML 幻灯片与可编辑 PPTX</title>
+  <meta name="description" data-i18n-meta="content:pp_meta_description" content="Topmind Presentation 做正式商务演示：台上演示、研究报告、架构说明。日常交付可翻页 HTML，需要时导出可编辑 PPTX，九套风格。">
+  <meta name="author" content="TopMindSpace">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#f7f9fc">
+  <link rel="canonical" href="https://topmindspace.github.io/presentation/">
+
+  <meta property="og:title" data-i18n-meta="content:pp_meta_title" content="Topmind Presentation｜HTML 幻灯片与可编辑 PPTX">
+  <meta property="og:description" data-i18n-meta="content:pp_meta_description" content="Topmind Presentation 做正式商务演示：台上演示、研究报告、架构说明。日常交付可翻页 HTML，需要时导出可编辑 PPTX，九套风格。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://topmindspace.github.io/presentation/">
+  <meta property="og:image" content="https://topmindspace.github.io/assets/img/presentation/sample-presentation.jpg">
+  <meta property="og:site_name" content="Topmindspace">
+  <meta property="og:locale" data-i18n-meta="content:og_locale" content="zh_CN">
+  <meta property="og:locale:alternate" content="en_US">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" data-i18n-meta="content:pp_meta_title" content="Topmind Presentation｜HTML 幻灯片与可编辑 PPTX">
+  <meta name="twitter:description" data-i18n-meta="content:pp_meta_description" content="Topmind Presentation 做正式商务演示：台上演示、研究报告、架构说明。日常交付可翻页 HTML，需要时导出可编辑 PPTX，九套风格。">
+  <meta name="twitter:image" content="https://topmindspace.github.io/assets/img/presentation/sample-presentation.jpg">
+  <meta name="twitter:site" content="@mspd4100">
+
+  <link rel="icon" type="image/png" href="../assets/img/topminispace.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <script>
+    (function () {
+      var t = localStorage.getItem('topmind-theme');
+      if (t !== 'dark' && t !== 'light') t = 'light';
+      document.documentElement.setAttribute('data-theme', t);
+      var meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) meta.setAttribute('content', t === 'dark' ? '#0f141b' : '#f7f9fc');
+      if (localStorage.getItem('topmind-lang') === 'en') {
+        document.documentElement.setAttribute('data-pending-lang', 'en');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="../assets/css/home.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Topmind Presentation",
+    "applicationCategory": "DeveloperApplication",
+    "softwareVersion": "0.2.7",
+    "url": "https://github.com/topmindspace/topmind-presentation",
+    "publisher": {"@type": "Organization", "name": "TopMindSpace", "url": "https://github.com/topmindspace"}
+  }
+  </script>
+</head>
+<body>
+    <a href="#main" class="skip-link" data-i18n="skip_link">跳到主要内容</a>
+
+    <header class="topbar nav" id="nav">
+        <div class="topbar__inner">
+            <a href="../" class="topbar__brand">
+                <img src="../assets/img/topminispace.png" alt="" class="topbar__logo" width="32" height="32">
+                <span class="topbar__name">Topmindspace</span>
+            </a>
+            <nav class="topbar__links" id="navLinks" data-i18n-attr="aria-label:nav_aria_label" aria-label="主导航">
+                <a href="../#knowledge" class="topbar__link nav__link" data-i18n="nav_knowledge">知识管理</a>
+                <a href="../#create" class="topbar__link nav__link" data-i18n="nav_create">写作与演示</a>
+                <a href="https://github.com/topmindspace" target="_blank" rel="noopener noreferrer" class="topbar__link nav__link">GitHub</a>
+                <a href="https://x.com/mspd4100" target="_blank" rel="noopener noreferrer" class="topbar__link nav__link">@mspd4100</a>
+            </nav>
+            <div class="topbar__actions">
+                <button class="text-btn" id="langToggle" type="button" aria-label="切换到英文">
+                    <span class="lang-toggle__current" id="langCurrent">中</span>
+                </button>
+                <button class="text-btn" id="themeToggle" type="button" data-i18n-attr="aria-label:theme_aria" aria-label="切换浅色或深色">
+                    <span class="when-light" data-i18n="theme_to_dark">深色</span>
+                    <span class="when-dark" data-i18n="theme_to_light">浅色</span>
+                </button>
+                <button class="topbar__burger" id="navBurger" type="button" aria-expanded="false" aria-controls="navLinks" data-i18n-attr="aria-label:nav_menu" aria-label="打开菜单">
+                    <span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+
+  <main id="main" tabindex="-1">
+    <section class="page-hero" aria-labelledby="pp-title">
+      <div class="wrap">
+        <a class="back" href="../" data-i18n="pp_back">返回首页</a>
+        <h1 id="pp-title" class="display">Topmind Presentation <span class="tag">v0.2.7</span></h1>
+        <p class="lede" data-i18n="pp_lede">技能名 topmind-presentation，品牌名 TopPPT HTML。HTML 和 PPTX 出自同一份内容模型：日常翻页的是 HTML，要改版式时导出可编辑 PPTX。</p>
+        <dl class="facts facts--plain">
+          <div class="facts__row"><dt data-i18n="lbl_what">是什么</dt><dd data-i18n="pres_what">正式商务演示技能（TopPPT HTML）。三种成稿：台上演示、研究报告、架构说明。日常是可翻页的 HTML，需要改版式时导出可编辑 PPTX。九套风格，浅色和深色两种主题。</dd></div>
+          <div class="facts__row"><dt data-i18n="lbl_for">适合谁</dt><dd data-i18n="pres_for">要做汇报、研究报告或架构说明的人。</dd></div>
+          <div class="facts__row"><dt data-i18n="lbl_install">安装</dt><dd>
+            <div class="cmd">
+              <pre><code>npx skills add topmindspace/topmind-presentation --agent claude-code -g</code></pre>
+              <button class="text-btn copy-btn" type="button" data-copy="npx skills add topmindspace/topmind-presentation --agent claude-code -g" data-i18n="copy_label" data-i18n-attr="aria-label:copy_aria" aria-label="复制安装命令">复制</button>
+            </div>
+            <p class="note" data-i18n="pres_note">需要 Node.js 22+。HTML 只用 Python 标准库，导出 PPTX 另需 Node。也可用 npm、Release zip 或 git clone，见 README。</p>
+          </dd></div>
+        </dl>
+        <p class="links">
+          <a href="https://github.com/topmindspace/topmind-presentation" target="_blank" rel="noopener noreferrer" data-i18n="link_github">GitHub</a>
+          <a href="https://www.npmjs.com/package/@topmindspace/topmind-presentation" target="_blank" rel="noopener noreferrer" data-i18n="link_npm">npm</a>
+          <a href="https://github.com/topmindspace/topmind-presentation/releases" target="_blank" rel="noopener noreferrer" data-i18n="link_releases">Releases</a>
+        </p>
+      </div>
+    </section>
+
+    <section class="group group--tonal" aria-labelledby="modes-title">
+      <div class="wrap">
+        <div class="group__head">
+          <h2 id="modes-title" class="headline" data-i18n="pp_modes_title">三种成稿</h2>
+          <p class="body" data-i18n="pp_modes_lead">先定模式再写页。下面三张是仓库自带的示例报告首页。</p>
+        </div>
+        <ul class="strip strip--roomy">
+          <li><figure><img src="../assets/img/presentation/sample-presentation.jpg" width="1280" height="720" loading="lazy" data-i18n-attr="alt:pres_sample_a_alt" alt="演示模式样张：business-blue 风格的封面页"><figcaption><strong data-i18n="pp_mode_a_t">A · 演示</strong><span data-i18n="pp_mode_a_d">台上讲的演示，每屏一个主张。</span></figcaption></figure></li>
+          <li><figure><img src="../assets/img/presentation/sample-report.jpg" width="1280" height="720" loading="lazy" data-i18n-attr="alt:pres_sample_b_alt" alt="研究模式样张：mckinsey 风格的封面页"><figcaption><strong data-i18n="pp_mode_b_t">B · 研究</strong><span data-i18n="pp_mode_b_d">研究报告，图表带来源和结论条。</span></figcaption></figure></li>
+          <li><figure><img src="../assets/img/presentation/sample-architecture.jpg" width="1280" height="720" loading="lazy" data-i18n-attr="alt:pres_sample_c_alt" alt="架构模式样张：graphite-dark 风格的封面页"><figcaption><strong data-i18n="pp_mode_c_t">C · 架构</strong><span data-i18n="pp_mode_c_d">架构说明，以拓扑、泳道和分层图为主。</span></figcaption></figure></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="group" aria-labelledby="styles-title">
+      <div class="wrap">
+        <div class="group__head">
+          <h2 id="styles-title" class="headline" data-i18n="pp_styles_title">九套风格</h2>
+          <p class="body" data-i18n="pp_styles_lead">九套风格在同一份文件里切换，亮色适合外发，深色适合大屏。下面是风格矩阵。</p>
+        </div>
+        <figure class="matrix">
+          <img src="../assets/img/presentation/theme-overview.jpg" width="1400" height="2329" loading="lazy" data-i18n-attr="alt:pp_styles_alt" alt="Topmind Presentation 风格矩阵：演示、研究、架构三种模式与九套风格">
+        </figure>
+      </div>
+    </section>
+
+    <section class="group group--tonal" aria-labelledby="tool-title">
+      <div class="wrap">
+        <div class="group__head">
+          <h2 id="tool-title" class="headline" data-i18n="pp_tool_title">HTML 顶栏工具栏</h2>
+          <p class="body" data-i18n="pp_tool_lead">打开交付的 HTML 就能用的快捷操作。</p>
+        </div>
+        <ul class="toolbar">
+          <li><p class="toolbar__name" data-i18n="pp_tool_theme">亮暗主题（T）</p><p class="toolbar__desc" data-i18n="pp_tool_theme_d">浅色适合外发，深色适合大屏，按文件记忆。</p></li>
+          <li><p class="toolbar__name" data-i18n="pp_tool_style">风格选择</p><p class="toolbar__desc" data-i18n="pp_tool_style_d">九套风格实时切换，只改视觉，不动内容。</p></li>
+          <li><p class="toolbar__name" data-i18n="pp_tool_pptx">预览 PPTX（P）</p><p class="toolbar__desc" data-i18n="pp_tool_pptx_d">按页序列预览，可复制提示词回对话来导出。</p></li>
+          <li><p class="toolbar__name" data-i18n="pp_tool_help">PPT 生成指引（H）</p><p class="toolbar__desc" data-i18n="pp_tool_help_d">说明导出 PPTX 的两条通道与环境依赖。</p></li>
+          <li><p class="toolbar__name" data-i18n="pp_tool_full">全屏（F）</p><p class="toolbar__desc" data-i18n="pp_tool_full_d">沉浸式演示，方向键翻页。</p></li>
+          <li><p class="toolbar__name" data-i18n="pp_tool_fold">收起工具栏（B）</p><p class="toolbar__desc" data-i18n="pp_tool_fold_d">折叠成迷你条，位置按文件记忆。</p></li>
+        </ul>
+        <p class="body" data-i18n="pp_foot_lead">完整说明和命令见仓库 README。</p>
+      </div>
+    </section>
+  </main>
+
+    <footer class="footer">
+        <div class="footer__inner">
+            <div class="footer__brand">
+                <p class="footer__name">Topmindspace</p>
+                <p class="footer__tag" data-i18n="footer_tagline">围绕本地 Markdown 的开源工具。</p>
+            </div>
+            <nav class="footer__col" data-i18n-attr="aria-label:footer_projects" aria-label="项目">
+                <p class="footer__head" data-i18n="footer_projects">项目</p>
+                <a href="https://github.com/topmindspace/topmind" target="_blank" rel="noopener noreferrer">Topmind</a>
+                <a href="https://github.com/topmindspace/topmind-obsidian" target="_blank" rel="noopener noreferrer">topmind-obsidian</a>
+                <a href="https://github.com/topmindspace/topmind-skills" target="_blank" rel="noopener noreferrer">topmind-skills</a>
+                <a href="https://github.com/topmindspace/topmind-writing-skills" target="_blank" rel="noopener noreferrer">topmind-writing-skills</a>
+                <a href="https://github.com/topmindspace/topmind-presentation" target="_blank" rel="noopener noreferrer">topmind-presentation</a>
+            </nav>
+            <nav class="footer__col" data-i18n-attr="aria-label:footer_links" aria-label="链接">
+                <p class="footer__head" data-i18n="footer_links">链接</p>
+                <a href="https://github.com/topmindspace" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://x.com/mspd4100" target="_blank" rel="noopener noreferrer">@mspd4100</a>
+            </nav>
+            <nav class="footer__col" data-i18n-attr="aria-label:footer_site" aria-label="本站">
+                <p class="footer__head" data-i18n="footer_site">本站</p>
+                <a href="./" data-i18n="pres_page_footer">Topmind Presentation 项目页</a>
+            </nav>
+        </div>
+        <div class="footer__bar">
+            <p class="footer__copy" data-i18n="footer_verified">版本号核对于 2026-10-10，以各仓库 Release 为准。</p>
+            <p class="footer__copy" data-i18n="footer_copy">© {{year}} TopMindSpace · MIT</p>
+        </div>
+    </footer>
+
+    <div class="toast" id="toast" role="status" aria-live="polite" data-i18n="toast_copied">已复制</div>
+
+
+  <script src="../assets/js/i18n.js"></script>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>
