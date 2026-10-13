@@ -83,18 +83,18 @@ const I18n = (function () {
         // Update language toggle button
         const langCurrent = document.getElementById('langCurrent');
         const langToggle = document.getElementById('langToggle');
-        if (langCurrent) langCurrent.textContent = lang === 'zh' ? '中' : 'EN';
+        if (langCurrent) langCurrent.textContent = lang === 'zh' ? 'EN' : '中';
         if (langToggle) {
             langToggle.setAttribute(
                 'aria-label',
-                lang === 'zh' ? '切换到英文' : 'Switch to Chinese'
+                lang === 'zh' ? 'EN，切换到英文' : '中, switch to Chinese'
             );
         }
 
         document.documentElement.removeAttribute('data-pending-lang');
 
         // Persist preference
-        localStorage.setItem('topmind-lang', lang);
+        try { localStorage.setItem('topmind-lang', lang); } catch (e) { /* private mode */ }
         document.dispatchEvent(new CustomEvent('i18n:applied'));
     }
 
@@ -165,7 +165,8 @@ const I18n = (function () {
      * Initialize: load saved preference (or auto-detect) and apply.
      */
     async function init() {
-        const saved = localStorage.getItem('topmind-lang');
+        let saved = null;
+        try { saved = localStorage.getItem('topmind-lang'); } catch (e) { /* private mode */ }
         // Chinese is the default. A saved toggle still wins.
         try {
             await apply(saved === 'en' || saved === 'zh' ? saved : 'zh');

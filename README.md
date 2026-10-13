@@ -8,19 +8,17 @@ GitHub Pages for [Topmindspace](https://topmindspace.github.io/), published from
 
 ## Features
 
-- **Pure static**: HTML, CSS, and vanilla JS, with no build tools or framework dependencies
+- **Pure static**: HTML, CSS, and vanilla JS, with no build tools or framework dependencies; no web fonts, no analytics, no cookies
+- **Design system**: every token sits at the top of `assets/css/home.css`: an MD3 tonal palette (seed `#4d6bfe`), light and dark system colors, a type scale, a 4px spacing grid, MD3 shape and easing
 - **Bilingual**: full Chinese and English i18n with a manual toggle, stored in `localStorage`
-- **Light and dark themes**: light uses white and pale blue MD3 surfaces, dark uses the same blue hue
-- **Accessible**: keyboard navigation, ARIA labels, reduced-motion support
-- **Responsive**: desktop, tablet, and phone; screenshot strips scroll sideways on phones
+- **Light and dark**: follows the system by default and remembers a manual choice
+- **Accessible**: keyboard navigation, skip link, ARIA labels, WCAG AA contrast; honors Reduce Motion and Increase Contrast
+- **Responsive**: desktop, tablet, and phone
 - **SEO**: Open Graph, Twitter Cards, JSON-LD, sitemap
 
 ## Page structure
 
-The site presents five projects, each as what it is, who it is for, and how to install it:
-
-1. Knowledge: Topmind desktop, Topmind Stream (Obsidian plugin), topmind-skills
-2. Writing and presentations: topmind-writing-skills, topmind-presentation (full page at `presentation/`)
+The home page runs: hero, an overview of the five projects, knowledge management (desktop app, Obsidian plugin, skill pack, and a comparison of the three), writing and presentations, and About this site. `presentation/` is the full Topmind Presentation page.
 
 Earlier links to the project page, the live deck, and the style gallery are static redirect pages that land on `presentation/`.
 
@@ -50,7 +48,7 @@ assets/
   ├── css/home.css          # Site styles (tokens, components, responsive)
   ├── js/
   │   ├── i18n.js           # i18n engine (async JSON, data-i18n, data-i18n-attr, ...)
-  │   └── main.js           # Theme, language, nav, scroll spy, copy
+  │   └── main.js           # Theme, language, nav, scroll spy, copy, reveal-on-scroll
   └── img/                  # Screenshots and logo; presentation/ holds the project page samples
 i18n/
   ├── zh.json               # Chinese

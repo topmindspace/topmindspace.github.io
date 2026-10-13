@@ -8,19 +8,17 @@
 
 ## 特性
 
-- **纯静态**：HTML、CSS、原生 JS，无构建工具、无框架依赖
+- **纯静态**：HTML、CSS、原生 JS，无构建工具、无框架依赖；不加载外部字体，无统计脚本，无 Cookie
+- **设计系统**：`assets/css/home.css` 顶部是全部令牌，包括 MD3 色调调色板（种子色 `#4d6bfe`）、明暗两套系统色、字体层级、4px 间距、MD3 圆角与缓动
 - **中英双语**：完整 i18n，可手动切换，偏好保存在 `localStorage`
-- **浅色与深色主题**：浅色为白底加淡蓝 MD3 表面，深色用同一蓝色相
-- **无障碍**：键盘导航、ARIA 标签、减弱动效支持
-- **响应式**：桌面、平板和手机；截图在手机上改为横向滑动
+- **浅色与深色**：默认跟随系统，手动切换后记住选择
+- **无障碍**：键盘导航、跳转链接、ARIA 标签、对比度符合 WCAG AA；支持「减少动态效果」和「增强对比度」
+- **响应式**：桌面、平板和手机
 - **SEO**：Open Graph、Twitter Cards、JSON-LD、站点地图
 
 ## 页面结构
 
-站点介绍五个项目，每个项目按「是什么、适合谁、怎么装」组织：
-
-1. 知识管理：Topmind 桌面版、Topmind Stream（Obsidian 插件）、topmind-skills
-2. 写作与演示：topmind-writing-skills、topmind-presentation（详细介绍在 `presentation/`）
+首页依次是：首屏、五个项目总览、知识管理（桌面版、Obsidian 插件、技能包，以及三种入口对比）、写作与演示、关于本站。`presentation/` 是 Topmind Presentation 的详细页。
 
 早期的项目页、在线演示和风格画廊链接已改成静态跳转页，统一指向 `presentation/`。
 
@@ -50,7 +48,7 @@ assets/
   ├── css/home.css          # 全站样式（设计令牌、组件、响应式）
   ├── js/
   │   ├── i18n.js           # i18n 引擎（异步加载 JSON，支持 data-i18n、data-i18n-attr 等）
-  │   └── main.js           # 主题、语言、导航、滚动高亮、复制
+  │   └── main.js           # 主题、语言、导航、滚动高亮、复制、滚动渐显
   └── img/                  # 截图与 logo；presentation/ 为演示项目页的样张
 i18n/
   ├── zh.json               # 中文

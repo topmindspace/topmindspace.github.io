@@ -11,29 +11,37 @@
        Consistently uses document.documentElement (<html>)
        to match the FOUC prevention script.
        ---------------------------------------- */
+    var THEME_COLORS = { light: '#fefbff', dark: '#111319' };
+
+    function storedTheme() {
+        try { return localStorage.getItem('topmind-theme'); } catch (e) { return null; }
+    }
+
     function initTheme() {
         var toggle = document.getElementById('themeToggle');
+        var media = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
+        var saved = storedTheme();
+        applyTheme(saved === 'dark' || saved === 'light' ? saved : (media && media.matches ? 'dark' : 'light'), false);
+
+        // Follow the OS until the visitor picks a theme explicitly.
+        if (media && media.addEventListener) {
+            media.addEventListener('change', function (e) {
+                var s = storedTheme();
+                if (s !== 'dark' && s !== 'light') applyTheme(e.matches ? 'dark' : 'light', false);
+            });
+        }
         if (!toggle) return;
-
-        var saved = localStorage.getItem('topmind-theme') || 'light';
-        applyTheme(saved);
-
         toggle.addEventListener('click', function () {
-            var current = document.documentElement.getAttribute('data-theme') || 'dark';
-            var next = current === 'dark' ? 'light' : 'dark';
-            applyTheme(next);
+            var current = document.documentElement.getAttribute('data-theme');
+            applyTheme(current === 'dark' ? 'light' : 'dark', true);
         });
     }
 
-    function applyTheme(theme) {
+    function applyTheme(theme, persist) {
         document.documentElement.setAttribute('data-theme', theme);
-        localStorage.setItem('topmind-theme', theme);
-
-        // Sync <meta name="theme-color"> with current theme
-        var metaThemeColor = document.querySelector('meta[name="theme-color"]');
-        if (metaThemeColor) {
-            metaThemeColor.setAttribute('content', theme === 'dark' ? '#0f141b' : '#f7f9fc');
-        }
+        if (persist) { try { localStorage.setItem('topmind-theme', theme); } catch (e) {} }
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.setAttribute('content', THEME_COLORS[theme]);
     }
 
     /* ----------------------------------------
@@ -142,6 +150,9 @@
         );
 
         sections.forEach(function (item) { observer.observe(item.section); });
+        window.addEventListener('scroll', function () {
+            if (window.scrollY < 200) navLinks.forEach(function (l) { l.classList.remove('is-active'); });
+        }, { passive: true });
     }
 
     /* ----------------------------------------
@@ -201,6 +212,27 @@
     }
 
     /* ----------------------------------------
+       6. Reveal on scroll (skipped with reduced motion)
+       ---------------------------------------- */
+    function initReveal() {
+        var items = document.querySelectorAll('.reveal');
+        var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (reduce || !('IntersectionObserver' in window)) {
+            items.forEach(function (el) { el.classList.add('is-in'); });
+            return;
+        }
+        var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-in');
+                    io.unobserve(entry.target);
+                }
+            });
+        }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+        items.forEach(function (el) { io.observe(el); });
+    }
+
+    /* ----------------------------------------
        Init
        ---------------------------------------- */
     document.addEventListener('DOMContentLoaded', function () {
@@ -209,5 +241,6 @@
         initNav();
         initScrollSpy();
         initCopy();
+        initReveal();
     });
 })();

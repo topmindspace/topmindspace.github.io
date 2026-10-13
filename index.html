@@ -7,7 +7,7 @@
     <meta name="description" data-i18n-meta="content:meta_description" content="Topmindspace 的开源项目：Topmind 个人动态流与知识管理（桌面版、Obsidian 插件、技能包），写作技能，以及生成可翻页 HTML 和可编辑 PPTX 的演示技能。">
     <meta name="author" content="TopMindSpace">
     <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#f7f9fc">
+    <meta name="theme-color" content="#fefbff">
     <link rel="canonical" href="https://topmindspace.github.io/">
 
     <meta property="og:title" data-i18n-meta="content:og_title" content="Topmindspace｜知识管理、写作与演示">
@@ -26,23 +26,17 @@
     <meta name="twitter:image" content="https://topmindspace.github.io/assets/img/obsidian-stream-en.jpg">
     <meta name="twitter:site" content="@mspd4100">
 
-    <link rel="icon" type="image/png" href="assets/img/topminispace.png">
-    <link rel="apple-touch-icon" href="assets/img/topminispace.png">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;600&display=swap" rel="stylesheet">
-
+    <link rel="icon" type="image/png" href="assets/img/logo-64.png">
+    <link rel="apple-touch-icon" href="assets/img/icon-180.png">
     <script>
         (function () {
-            var t = localStorage.getItem('topmind-theme');
-            if (t !== 'dark' && t !== 'light') t = 'light';
-            document.documentElement.setAttribute('data-theme', t);
-            var meta = document.querySelector('meta[name="theme-color"]');
-            if (meta) meta.setAttribute('content', t === 'dark' ? '#0f141b' : '#f7f9fc');
-            if (localStorage.getItem('topmind-lang') === 'en') {
-                document.documentElement.setAttribute('data-pending-lang', 'en');
-            }
+            var d = document.documentElement, t = null;
+            try { t = localStorage.getItem('topmind-theme'); if (localStorage.getItem('topmind-lang') === 'en') d.setAttribute('data-pending-lang', 'en'); } catch (e) {}
+            if (t !== 'dark' && t !== 'light') t = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            d.setAttribute('data-theme', t);
+            d.classList.add('js');
+            var m = document.querySelector('meta[name="theme-color"]');
+            if (m) m.setAttribute('content', t === 'dark' ? '#111319' : '#fefbff');
         })();
     </script>
     <link rel="stylesheet" href="assets/css/home.css">
@@ -69,7 +63,7 @@
                 "name": "Topmind",
                 "applicationCategory": "ProductivityApplication",
                 "operatingSystem": "macOS, Windows, Linux",
-                "softwareVersion": "4.16.0",
+                "softwareVersion": "4.16.1",
                 "url": "https://github.com/topmindspace/topmind",
                 "downloadUrl": "https://github.com/topmindspace/topmind/releases"
             },
@@ -92,7 +86,7 @@
                 "@type": "SoftwareApplication",
                 "name": "Topmind Writing Skills",
                 "applicationCategory": "DeveloperApplication",
-                "softwareVersion": "0.8.29",
+                "softwareVersion": "0.8.30",
                 "url": "https://github.com/topmindspace/topmind-writing-skills"
             },
             {
@@ -109,128 +103,159 @@
 <body>
     <a href="#main" class="skip-link" data-i18n="skip_link">跳到主要内容</a>
 
-    <header class="topbar nav" id="nav">
+    <header class="topbar" id="nav">
         <div class="topbar__inner">
-            <a href="./" class="topbar__brand">
-                <img src="./assets/img/topminispace.png" alt="" class="topbar__logo" width="32" height="32">
-                <span class="topbar__name">Topmindspace</span>
+            <a href="" class="topbar__brand">
+                <img src="assets/img/logo-64.png" alt="" class="topbar__logo" width="24" height="24">
+                <span>Topmindspace</span>
             </a>
             <nav class="topbar__links" id="navLinks" data-i18n-attr="aria-label:nav_aria_label" aria-label="主导航">
-                <a href="./#knowledge" class="topbar__link nav__link" data-i18n="nav_knowledge">知识管理</a>
-                <a href="./#create" class="topbar__link nav__link" data-i18n="nav_create">写作与演示</a>
+                <a href="#projects" class="topbar__link nav__link" data-i18n="nav_projects">项目</a>
+                <a href="#knowledge" class="topbar__link nav__link" data-i18n="nav_knowledge">知识管理</a>
+                <a href="#create" class="topbar__link nav__link" data-i18n="nav_create">写作与演示</a>
+                <a href="#about" class="topbar__link nav__link" data-i18n="nav_about">关于本站</a>
                 <a href="https://github.com/topmindspace" target="_blank" rel="noopener noreferrer" class="topbar__link nav__link">GitHub</a>
                 <a href="https://x.com/mspd4100" target="_blank" rel="noopener noreferrer" class="topbar__link nav__link">@mspd4100</a>
             </nav>
             <div class="topbar__actions">
-                <button class="text-btn" id="langToggle" type="button" aria-label="切换到英文">
-                    <span class="lang-toggle__current" id="langCurrent">中</span>
+                <button class="icon-btn" id="langToggle" type="button" aria-label="EN，切换到英文">
+                    <span id="langCurrent">EN</span>
                 </button>
-                <button class="text-btn" id="themeToggle" type="button" data-i18n-attr="aria-label:theme_aria" aria-label="切换浅色或深色">
-                    <span class="when-light" data-i18n="theme_to_dark">深色</span>
-                    <span class="when-dark" data-i18n="theme_to_light">浅色</span>
+                <button class="icon-btn" id="themeToggle" type="button" data-i18n-attr="aria-label:theme_aria" aria-label="切换浅色或深色">
+                    <svg class="when-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>
+                    <svg class="when-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
                 </button>
-                <button class="topbar__burger" id="navBurger" type="button" aria-expanded="false" aria-controls="navLinks" data-i18n-attr="aria-label:nav_menu" aria-label="打开菜单">
-                    <span></span><span></span>
+                <button class="icon-btn topbar__burger" id="navBurger" type="button" aria-expanded="false" aria-controls="navLinks" data-i18n-attr="aria-label:nav_menu" aria-label="打开菜单">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>
                 </button>
             </div>
         </div>
     </header>
 
-
     <main id="main" tabindex="-1">
-        <section class="hero hero--single" id="top" aria-labelledby="hero-title">
-            <div class="hero__copy">
-                <p class="eyebrow" data-i18n="hero_eyebrow">开源 · MIT</p>
-                <h1 id="hero-title" class="display">Topmindspace</h1>
-                <p class="lede" data-i18n="hero_lede">围绕本地 Markdown 的开源工具：个人动态流与知识管理，以及写作与演示技能。文件留在自己的磁盘上。</p>
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="wrap">
+                <p class="eyebrow" data-i18n="hero_eyebrow">Topmindspace · 开源 · MIT</p>
+                <h1 id="hero-title" class="display" data-i18n="hero_title">记下来，理清楚，写出去。</h1>
+                <p class="lede" data-i18n="hero_lede">五个开源项目，覆盖动态流与知识管理、写作和演示。笔记、文章和幻灯片都是你磁盘上的文件，AI 提出的改动由你确认后才写入。</p>
                 <div class="hero__cta">
-                    <a class="btn btn--filled" href="#projects" data-i18n="hero_cta_projects">浏览项目</a>
-                    <a class="btn btn--tonal" href="https://github.com/topmindspace" target="_blank" rel="noopener noreferrer" data-i18n="hero_cta_github">GitHub</a>
+                    <a class="btn btn--filled" href="#projects" data-i18n="hero_cta_projects">看看五个项目</a>
+                    <a class="btn btn--tonal" href="https://github.com/topmindspace" target="_blank" rel="noopener noreferrer" data-i18n="hero_cta_github">在 GitHub 上查看</a>
                 </div>
                 <div class="hero__install">
-                    <p class="label" data-i18n="hero_install_label">Topmind 桌面版 · macOS</p>
+                    <p class="label" data-i18n="hero_install_label">macOS 安装 Topmind 桌面版</p>
                     <div class="cmd">
                         <pre><code>brew install topmindspace/tap/topmind</code></pre>
-                        <button class="text-btn copy-btn" type="button" data-copy="brew install topmindspace/tap/topmind" data-i18n="copy_label" data-i18n-attr="aria-label:copy_aria" aria-label="复制安装命令">复制</button>
+                        <button class="icon-btn copy-btn" type="button" data-copy="brew install topmindspace/tap/topmind" data-i18n="copy_label" data-i18n-attr="aria-label:copy_aria" aria-label="复制安装命令">复制</button>
                     </div>
                 </div>
+                <figure class="hero__visual reveal">
+                    <div class="device">
+                        <div class="device__bar" aria-hidden="true"><i></i><i></i><i></i></div>
+                        <img width="1500" height="868" fetchpriority="high" data-i18n-attr="src:obs_img_src;alt:obs_img_alt" src="assets/img/obsidian-stream-zh.jpg" alt="Obsidian 里的 Topmind Stream：本周动态时间轴">
+                    </div>
+                </figure>
+                <dl class="hero__stats">
+                    <div class="stat"><dt class="visually-hidden" data-i18n="stat_projects_l">开源项目</dt><dd><b>5</b><span data-i18n="stat_projects">个开源项目</span></dd></div>
+                    <div class="stat"><dt class="visually-hidden" data-i18n="stat_entry_l">入口</dt><dd><b>3</b><span data-i18n="stat_entry">种知识管理入口</span></dd></div>
+                    <div class="stat"><dt class="visually-hidden" data-i18n="stat_skills_l">写作技能</dt><dd><b>6</b><span data-i18n="stat_skills">个写作与出图技能</span></dd></div>
+                    <div class="stat"><dt class="visually-hidden" data-i18n="stat_styles_l">演示风格</dt><dd><b>9</b><span data-i18n="stat_styles">套演示风格</span></dd></div>
+                </dl>
             </div>
         </section>
 
-        <section class="picker" id="projects" aria-labelledby="pick-title">
+        <section class="section section--tonal" id="projects" aria-labelledby="projects-title">
             <div class="wrap">
-                <h2 id="pick-title" class="headline" data-i18n="pick_title">从你要做的事开始</h2>
-                <ul class="picker__grid">
-                    <li><a class="pick" href="#knowledge">
-                        <span class="pick__title" data-i18n="pick_know_t">记录与整理想法</span>
-                        <span class="pick__desc" data-i18n="pick_know_d">动态流、剪藏、文档解析。整理和待办先出建议。</span>
-                        <span class="pick__proj">Topmind · topmind-obsidian · topmind-skills</span>
-                    </a></li>
-                    <li><a class="pick" href="#writing">
-                        <span class="pick__title" data-i18n="pick_write_t">写文章、做封面</span>
-                        <span class="pick__desc" data-i18n="pick_write_d">公众号、X 长文、短文、封面和长图。</span>
-                        <span class="pick__proj">topmind-writing-skills</span>
-                    </a></li>
-                    <li><a class="pick" href="#presentation">
-                        <span class="pick__title" data-i18n="pick_pres_t">做演示和报告</span>
-                        <span class="pick__desc" data-i18n="pick_pres_d">可翻页 HTML，需要时导出可编辑 PPTX。</span>
-                        <span class="pick__proj">topmind-presentation</span>
-                    </a></li>
-                </ul>
+                <div class="section__head reveal">
+                    <span class="eyebrow" data-i18n="projects_eyebrow">项目</span>
+                    <h2 id="projects-title" class="headline" data-i18n="projects_title">按你要做的事来选。</h2>
+                </div>
+                <div class="bento">
+                    <a class="tile tile--feature tile--a reveal" href="#topmind">
+                        <span class="tile__kicker" data-i18n="tile_desk_k">知识管理 · 桌面应用</span>
+                        <span class="tile__name">Topmind</span>
+                        <span class="tile__desc" data-i18n="tile_desk_d">动态流时间轴加 AI 工作区。macOS、Windows、Linux。</span>
+                        <span class="tile__foot"><span class="tag">v4.16.1</span><span class="tile__more" data-i18n="tile_more">了解更多 →</span></span>
+                    </a>
+                    <a class="tile tile--b reveal" href="#obsidian">
+                        <span class="tile__kicker" data-i18n="tile_obs_k">知识管理 · Obsidian 插件</span>
+                        <span class="tile__name">Topmind Stream</span>
+                        <span class="tile__desc" data-i18n="tile_obs_d">在 Obsidian 库里直接用动态流和 AI 面板。</span>
+                        <span class="tile__foot"><span class="tag">v4.18.2</span><span class="tile__more" data-i18n="tile_more">了解更多 →</span></span>
+                    </a>
+                    <a class="tile tile--c reveal" href="#skills">
+                        <span class="tile__kicker" data-i18n="tile_skl_k">知识管理 · 智能体技能</span>
+                        <span class="tile__name">topmind-skills</span>
+                        <span class="tile__desc" data-i18n="tile_skl_d">在 Claude Code、Codex 等智能体里管理笔记。</span>
+                        <span class="tile__foot"><span class="tag">v4.15.3</span><span class="tile__more" data-i18n="tile_more">了解更多 →</span></span>
+                    </a>
+                    <a class="tile tile--c reveal" href="#writing">
+                        <span class="tile__kicker" data-i18n="tile_write_k">写作 · 六个技能</span>
+                        <span class="tile__name">Writing Skills</span>
+                        <span class="tile__desc" data-i18n="tile_write_d">公众号、X 长文、短文、段子、封面和长图。</span>
+                        <span class="tile__foot"><span class="tag">v0.8.30</span><span class="tile__more" data-i18n="tile_more">了解更多 →</span></span>
+                    </a>
+                    <a class="tile tile--c reveal" href="#presentation">
+                        <span class="tile__kicker" data-i18n="tile_pres_k">演示 · 技能</span>
+                        <span class="tile__name">Presentation</span>
+                        <span class="tile__desc" data-i18n="tile_pres_d">可翻页 HTML，需要时导出可编辑 PPTX。</span>
+                        <span class="tile__foot"><span class="tag">v0.2.7</span><span class="tile__more" data-i18n="tile_more">了解更多 →</span></span>
+                    </a>
+                </div>
             </div>
         </section>
 
-        <section class="group group--tonal" id="knowledge" aria-labelledby="know-title">
+        <section class="section" id="knowledge" aria-labelledby="know-title">
             <div class="wrap">
-                <div class="group__head">
-                    <h2 id="know-title" class="headline" data-i18n="know_title">知识管理</h2>
-                    <p class="body" data-i18n="know_lead">Topmind 是主线：想法、剪藏和文档先记在时间轴上，文件是工作区里的 Markdown。整理和待办可以先出建议，你确认后才写入。桌面版、Obsidian 插件和技能包使用同一套工作区约定，按习惯选一种入口即可。</p>
+                <div class="section__head reveal">
+                    <span class="eyebrow" data-i18n="know_eyebrow">知识管理</span>
+                    <h2 id="know-title" class="headline" data-i18n="know_title">一个工作区，三种入口。</h2>
+                    <p class="body" data-i18n="know_lead">想法、剪藏和文档先记在时间轴上，存成工作区里的 Markdown。整理和待办先出建议，你确认后才写入。桌面版、Obsidian 插件和技能包用同一套工作区约定，换入口不用迁移文件。</p>
                 </div>
 
-                <article class="card" id="topmind">
-                    <header class="card__head">
-                        <h3 class="title" data-i18n="desk_name">Topmind 桌面版</h3>
-                        <span class="tag">v4.16.0</span>
-                        <a class="repo" href="https://github.com/topmindspace/topmind" target="_blank" rel="noopener noreferrer">topmindspace/topmind</a>
-                    </header>
-                    <dl class="facts">
-                        <div class="facts__row"><dt data-i18n="lbl_what">是什么</dt><dd data-i18n="desk_what">三栏桌面工作台：动态流时间轴加 AI 工作区，工作区有对话、建议、清单、应用四个页签。界面支持简体中文和 English。</dd></div>
-                        <div class="facts__row"><dt data-i18n="lbl_for">适合谁</dt><dd data-i18n="desk_for">想要独立应用、在界面里确认 AI 建议的人。</dd></div>
-                        <div class="facts__row"><dt data-i18n="lbl_install">安装</dt><dd>
-                            <div class="cmd">
-                                <pre><code>brew install topmindspace/tap/topmind</code></pre>
-                                <button class="text-btn copy-btn" type="button" data-copy="brew install topmindspace/tap/topmind" data-i18n="copy_label" data-i18n-attr="aria-label:copy_aria" aria-label="复制安装命令">复制</button>
-                            </div>
-                            <p class="note" data-i18n="desk_note">上面是 macOS 的 Homebrew 安装（安装包为 Apple 芯片版本）。Windows 和 Linux 的 .exe、.AppImage、.deb 在 Releases 下载。</p>
-                        </dd></div>
-                    </dl>
-                    <ul class="strip strip--duo">
-                        <li><figure><img src="assets/img/showcase-ai-agent.jpg" width="1327" height="495" loading="lazy" data-i18n-attr="alt:desk_shot_suggest_alt" alt="Topmind 建议面板：待确认的整理建议"><figcaption data-i18n="desk_shot_suggest">AI 建议</figcaption></figure></li>
-                        <li><figure><img src="assets/img/showcase-ingest.jpg" width="1440" height="620" loading="lazy" data-i18n-attr="alt:desk_shot_ingest_alt" alt="Topmind 知识导入：拖入文件转成 Markdown"><figcaption data-i18n="desk_shot_ingest">文档导入</figcaption></figure></li>
-                    </ul>
-                    <p class="links">
-                        <a href="https://github.com/topmindspace/topmind" target="_blank" rel="noopener noreferrer" data-i18n="link_github">GitHub</a>
-                        <a href="https://github.com/topmindspace/topmind/releases" target="_blank" rel="noopener noreferrer" data-i18n="link_releases">Releases</a>
-                    </p>
+                <article class="product reveal" id="topmind" aria-labelledby="desk-name">
+                    <div class="product__text">
+                        <div class="product__head">
+                            <h3 id="desk-name" class="title-lg" data-i18n="desk_name">Topmind 桌面版</h3>
+                            <span class="tag tag--accent">v4.16.1</span>
+                        </div>
+                        <span class="product__repo">topmindspace/topmind</span>
+                        <p class="product__lead" data-i18n="desk_what">三栏桌面工作台：动态流时间轴加 AI 工作区，工作区有对话、建议、清单、应用四个页签。界面支持简体中文和 English。</p>
+                        <dl class="facts">
+                            <div class="facts__row"><dt data-i18n="lbl_for">适合谁</dt><dd data-i18n="desk_for">想要独立应用、在界面里确认 AI 建议的人。</dd></div>
+                            <div class="facts__row"><dt data-i18n="lbl_install">安装</dt><dd>
+                                <div class="cmd">
+                                    <pre><code>brew install topmindspace/tap/topmind</code></pre>
+                                    <button class="icon-btn copy-btn" type="button" data-copy="brew install topmindspace/tap/topmind" data-i18n="copy_label" data-i18n-attr="aria-label:copy_aria" aria-label="复制安装命令">复制</button>
+                                </div>
+                                <p class="note" data-i18n="desk_note">macOS 用 Homebrew 安装（Apple 芯片）。Windows 和 Linux 的 .exe、.AppImage、.deb 在 Releases 下载。</p>
+                            </dd></div>
+                        </dl>
+                        <p class="links">
+                            <a href="https://github.com/topmindspace/topmind" target="_blank" rel="noopener noreferrer" data-i18n="link_github">GitHub</a>
+                            <a href="https://github.com/topmindspace/topmind/releases" target="_blank" rel="noopener noreferrer" data-i18n="link_releases">Releases</a>
+                        </p>
+                    </div>
+                    <div class="product__media">
+                        <figure class="shot"><img src="assets/img/showcase-ai-agent.jpg" width="1327" height="495" loading="lazy" data-i18n-attr="alt:desk_shot_suggest_alt" alt="Topmind 建议面板：待确认的整理建议"><figcaption data-i18n="desk_shot_suggest">建议页签：整理和待办等你确认</figcaption></figure>
+                        <figure class="shot"><img src="assets/img/showcase-ingest.jpg" width="1440" height="620" loading="lazy" data-i18n-attr="alt:desk_shot_ingest_alt" alt="Topmind 知识导入：拖入文件转成 Markdown"><figcaption data-i18n="desk_shot_ingest">文档导入：拖入文件，转成 Markdown</figcaption></figure>
+                    </div>
                 </article>
 
-                <div class="pair">
-                    <article class="card" id="obsidian">
-                        <header class="card__head">
-                            <h3 class="title" data-i18n="obs_name">Topmind Stream · Obsidian 插件</h3>
-                            <span class="tag">v4.18.2</span>
-                            <a class="repo" href="https://github.com/topmindspace/topmind-obsidian" target="_blank" rel="noopener noreferrer">topmindspace/topmind-obsidian</a>
-                        </header>
-                        <figure class="card__media">
-                            <img width="1500" height="868" loading="lazy" data-i18n-attr="src:obs_img_src;alt:obs_img_alt" src="assets/img/obsidian-stream-zh.jpg" alt="Obsidian 里的 Topmind Stream：本周动态时间轴">
-                        </figure>
+                <div class="duo">
+                    <article class="card reveal" id="obsidian" aria-labelledby="obs-name">
+                        <div class="product__head">
+                            <h3 id="obs-name" class="title-lg" data-i18n="obs_name">Topmind Stream · Obsidian 插件</h3>
+                            <span class="tag tag--accent">v4.18.2</span>
+                        </div>
+                        <span class="product__repo">topmindspace/topmind-obsidian</span>
+                        <p class="product__lead" data-i18n="obs_what">在 Obsidian 主区域打开动态流，右侧栏的 AI 面板有对话、建议、清单、历史四个页签。AI 提出的修改在你确认后才写入，笔记仍是库里的 Markdown。</p>
                         <dl class="facts">
-                            <div class="facts__row"><dt data-i18n="lbl_what">是什么</dt><dd data-i18n="obs_what">在 Obsidian 主区域打开动态流，右侧栏的 AI 面板有对话、建议、清单、历史四个页签。AI 提出的修改在你确认后才写入，笔记仍是库里的 Markdown。</dd></div>
                             <div class="facts__row"><dt data-i18n="lbl_for">适合谁</dt><dd data-i18n="obs_for">已经在用 Obsidian、想在库里直接用动态流的人。需要 Obsidian 1.13.0 或更高版本，仅桌面端。</dd></div>
                             <div class="facts__row"><dt data-i18n="lbl_install">安装</dt><dd>
                                 <div class="cmd">
                                     <pre><code>topmindspace/topmind-obsidian</code></pre>
-                                    <button class="text-btn copy-btn" type="button" data-copy="topmindspace/topmind-obsidian" data-i18n="copy_label" data-i18n-attr="aria-label:copy_aria" aria-label="复制安装命令">复制</button>
+                                    <button class="icon-btn copy-btn" type="button" data-copy="topmindspace/topmind-obsidian" data-i18n="copy_label" data-i18n-attr="aria-label:copy_aria" aria-label="复制安装命令">复制</button>
                                 </div>
                                 <p class="note" data-i18n="obs_note">在 Obsidian 社区插件里搜索 Topmind Stream，或用 BRAT 添加上面的仓库。</p>
                             </dd></div>
@@ -241,19 +266,19 @@
                         </p>
                     </article>
 
-                    <article class="card" id="skills">
-                        <header class="card__head">
-                            <h3 class="title" data-i18n="skl_name">topmind-skills 技能包</h3>
-                            <span class="tag">v4.15.3</span>
-                            <a class="repo" href="https://github.com/topmindspace/topmind-skills" target="_blank" rel="noopener noreferrer">topmindspace/topmind-skills</a>
-                        </header>
+                    <article class="card reveal" id="skills" aria-labelledby="skl-name">
+                        <div class="product__head">
+                            <h3 id="skl-name" class="title-lg" data-i18n="skl_name">topmind-skills 技能包</h3>
+                            <span class="tag tag--accent">v4.15.3</span>
+                        </div>
+                        <span class="product__repo">topmindspace/topmind-skills</span>
+                        <p class="product__lead" data-i18n="skl_what">给 Claude Code、Codex、OpenCode、Hermes 等宿主的技能包。日常入口只有 topmind，由它分派到捕获、整理、写作、记忆、维护和 loop 六个动作。另有微信读书、X 两个可选连接器，以及可选的记账。</p>
                         <dl class="facts">
-                            <div class="facts__row"><dt data-i18n="lbl_what">是什么</dt><dd data-i18n="skl_what">给 Claude Code、Codex、OpenCode、Hermes 等宿主的技能包。日常入口只有 topmind，由它分派到捕获、整理、成稿、记忆、维护和 loop 六个动作。另有微信读书、X 两个可选连接器，以及可选的记账。</dd></div>
                             <div class="facts__row"><dt data-i18n="lbl_for">适合谁</dt><dd data-i18n="skl_for">习惯在智能体里管理笔记的人，不需要桌面版。</dd></div>
                             <div class="facts__row"><dt data-i18n="lbl_install">安装</dt><dd>
                                 <div class="cmd">
                                     <pre><code>npx @topmindspace/topmind-skills add topmindspace/topmind-skills -g</code></pre>
-                                    <button class="text-btn copy-btn" type="button" data-copy="npx @topmindspace/topmind-skills add topmindspace/topmind-skills -g" data-i18n="copy_label" data-i18n-attr="aria-label:copy_aria" aria-label="复制安装命令">复制</button>
+                                    <button class="icon-btn copy-btn" type="button" data-copy="npx @topmindspace/topmind-skills add topmindspace/topmind-skills -g" data-i18n="copy_label" data-i18n-attr="aria-label:copy_aria" aria-label="复制安装命令">复制</button>
                                 </div>
                                 <p class="note" data-i18n="skl_note">npm 安装器会把 shared/ 一并装好，并为多个宿主建立链接。</p>
                             </dd></div>
@@ -265,31 +290,47 @@
                         </p>
                     </article>
                 </div>
+
+                <div class="compare reveal" role="region" tabindex="0" data-i18n-attr="aria-label:cmp_title" aria-label="三种入口怎么选">
+                    <h3 class="title-lg" data-i18n="cmp_title">三种入口怎么选</h3>
+                    <table>
+                        <thead>
+                            <tr><th scope="col"><span class="visually-hidden" data-i18n="cmp_item">对比项</span></th><th scope="col" data-i18n="cmp_c1">桌面版</th><th scope="col" data-i18n="cmp_c2">Obsidian 插件</th><th scope="col" data-i18n="cmp_c3">技能包</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><th scope="row" data-i18n="cmp_r1">在哪用</th><td data-i18n="cmp_r1c1">独立应用</td><td data-i18n="cmp_r1c2">Obsidian 主区域和右侧栏</td><td data-i18n="cmp_r1c3">Claude Code、Codex、OpenCode、Hermes 等智能体</td></tr>
+                            <tr><th scope="row" data-i18n="cmp_r2">运行环境</th><td data-i18n="cmp_r2c1">macOS、Windows、Linux</td><td data-i18n="cmp_r2c2">Obsidian 1.13.0+，仅桌面端</td><td data-i18n="cmp_r2c3">支持技能的宿主</td></tr>
+                            <tr><th scope="row" data-i18n="cmp_r3">AI 页签</th><td data-i18n="cmp_r3c1">对话、建议、清单、应用</td><td data-i18n="cmp_r3c2">对话、建议、清单、历史</td><td data-i18n="cmp_r3c3">入口 topmind，分派六个动作</td></tr>
+                            <tr><th scope="row" data-i18n="cmp_r4">安装</th><td>Homebrew · Releases</td><td data-i18n="cmp_r4c2">社区插件 · BRAT</td><td>npm</td></tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </section>
 
-        <section class="group" id="create" aria-labelledby="create-title">
+        <section class="section section--tonal" id="create" aria-labelledby="create-title">
             <div class="wrap">
-                <div class="group__head">
-                    <h2 id="create-title" class="headline" data-i18n="create_title">写作与演示</h2>
-                    <p class="body" data-i18n="create_lead">两个独立仓库，分开安装。写作负责文章、短文、封面和长图，演示负责把内容做成可翻页的成稿。</p>
+                <div class="section__head reveal">
+                    <span class="eyebrow" data-i18n="create_eyebrow">写作与演示</span>
+                    <h2 id="create-title" class="headline" data-i18n="create_title">从初稿到发布稿，再到幻灯片。</h2>
+                    <p class="body" data-i18n="create_lead">两个独立仓库，分开安装。写作技能出文章、短文、封面和长图，演示技能把内容做成可翻页的成稿。</p>
                 </div>
 
-                <article class="card card--split" id="writing">
-                    <header class="card__head">
-                        <h3 class="title" data-i18n="write_name">Topmind Writing Skills</h3>
-                        <span class="tag">v0.8.29</span>
-                        <a class="repo" href="https://github.com/topmindspace/topmind-writing-skills" target="_blank" rel="noopener noreferrer">topmindspace/topmind-writing-skills</a>
-                    </header>
-                    <div class="card__main">
+                <article class="product reveal" id="writing" aria-labelledby="write-name">
+                    <div class="product__text">
+                        <div class="product__head">
+                            <h3 id="write-name" class="title-lg" data-i18n="write_name">Topmind Writing Skills</h3>
+                            <span class="tag tag--accent">v0.8.30</span>
+                        </div>
+                        <span class="product__repo">topmindspace/topmind-writing-skills</span>
+                        <p class="product__lead" data-i18n="write_what">六个写作与出图技能，一个安装器，按需单装。X 稿输出纯文本，列表用 emoji 序号，不依赖 Markdown。</p>
                         <dl class="facts">
-                            <div class="facts__row"><dt data-i18n="lbl_what">是什么</dt><dd data-i18n="write_what">六个写作与出图技能，一个安装器，按需单装。</dd></div>
                             <div class="facts__row"><dt data-i18n="lbl_for">适合谁</dt><dd data-i18n="write_for">写公众号、X 长文和短帖，需要封面和长图的创作者。</dd></div>
                             <div class="facts__row"><dt data-i18n="lbl_install">安装</dt><dd>
                                 <div class="cmd">
                                     <pre><code>npx @topmindspace/topmind-writing-skills list
 npx @topmindspace/topmind-writing-skills install topmind-wechat-post</code></pre>
-                                    <button class="text-btn copy-btn" type="button" data-copy="npx @topmindspace/topmind-writing-skills list&#10;npx @topmindspace/topmind-writing-skills install topmind-wechat-post" data-i18n="copy_label" data-i18n-attr="aria-label:copy_aria" aria-label="复制安装命令">复制</button>
+                                    <button class="icon-btn copy-btn" type="button" data-copy="npx @topmindspace/topmind-writing-skills list&#10;npx @topmindspace/topmind-writing-skills install topmind-wechat-post" data-i18n="copy_label" data-i18n-attr="aria-label:copy_aria" aria-label="复制安装命令">复制</button>
                                 </div>
                                 <p class="note" data-i18n="write_note">把 topmind-wechat-post 换成下方任一技能名。</p>
                             </dd></div>
@@ -300,83 +341,122 @@ npx @topmindspace/topmind-writing-skills install topmind-wechat-post</code></pre
                             <a href="https://github.com/topmindspace/topmind-writing-skills/releases" target="_blank" rel="noopener noreferrer" data-i18n="link_releases">Releases</a>
                         </p>
                     </div>
-                    <figure class="card__media">
-                        <img src="assets/img/writing-cover.jpg" width="1600" height="640" loading="lazy" data-i18n-attr="alt:write_img_alt" alt="Topmind Writing Skills 封面：公众号文章、X 长文、干货短文、封面配图">
-                    </figure>
-                    <ul class="skills">
-                        <li><p class="skills__name">topmind-wechat-post <span class="tag tag--quiet">0.3.4</span></p><p class="skills__desc" data-i18n="ws_wechat">公众号文章全流程：交付包、审校改写、质量三关、微信内联排版和发布清单。</p></li>
-                        <li><p class="skills__name">topmind-x-article <span class="tag tag--quiet">0.4.10</span></p><p class="skills__desc" data-i18n="ws_x">X 长文：把 Markdown 原稿转成可直接粘贴的文本，附封面图和发布清单。</p></li>
-                        <li><p class="skills__name">topmind-briefs <span class="tag tag--quiet">0.2.12</span></p><p class="skills__desc" data-i18n="ws_briefs">干货短文：一件事讲透，公众号和 X 两个版本，一键复制。</p></li>
-                        <li><p class="skills__name">topmind-viral-posts <span class="tag tag--quiet">0.3.4</span></p><p class="skills__desc" data-i18n="ws_viral">X 短帖：按类型模板写，短句分行、带互动钩子，每帖配一张图。</p></li>
-                        <li><p class="skills__name">topmind-cover <span class="tag tag--quiet">0.4.5</span></p><p class="skills__desc" data-i18n="ws_cover">封面配图：风格库加配方，裁出 X 和公众号两种尺寸。</p></li>
-                        <li><p class="skills__name">topmind-poster <span class="tag tag--quiet">0.1.3</span></p><p class="skills__desc" data-i18n="ws_poster">长图出图：HTML 排版后用无头 Chrome 2 倍截图，做榜单、信息图和海报。</p></li>
-                    </ul>
+                    <div class="product__media">
+                        <figure class="shot"><img src="assets/img/writing-cover.jpg" width="1600" height="640" loading="lazy" data-i18n-attr="alt:write_img_alt" alt="Topmind Writing Skills 封面：公众号文章、X 长文、干货短文、封面配图"></figure>
+                    </div>
                 </article>
 
-                <article class="card" id="presentation">
-                    <header class="card__head">
-                        <h3 class="title" data-i18n="pres_name">Topmind Presentation</h3>
-                        <span class="tag">v0.2.7</span>
-                        <a class="repo" href="https://github.com/topmindspace/topmind-presentation" target="_blank" rel="noopener noreferrer">topmindspace/topmind-presentation</a>
-                    </header>
-                    <dl class="facts">
-                        <div class="facts__row"><dt data-i18n="lbl_what">是什么</dt><dd data-i18n="pres_what">正式商务演示技能（TopPPT HTML）。三种成稿：台上演示、研究报告、架构说明。日常是可翻页的 HTML，需要改版式时导出可编辑 PPTX。九套风格，浅色和深色两种主题。</dd></div>
-                        <div class="facts__row"><dt data-i18n="lbl_for">适合谁</dt><dd data-i18n="pres_for">要做汇报、研究报告或架构说明的人。</dd></div>
-                        <div class="facts__row"><dt data-i18n="lbl_install">安装</dt><dd>
-                            <div class="cmd">
-                                <pre><code>npx skills add topmindspace/topmind-presentation --agent claude-code -g</code></pre>
-                                <button class="text-btn copy-btn" type="button" data-copy="npx skills add topmindspace/topmind-presentation --agent claude-code -g" data-i18n="copy_label" data-i18n-attr="aria-label:copy_aria" aria-label="复制安装命令">复制</button>
-                            </div>
-                            <p class="note" data-i18n="pres_note">需要 Node.js 22+。HTML 只用 Python 标准库，导出 PPTX 另需 Node。也可用 npm、Release zip 或 git clone，见 README。</p>
-                        </dd></div>
-                    </dl>
-                    <ul class="strip strip--wide">
-                        <li><figure><img src="assets/img/presentation/sample-presentation.jpg" width="1280" height="720" loading="lazy" data-i18n-attr="alt:pres_sample_a_alt" alt="演示模式样张：business-blue 风格的封面页"><figcaption data-i18n="pres_sample_a">演示</figcaption></figure></li>
-                        <li><figure><img src="assets/img/presentation/sample-report.jpg" width="1280" height="720" loading="lazy" data-i18n-attr="alt:pres_sample_b_alt" alt="研究模式样张：mckinsey 风格的封面页"><figcaption data-i18n="pres_sample_b">研究</figcaption></figure></li>
-                        <li><figure><img src="assets/img/presentation/sample-architecture.jpg" width="1280" height="720" loading="lazy" data-i18n-attr="alt:pres_sample_c_alt" alt="架构模式样张：graphite-dark 风格的封面页"><figcaption data-i18n="pres_sample_c">架构</figcaption></figure></li>
-                    </ul>
-                    <p class="links">
-                        <a href="presentation/" data-i18n="pres_page">项目页</a>
-                        <a href="https://github.com/topmindspace/topmind-presentation" target="_blank" rel="noopener noreferrer" data-i18n="link_github">GitHub</a>
-                        <a href="https://www.npmjs.com/package/@topmindspace/topmind-presentation" target="_blank" rel="noopener noreferrer" data-i18n="link_npm">npm</a>
-                    </p>
+                <ul class="skills" data-i18n-attr="aria-label:skills_aria" aria-label="六个写作技能">
+                    <li class="skill reveal"><p class="skill__name">topmind-wechat-post <span class="tag">0.3.5</span></p><p class="skill__desc" data-i18n="ws_wechat">公众号文章全流程：交付包、审校改写、质量三关、微信内联排版和发布清单。</p></li>
+                    <li class="skill reveal"><p class="skill__name">topmind-x-article <span class="tag">0.4.11</span></p><p class="skill__desc" data-i18n="ws_x">X 长文：把 Markdown 原稿转成可直接粘贴的纯文本，列表改成 emoji 序号，附封面图和发布清单。</p></li>
+                    <li class="skill reveal"><p class="skill__name">topmind-briefs <span class="tag">0.2.13</span></p><p class="skill__desc" data-i18n="ws_briefs">干货短文：一件事讲透，出公众号和 X 两个版本。X 版用 emoji 列表，附 0 到 2 个话题标签。</p></li>
+                    <li class="skill reveal"><p class="skill__name">topmind-viral-posts <span class="tag">0.3.5</span></p><p class="skill__desc" data-i18n="ws_viral">X 短帖：14 个类型模板，短句分行，每帖配一张图，并给出分类标签和话题标签建议。</p></li>
+                    <li class="skill reveal"><p class="skill__name">topmind-cover <span class="tag">0.4.6</span></p><p class="skill__desc" data-i18n="ws_cover">封面配图：风格库加配方，裁出 X 和公众号两种尺寸。</p></li>
+                    <li class="skill reveal"><p class="skill__name">topmind-poster <span class="tag">0.1.4</span></p><p class="skill__desc" data-i18n="ws_poster">长图出图：HTML 排版后用无头 Chrome 2 倍截图，做榜单、信息图和海报。</p></li>
+                </ul>
+
+                <article class="product product--flip reveal" id="presentation" aria-labelledby="pres-name">
+                    <div class="product__text">
+                        <div class="product__head">
+                            <h3 id="pres-name" class="title-lg" data-i18n="pres_name">Topmind Presentation</h3>
+                            <span class="tag tag--accent">v0.2.7</span>
+                        </div>
+                        <span class="product__repo">topmindspace/topmind-presentation</span>
+                        <p class="product__lead" data-i18n="pres_what">正式商务演示技能（TopPPT HTML）。三种成稿：台上演示、研究报告、架构说明。日常是可翻页的 HTML，需要改版式时导出可编辑 PPTX。九套风格，浅色和深色两种主题。</p>
+                        <dl class="facts">
+                            <div class="facts__row"><dt data-i18n="lbl_for">适合谁</dt><dd data-i18n="pres_for">要做汇报、研究报告或架构说明的人。</dd></div>
+                            <div class="facts__row"><dt data-i18n="lbl_install">安装</dt><dd>
+                                <div class="cmd">
+                                    <pre><code>npx skills add topmindspace/topmind-presentation --agent claude-code -g</code></pre>
+                                    <button class="icon-btn copy-btn" type="button" data-copy="npx skills add topmindspace/topmind-presentation --agent claude-code -g" data-i18n="copy_label" data-i18n-attr="aria-label:copy_aria" aria-label="复制安装命令">复制</button>
+                                </div>
+                                <p class="note" data-i18n="pres_note">需要 Node.js 22+。HTML 只用 Python 标准库，导出 PPTX 另需 Node。也可用 npm、Release zip 或 git clone，见 README。</p>
+                            </dd></div>
+                        </dl>
+                        <p class="links">
+                            <a href="presentation/" data-i18n="pres_page">项目页</a>
+                            <a href="https://github.com/topmindspace/topmind-presentation" target="_blank" rel="noopener noreferrer" data-i18n="link_github">GitHub</a>
+                            <a href="https://www.npmjs.com/package/@topmindspace/topmind-presentation" target="_blank" rel="noopener noreferrer" data-i18n="link_npm">npm</a>
+                        </p>
+                    </div>
+                    <div class="product__media">
+                        <figure class="shot"><img src="assets/img/presentation/sample-presentation.jpg" width="1280" height="720" loading="lazy" data-i18n-attr="alt:pres_sample_a_alt" alt="演示模式样张：business-blue 风格的封面页"><figcaption data-i18n="pres_sample_a">演示模式 · business-blue</figcaption></figure>
+                        <div class="samples samples--two">
+                            <figure class="shot"><img src="assets/img/presentation/sample-report.jpg" width="1280" height="720" loading="lazy" data-i18n-attr="alt:pres_sample_b_alt" alt="研究模式样张：mckinsey 风格的封面页"><figcaption data-i18n="pres_sample_b">研究模式</figcaption></figure>
+                            <figure class="shot"><img src="assets/img/presentation/sample-architecture.jpg" width="1280" height="720" loading="lazy" data-i18n-attr="alt:pres_sample_c_alt" alt="架构模式样张：graphite-dark 风格的封面页"><figcaption data-i18n="pres_sample_c">架构模式</figcaption></figure>
+                        </div>
+                    </div>
                 </article>
+            </div>
+        </section>
+
+        <section class="section" id="about" aria-labelledby="about-title">
+            <div class="wrap">
+                <div class="section__head reveal">
+                    <span class="eyebrow" data-i18n="about_eyebrow">关于本站</span>
+                    <h2 id="about-title" class="headline" data-i18n="about_title">一个静态页面，没有跟踪。</h2>
+                    <p class="body" data-i18n="about_lead">topmindspace.github.io 是这五个项目的介绍页，由 GitHub Pages 直接从仓库的 main 分支发布。</p>
+                </div>
+                <ul class="points">
+                    <li class="point reveal">
+                        <div class="point__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 6 2 12l6 6M16 6l6 6-6 6"/></svg></div>
+                        <h3 data-i18n="about_p1_t">纯静态</h3>
+                        <p data-i18n="about_p1_d">HTML、CSS 和原生 JavaScript，没有构建步骤和框架。不加载外部字体，不放统计脚本，也不写 Cookie。</p>
+                    </li>
+                    <li class="point reveal">
+                        <div class="point__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5h9M8.5 3v2M11 5c-1 4-3.5 7-7 9M6.5 8.5c1.2 2.2 3 4 5 5M13 21l4.5-10L22 21M14.5 17.5h6"/></svg></div>
+                        <h3 data-i18n="about_p2_t">中英双语，浅色深色</h3>
+                        <p data-i18n="about_p2_d">右上角切换语言和主题。主题默认跟随系统，选择保存在本机浏览器里。系统开启「减少动态效果」时，页面不做动画。</p>
+                    </li>
+                    <li class="point reveal">
+                        <div class="point__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg></div>
+                        <h3 data-i18n="about_p3_t">版本以 Release 为准</h3>
+                        <p data-i18n="about_p3_d">页面上的版本号和描述按各仓库最新 Release 与 README 核对，核对日期写在页脚。有出入时以仓库为准。</p>
+                    </li>
+                </ul>
+                <p class="links reveal">
+                    <a href="https://github.com/topmindspace/topmindspace.github.io" target="_blank" rel="noopener noreferrer" data-i18n="footer_source">站点源码</a>
+                    <a href="https://x.com/mspd4100" target="_blank" rel="noopener noreferrer" data-i18n="about_x">在 X 上关注 @mspd4100</a>
+                </p>
             </div>
         </section>
     </main>
 
     <footer class="footer">
-        <div class="footer__inner">
-            <div class="footer__brand">
-                <p class="footer__name">Topmindspace</p>
-                <p class="footer__tag" data-i18n="footer_tagline">围绕本地 Markdown 的开源工具。</p>
+        <div class="wrap">
+            <div class="footer__inner">
+                <div class="footer__brand">
+                    <p class="footer__name">Topmindspace</p>
+                    <p class="footer__tag" data-i18n="footer_tagline">围绕本地 Markdown 的开源工具。</p>
+                </div>
+                <nav class="footer__col" data-i18n-attr="aria-label:footer_projects" aria-label="项目">
+                    <p class="footer__head" data-i18n="footer_projects">项目</p>
+                    <a href="https://github.com/topmindspace/topmind" target="_blank" rel="noopener noreferrer">topmind</a>
+                    <a href="https://github.com/topmindspace/topmind-obsidian" target="_blank" rel="noopener noreferrer">topmind-obsidian</a>
+                    <a href="https://github.com/topmindspace/topmind-skills" target="_blank" rel="noopener noreferrer">topmind-skills</a>
+                    <a href="https://github.com/topmindspace/topmind-writing-skills" target="_blank" rel="noopener noreferrer">topmind-writing-skills</a>
+                    <a href="https://github.com/topmindspace/topmind-presentation" target="_blank" rel="noopener noreferrer">topmind-presentation</a>
+                </nav>
+                <nav class="footer__col" data-i18n-attr="aria-label:footer_site" aria-label="本站">
+                    <p class="footer__head" data-i18n="footer_site">本站</p>
+                    <a href="presentation/" data-i18n="pres_page_footer">Topmind Presentation 项目页</a>
+                    <a href="#about" data-i18n="nav_about">关于本站</a>
+                    <a href="https://github.com/topmindspace/topmindspace.github.io" target="_blank" rel="noopener noreferrer" data-i18n="footer_source">站点源码</a>
+                </nav>
+                <nav class="footer__col" data-i18n-attr="aria-label:footer_links" aria-label="链接">
+                    <p class="footer__head" data-i18n="footer_links">链接</p>
+                    <a href="https://github.com/topmindspace" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a href="https://x.com/mspd4100" target="_blank" rel="noopener noreferrer">@mspd4100</a>
+                </nav>
             </div>
-            <nav class="footer__col" data-i18n-attr="aria-label:footer_projects" aria-label="项目">
-                <p class="footer__head" data-i18n="footer_projects">项目</p>
-                <a href="https://github.com/topmindspace/topmind" target="_blank" rel="noopener noreferrer">Topmind</a>
-                <a href="https://github.com/topmindspace/topmind-obsidian" target="_blank" rel="noopener noreferrer">topmind-obsidian</a>
-                <a href="https://github.com/topmindspace/topmind-skills" target="_blank" rel="noopener noreferrer">topmind-skills</a>
-                <a href="https://github.com/topmindspace/topmind-writing-skills" target="_blank" rel="noopener noreferrer">topmind-writing-skills</a>
-                <a href="https://github.com/topmindspace/topmind-presentation" target="_blank" rel="noopener noreferrer">topmind-presentation</a>
-            </nav>
-            <nav class="footer__col" data-i18n-attr="aria-label:footer_links" aria-label="链接">
-                <p class="footer__head" data-i18n="footer_links">链接</p>
-                <a href="https://github.com/topmindspace" target="_blank" rel="noopener noreferrer">GitHub</a>
-                <a href="https://x.com/mspd4100" target="_blank" rel="noopener noreferrer">@mspd4100</a>
-            </nav>
-            <nav class="footer__col" data-i18n-attr="aria-label:footer_site" aria-label="本站">
-                <p class="footer__head" data-i18n="footer_site">本站</p>
-                <a href="./presentation/" data-i18n="pres_page_footer">Topmind Presentation 项目页</a>
-            </nav>
-        </div>
-        <div class="footer__bar">
-            <p class="footer__copy" data-i18n="footer_verified">版本号核对于 2026-10-10，以各仓库 Release 为准。</p>
-            <p class="footer__copy" data-i18n="footer_copy">© {{year}} TopMindSpace · MIT</p>
+            <div class="footer__bar">
+                <p class="footer__copy" data-i18n="footer_verified">版本号核对于 2026-10-13，以各仓库 Release 为准。</p>
+                <p class="footer__copy" data-i18n="footer_copy">© {{year}} TopMindSpace · MIT</p>
+            </div>
         </div>
     </footer>
 
     <div class="toast" id="toast" role="status" aria-live="polite" data-i18n="toast_copied">已复制</div>
-
 
     <script src="assets/js/i18n.js"></script>
     <script src="assets/js/main.js"></script>
