@@ -26,7 +26,7 @@
 
 版本号、安装命令和技能清单以各仓库的 README 与 Release 为准。更新时同步修改：
 
-- `index.html` 里的版本标签和 JSON-LD 的 `softwareVersion`
+- `index.html` 里的版本标签和 JSON-LD 的 `softwareVersion`（Topmind Writing Skills 除外：它的磁贴、区块、技能清单和 JSON-LD **不写版本号**，改为链接到 Releases / npm；`python3 scripts/check_writing_no_versions.py` 负责检查，CI 自动运行）
 - `presentation/index.html` 里的版本标签和 JSON-LD
 - `i18n/zh.json` 与 `i18n/en.json`
 - `sitemap.xml` 的 `lastmod`

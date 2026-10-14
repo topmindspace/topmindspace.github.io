@@ -26,7 +26,7 @@ Earlier links to the project page, the live deck, and the style gallery are stat
 
 Versions, install commands, and skill lists come from each repository's README and Releases. When they change, update:
 
-- the version tags in `index.html` and `softwareVersion` in the JSON-LD
+- the version tags in `index.html` and `softwareVersion` in the JSON-LD (except Topmind Writing Skills: its tile, section, skill list and JSON-LD carry **no version numbers** and link to Releases / npm instead; `python3 scripts/check_writing_no_versions.py` enforces this and runs in CI)
 - the version tag and JSON-LD in `presentation/index.html`
 - `i18n/zh.json` and `i18n/en.json`
 - `lastmod` in `sitemap.xml`
