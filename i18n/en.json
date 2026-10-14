@@ -184,7 +184,7 @@
   "hero_s7": "topmind-cover sample · dark SaaS style",
   "hero_s8": "Topmind desktop · document ingest to Markdown",
   "write_tag": "npm · Releases",
-  "write_latest": "Latest release ↗",
   "ws_xrules_t": "X short-post delivery rules",
-  "ws_xrules": "Briefs, jokes and formatting all deliver three parts: copy-ready plain text, original post/source links, and 1–2 original images; with no original image it asks before generating one. Layout follows patterns distilled from reference posts (conclusion first, list lead-ins, 【section】 headers); emoji from the TopMind system only; the linter now flags code fences, strikethrough and repeated blank lines."
+  "ws_xrules": "Briefs, jokes and formatting all deliver three parts: copy-ready plain text, original post/source links, and 1–2 original images; with no original image it asks before generating one. Layout follows patterns distilled from reference posts (conclusion first, list lead-ins, 【section】 headers); emoji from the TopMind system only; the linter now flags code fences, strikethrough and repeated blank lines.",
+  "link_latest": "Latest release ↗"
 }

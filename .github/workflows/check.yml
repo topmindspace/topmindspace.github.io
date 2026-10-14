@@ -16,5 +16,5 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Writing Skills 区块无版本号
-        run: python3 scripts/check_writing_no_versions.py
+      - name: 全站无产品版本号
+        run: python3 scripts/check_no_versions.py

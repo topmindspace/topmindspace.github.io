@@ -22,14 +22,11 @@
 
 早期的项目页、在线演示和风格画廊链接已改成静态跳转页，统一指向 `presentation/`。
 
-## 更新版本信息
+## 版本号
 
-版本号、安装命令和技能清单以各仓库的 README 与 Release 为准。更新时同步修改：
+全站**不写任何产品的版本号**。版本标签和 JSON-LD 的 `softwareVersion` 一律改为指向各产品 Releases / npm 页面的链接（JSON-LD 用 `downloadUrl`）。安装命令和技能清单仍以各仓库 README 为准，变化时同步修改 `index.html`、`presentation/index.html`、`i18n/zh.json`、`i18n/en.json` 和 `sitemap.xml` 的 `lastmod`。
 
-- `index.html` 里的版本标签和 JSON-LD 的 `softwareVersion`（Topmind Writing Skills 除外：它的磁贴、区块、技能清单和 JSON-LD **不写版本号**，改为链接到 Releases / npm；`python3 scripts/check_writing_no_versions.py` 负责检查，CI 自动运行）
-- `presentation/index.html` 里的版本标签和 JSON-LD
-- `i18n/zh.json` 与 `i18n/en.json`
-- `sitemap.xml` 的 `lastmod`
+`python3 scripts/check_no_versions.py` 扫描全站，发现 `x.y.z` 版本号或 `softwareVersion` 即失败，CI（`.github/workflows/check.yml`）自动运行。非产品版本（如第三方要求「Obsidian 1.13.0+」、CDN 库路径）在 `ALLOW` 白名单里放行。
 
 ## 本地预览
 

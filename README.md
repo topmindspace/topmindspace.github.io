@@ -22,14 +22,11 @@ The home page runs: hero, an overview of the five projects, knowledge management
 
 Earlier links to the project page, the live deck, and the style gallery are static redirect pages that land on `presentation/`.
 
-## Updating version info
+## Version numbers
 
-Versions, install commands, and skill lists come from each repository's README and Releases. When they change, update:
+The site shows **no version numbers** for any product. Version tags and JSON-LD `softwareVersion` are replaced by links to each product's Releases / npm page (`downloadUrl` in JSON-LD). Install commands and skill lists still follow each repository's README; when they change, update `index.html`, `presentation/index.html`, `i18n/zh.json`, `i18n/en.json`, and `lastmod` in `sitemap.xml`.
 
-- the version tags in `index.html` and `softwareVersion` in the JSON-LD (except Topmind Writing Skills: its tile, section, skill list and JSON-LD carry **no version numbers** and link to Releases / npm instead; `python3 scripts/check_writing_no_versions.py` enforces this and runs in CI)
-- the version tag and JSON-LD in `presentation/index.html`
-- `i18n/zh.json` and `i18n/en.json`
-- `lastmod` in `sitemap.xml`
+`python3 scripts/check_no_versions.py` scans the whole site and fails on any `x.y.z` version or `softwareVersion`; it runs in CI (`.github/workflows/check.yml`). Non-product versions (for example the third-party requirement "Obsidian 1.13.0+", or CDN library paths) are whitelisted in `ALLOW`.
 
 ## Local preview
 
