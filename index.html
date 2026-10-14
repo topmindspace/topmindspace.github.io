@@ -150,15 +150,53 @@
                     </div>
                 </div>
                 <figure class="hero__visual reveal">
-                    <div class="device">
+                    <div class="device carousel" data-carousel aria-roledescription="carousel" data-i18n-attr="aria-label:hero_car_aria" aria-label="项目截图轮播" tabindex="0">
                         <div class="device__bar" aria-hidden="true"><i></i><i></i><i></i></div>
-                        <img width="1500" height="868" fetchpriority="high" data-i18n-attr="src:obs_img_src;alt:obs_img_alt" src="assets/img/obsidian-stream-zh.jpg" alt="Obsidian 里的 Topmind Stream：本周动态时间轴">
+                        <div class="carousel__viewport">
+                        <ul class="carousel__track" aria-live="polite">
+                            <li class="carousel__slide" role="group" aria-roledescription="slide" aria-label="1 / 8">
+                                <img width="1500" height="868" fetchpriority="high" decoding="async" data-i18n-attr="src:hero_s1_src;alt:hero_s1" src="assets/img/hero/01-stream-zh.webp" alt="Topmind Stream · Obsidian 里的本周动态时间轴">
+                                <p class="carousel__cap" data-i18n="hero_s1">Topmind Stream · Obsidian 里的本周动态时间轴</p>
+                            </li>
+                            <li class="carousel__slide" role="group" aria-roledescription="slide" aria-label="2 / 8" aria-hidden="true">
+                                <img width="1440" height="900" loading="lazy" decoding="async" data-i18n-attr="alt:hero_s2" src="assets/img/hero/02-topstream.webp" alt="TopStream · AI 精选资源广场">
+                                <p class="carousel__cap" data-i18n="hero_s2">TopStream · AI 精选资源广场</p>
+                            </li>
+                            <li class="carousel__slide" role="group" aria-roledescription="slide" aria-label="3 / 8" aria-hidden="true">
+                                <img width="1280" height="720" loading="lazy" decoding="async" data-i18n-attr="alt:hero_s3" src="assets/img/hero/03-presentation.webp" alt="Topmind Presentation · 演示模式">
+                                <p class="carousel__cap" data-i18n="hero_s3">Topmind Presentation · 演示模式</p>
+                            </li>
+                            <li class="carousel__slide" role="group" aria-roledescription="slide" aria-label="4 / 8" aria-hidden="true">
+                                <img width="1280" height="720" loading="lazy" decoding="async" data-i18n-attr="alt:hero_s4" src="assets/img/hero/04-report.webp" alt="Topmind Presentation · 研究报告模式">
+                                <p class="carousel__cap" data-i18n="hero_s4">Topmind Presentation · 研究报告模式</p>
+                            </li>
+                            <li class="carousel__slide" role="group" aria-roledescription="slide" aria-label="5 / 8" aria-hidden="true">
+                                <img width="1600" height="640" loading="lazy" decoding="async" data-i18n-attr="alt:hero_s5" src="assets/img/hero/05-writing.webp" alt="Topmind Writing Skills · 七个写作与出图技能">
+                                <p class="carousel__cap" data-i18n="hero_s5">Topmind Writing Skills · 七个写作与出图技能</p>
+                            </li>
+                            <li class="carousel__slide" role="group" aria-roledescription="slide" aria-label="6 / 8" aria-hidden="true">
+                                <img width="1600" height="640" loading="lazy" decoding="async" data-i18n-attr="alt:hero_s6" src="assets/img/hero/06-cover-white.webp" alt="topmind-cover 样张 · 白色清新风">
+                                <p class="carousel__cap" data-i18n="hero_s6">topmind-cover 样张 · 白色清新风</p>
+                            </li>
+                            <li class="carousel__slide" role="group" aria-roledescription="slide" aria-label="7 / 8" aria-hidden="true">
+                                <img width="1600" height="640" loading="lazy" decoding="async" data-i18n-attr="alt:hero_s7" src="assets/img/hero/07-cover-dark.webp" alt="topmind-cover 样张 · 暗色 SaaS 风">
+                                <p class="carousel__cap" data-i18n="hero_s7">topmind-cover 样张 · 暗色 SaaS 风</p>
+                            </li>
+                            <li class="carousel__slide" role="group" aria-roledescription="slide" aria-label="8 / 8" aria-hidden="true">
+                                <img width="1440" height="620" loading="lazy" decoding="async" data-i18n-attr="alt:hero_s8" src="assets/img/hero/08-ingest.webp" alt="Topmind 桌面版 · 文档导入转 Markdown">
+                                <p class="carousel__cap" data-i18n="hero_s8">Topmind 桌面版 · 文档导入转 Markdown</p>
+                            </li>
+                        </ul>
+                        <button class="carousel__btn carousel__btn--prev" type="button" data-dir="-1" data-i18n-attr="aria-label:hero_car_prev" aria-label="上一张"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+                        <button class="carousel__btn carousel__btn--next" type="button" data-dir="1" data-i18n-attr="aria-label:hero_car_next" aria-label="下一张"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+                        </div>
+                        <div class="carousel__dots" role="tablist"></div>
                     </div>
                 </figure>
                 <dl class="hero__stats">
                     <div class="stat"><dt class="visually-hidden" data-i18n="stat_projects_l">开源项目</dt><dd><b>5</b><span data-i18n="stat_projects">个开源项目</span></dd></div>
                     <div class="stat"><dt class="visually-hidden" data-i18n="stat_entry_l">入口</dt><dd><b>3</b><span data-i18n="stat_entry">种知识管理入口</span></dd></div>
-                    <div class="stat"><dt class="visually-hidden" data-i18n="stat_skills_l">写作技能</dt><dd><b>6</b><span data-i18n="stat_skills">个写作与出图技能</span></dd></div>
+                    <div class="stat"><dt class="visually-hidden" data-i18n="stat_skills_l">写作技能</dt><dd><b>7</b><span data-i18n="stat_skills">个写作与出图技能</span></dd></div>
                     <div class="stat"><dt class="visually-hidden" data-i18n="stat_styles_l">演示风格</dt><dd><b>9</b><span data-i18n="stat_styles">套演示风格</span></dd></div>
                 </dl>
             </div>
@@ -462,5 +500,6 @@ npx @topmindspace/topmind-writing-skills install topmind-wechat-post</code></pre
 
     <script src="assets/js/i18n.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/carousel.js"></script>
 </body>
 </html>

@@ -169,5 +169,18 @@
   "pp_modes_eyebrow": "三种成稿",
   "pp_styles_eyebrow": "九套风格",
   "pp_tool_eyebrow": "HTML 顶栏工具栏",
-  "pp_install_title": "一条命令装好。"
+  "pp_install_title": "一条命令装好。",
+  "hero_car_aria": "项目截图轮播",
+  "hero_car_prev": "上一张",
+  "hero_car_next": "下一张",
+  "hero_car_dot": "第 {n} 张",
+  "hero_s1_src": "assets/img/hero/01-stream-zh.webp",
+  "hero_s1": "Topmind Stream · Obsidian 里的本周动态时间轴",
+  "hero_s2": "TopStream · AI 精选资源广场",
+  "hero_s3": "Topmind Presentation · 演示模式",
+  "hero_s4": "Topmind Presentation · 研究报告模式",
+  "hero_s5": "Topmind Writing Skills · 七个写作与出图技能",
+  "hero_s6": "topmind-cover 样张 · 白色清新风",
+  "hero_s7": "topmind-cover 样张 · 暗色 SaaS 风",
+  "hero_s8": "Topmind 桌面版 · 文档导入转 Markdown"
 }

@@ -169,5 +169,18 @@
   "pp_modes_eyebrow": "Three shapes",
   "pp_styles_eyebrow": "Nine styles",
   "pp_tool_eyebrow": "HTML toolbar",
-  "pp_install_title": "One command to install."
+  "pp_install_title": "One command to install.",
+  "hero_car_aria": "Project screenshots carousel",
+  "hero_car_prev": "Previous slide",
+  "hero_car_next": "Next slide",
+  "hero_car_dot": "Slide {n}",
+  "hero_s1_src": "assets/img/hero/01-stream-en.webp",
+  "hero_s1": "Topmind Stream · this week's timeline inside Obsidian",
+  "hero_s2": "TopStream · curated AI resource plaza",
+  "hero_s3": "Topmind Presentation · stage mode",
+  "hero_s4": "Topmind Presentation · research report mode",
+  "hero_s5": "Topmind Writing Skills · seven writing and image skills",
+  "hero_s6": "topmind-cover sample · clean white style",
+  "hero_s7": "topmind-cover sample · dark SaaS style",
+  "hero_s8": "Topmind desktop · document ingest to Markdown"
 }
