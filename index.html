@@ -86,7 +86,7 @@
                 "@type": "SoftwareApplication",
                 "name": "Topmind Writing Skills",
                 "applicationCategory": "DeveloperApplication",
-                "softwareVersion": "0.8.30",
+                "softwareVersion": "0.8.32",
                 "url": "https://github.com/topmindspace/topmind-writing-skills"
             },
             {
@@ -190,10 +190,10 @@
                         <span class="tile__foot"><span class="tag">v4.15.3</span><span class="tile__more" data-i18n="tile_more">了解更多 →</span></span>
                     </a>
                     <a class="tile tile--c reveal" href="#writing">
-                        <span class="tile__kicker" data-i18n="tile_write_k">写作 · 六个技能</span>
+                        <span class="tile__kicker" data-i18n="tile_write_k">写作 · 七个技能</span>
                         <span class="tile__name">Writing Skills</span>
-                        <span class="tile__desc" data-i18n="tile_write_d">公众号、X 长文、短文、段子、封面和长图。</span>
-                        <span class="tile__foot"><span class="tag">v0.8.30</span><span class="tile__more" data-i18n="tile_more">了解更多 →</span></span>
+                        <span class="tile__desc" data-i18n="tile_write_d">公众号、X 长文、短文、段子、格式化、封面和长图。</span>
+                        <span class="tile__foot"><span class="tag">v0.8.32</span><span class="tile__more" data-i18n="tile_more">了解更多 →</span></span>
                     </a>
                     <a class="tile tile--c reveal" href="#presentation">
                         <span class="tile__kicker" data-i18n="tile_pres_k">演示 · 技能</span>
@@ -320,12 +320,12 @@
                     <div class="product__text">
                         <div class="product__head">
                             <h3 id="write-name" class="title-lg" data-i18n="write_name">Topmind Writing Skills</h3>
-                            <span class="tag tag--accent">v0.8.30</span>
+                            <span class="tag tag--accent">v0.8.32</span>
                         </div>
                         <span class="product__repo">topmindspace/topmind-writing-skills</span>
-                        <p class="product__lead" data-i18n="write_what">六个写作与出图技能，一个安装器，按需单装。X 稿输出纯文本，列表用 emoji 序号，不依赖 Markdown。</p>
+                        <p class="product__lead" data-i18n="write_what">七个写作、排版与出图技能，一个安装器，按需单装。X 稿一律纯文本：段子行间空行，短文分段 + 克制 emoji，带来源链接，原图优先。</p>
                         <dl class="facts">
-                            <div class="facts__row"><dt data-i18n="lbl_for">适合谁</dt><dd data-i18n="write_for">写公众号、X 长文和短帖，需要封面和长图的创作者。</dd></div>
+                            <div class="facts__row"><dt data-i18n="lbl_for">适合谁</dt><dd data-i18n="write_for">写公众号、X 长文、干货短文和段子，需要格式化、封面和长图的创作者。</dd></div>
                             <div class="facts__row"><dt data-i18n="lbl_install">安装</dt><dd>
                                 <div class="cmd">
                                     <pre><code>npx @topmindspace/topmind-writing-skills list
@@ -346,13 +346,15 @@ npx @topmindspace/topmind-writing-skills install topmind-wechat-post</code></pre
                     </div>
                 </article>
 
-                <ul class="skills" data-i18n-attr="aria-label:skills_aria" aria-label="六个写作技能">
-                    <li class="skill reveal"><p class="skill__name">topmind-wechat-post <span class="tag">0.3.5</span></p><p class="skill__desc" data-i18n="ws_wechat">公众号文章全流程：交付包、审校改写、质量三关、微信内联排版和发布清单。</p></li>
-                    <li class="skill reveal"><p class="skill__name">topmind-x-article <span class="tag">0.4.11</span></p><p class="skill__desc" data-i18n="ws_x">X 长文：把 Markdown 原稿转成可直接粘贴的纯文本，列表改成 emoji 序号，附封面图和发布清单。</p></li>
-                    <li class="skill reveal"><p class="skill__name">topmind-briefs <span class="tag">0.2.13</span></p><p class="skill__desc" data-i18n="ws_briefs">干货短文：一件事讲透，出公众号和 X 两个版本。X 版用 emoji 列表，附 0 到 2 个话题标签。</p></li>
-                    <li class="skill reveal"><p class="skill__name">topmind-viral-posts <span class="tag">0.3.5</span></p><p class="skill__desc" data-i18n="ws_viral">X 短帖：14 个类型模板，短句分行，每帖配一张图，并给出分类标签和话题标签建议。</p></li>
-                    <li class="skill reveal"><p class="skill__name">topmind-cover <span class="tag">0.4.6</span></p><p class="skill__desc" data-i18n="ws_cover">封面配图：风格库加配方，裁出 X 和公众号两种尺寸。</p></li>
-                    <li class="skill reveal"><p class="skill__name">topmind-poster <span class="tag">0.1.4</span></p><p class="skill__desc" data-i18n="ws_poster">长图出图：HTML 排版后用无头 Chrome 2 倍截图，做榜单、信息图和海报。</p></li>
+                <ul class="skills" data-i18n-attr="aria-label:skills_aria" aria-label="七个写作技能">
+                    <li class="skill reveal"><p class="skill__name">topmind-wechat-post <span class="tag">0.3.7</span></p><p class="skill__desc" data-i18n="ws_wechat">公众号长文全流程：交付包、审校改写、质量三关、微信内联排版和发布清单。</p></li>
+                    <li class="skill reveal"><p class="skill__name">topmind-x-article <span class="tag">0.4.13</span></p><p class="skill__desc" data-i18n="ws_x">X 长文：Markdown 原稿转一键复制 HTML 与纯文本兜底，列表自动转 emoji，附封面和发布清单。</p></li>
+                    <li class="skill reveal"><p class="skill__name">topmind-briefs <span class="tag">0.2.15</span></p><p class="skill__desc" data-i18n="ws_briefs">干货短文：一件事讲透。默认不出 HTML，X 版一段纯文本、公众号版 Markdown；原图优先，交付附来源、发布时间与链接。</p></li>
+                    <li class="skill reveal"><p class="skill__name">topmind-viral-posts <span class="tag">0.3.7</span></p><p class="skill__desc" data-i18n="ws_viral">X 段子：18 个类型 + 钩子×主体×收尾组合，段子体一句一行、行间空行，附话题与分类标签。</p></li>
+                    <li class="skill skill--new reveal"><p class="skill__name">topmind-format <span class="tag tag--accent">0.1.0</span></p><p class="skill__desc" data-i18n="ws_format">新 · 格式化：现成文字转段子或格式化成短文，只动排版不改字，按 emoji 体系加标题 emoji 与 🐔🐱🌱 点缀。</p></li>
+                    <li class="skill reveal"><p class="skill__name">topmind-cover <span class="tag">0.4.8</span></p><p class="skill__desc" data-i18n="ws_cover">封面配图：22 种风格、12 种标题花式与背景库，裁出 X 长文、公众号与 X 短文 16:9 三种尺寸。</p></li>
+                    <li class="skill reveal"><p class="skill__name">topmind-poster <span class="tag">0.1.5</span></p><p class="skill__desc" data-i18n="ws_poster">长图出图：HTML 排版后用无头 Chrome 2 倍截图，做榜单、信息图和海报。</p></li>
+                    <li class="skill skill--combo reveal"><p class="skill__name" data-i18n="ws_combo_t">常见组合</p><p class="skill__desc" data-i18n="ws_combo">短文 → 格式化；段子 → 格式化；短文没有原图 → 封面 16:9；超过一帖 → X 长文或公众号长文；数据长图 → poster。</p></li>
                 </ul>
 
                 <article class="product product--flip reveal" id="presentation" aria-labelledby="pres-name">
