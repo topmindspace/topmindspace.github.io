@@ -427,6 +427,7 @@ kbd { display: inline-grid; place-items: center; min-width: 26px; height: 26px; 
 
 .back { display: inline-flex; align-items: center; gap: var(--sp-1); font: var(--type-label); margin-bottom: var(--sp-6); }
 .matrix { max-width: 900px; margin: 0 auto; }
+.matrix--wide { max-width: 1120px; }  /* 横版拼图（简单页四联、美化前后对比）需要更宽 */
 
 /* ---------- 14. Footer ---------- */
 .footer { background: var(--surface-container-low); border-top: 1px solid var(--outline-variant); padding: var(--sp-8) 0 var(--sp-6); font-size: 14px; }

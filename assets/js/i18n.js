@@ -170,6 +170,11 @@ const I18n = (function () {
         // Chinese is the default. A saved toggle still wins.
         try {
             await apply(saved === 'en' || saved === 'zh' ? saved : 'zh');
+            // 换成英文后正文变长，浏览器按中文排版跳到的锚点（如 #beautify）会偏下；首次加载时按新排版再定位一次
+            if (location.hash.length > 1) {
+                const target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+                if (target) target.scrollIntoView();
+            }
         } catch (err) {
             document.documentElement.removeAttribute('data-pending-lang');
             throw err;
