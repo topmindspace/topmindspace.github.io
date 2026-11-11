@@ -37,6 +37,13 @@ class Page(HTMLParser):
             self.ids.add(element_id)
 
         self.links.update(attrs[key] for key in ("href", "src") if key in attrs)
+        if tag == "a" and (href := attrs.get("href")):
+            url = urlsplit(href)
+            if url.netloc:
+                assert attrs.get("target") == "_blank", f"External link must open in a new tab: {href}"
+                assert "noopener" in attrs.get("rel", "").split(), f"External link lacks noopener: {href}"
+            else:
+                assert attrs.get("target") != "_blank", f"Local link opens in a new tab: {href}"
         for key in ("aria-labelledby", "aria-controls"):
             self.references.update(attrs.get(key, "").split())
 
