@@ -1,185 +1,54 @@
-/* ============================================================
-   Topmind — i18n Engine
-   Async JSON-based language switching with caching.
-   Supports: data-i18n (textContent), data-i18n-html (innerHTML),
-            data-i18n-meta (meta content attr), data-i18n-attr (arbitrary attr).
-   Auto-detects language from OS locale, browser language, and timezone.
-   ============================================================ */
-
-const I18n = (function () {
-    'use strict';
-
+const I18n = (() => {
+    const root = document.documentElement;
+    const base = root.dataset.i18nBase;
     const cache = {};
-    let currentLang = 'zh';
+    let current = 'zh';
 
-    /**
-     * Load translation file (with caching).
-     * @param {string} lang - Language code ('zh' or 'en')
-     * @returns {Promise<Object>} Translation dictionary
-     */
-    function translationBase() {
-        const base = document.documentElement.getAttribute('data-i18n-base') || 'i18n';
-        return base.replace(/\/$/, '');
-    }
-
-    async function loadTranslations(lang) {
+    async function load(lang) {
         if (cache[lang]) return cache[lang];
-        const resp = await fetch(`${translationBase()}/${lang}.json`);
-        if (!resp.ok) throw new Error(`Failed to load ${translationBase()}/${lang}.json`);
-        cache[lang] = await resp.json();
+        const response = await fetch(`${base}/${lang}.json`);
+        if (!response.ok) throw new Error(`Could not load ${lang} translations`);
+        cache[lang] = await response.json();
         return cache[lang];
     }
 
-    /**
-     * Replace {{placeholder}} tokens in a string.
-     * @param {string} str - Template string
-     * @returns {string} Interpolated string
-     */
-    function interpolate(str) {
-        return str.replace(/\{\{year\}\}/g, new Date().getFullYear());
-    }
-
-    /**
-     * Apply translations to the page.
-     * @param {string} lang - Language code ('zh' or 'en')
-     */
     async function apply(lang) {
-        const dict = await loadTranslations(lang);
-        currentLang = lang;
-
-        // textContent replacement (data-i18n)
-        document.querySelectorAll('[data-i18n]').forEach((el) => {
-            const key = el.getAttribute('data-i18n');
-            if (dict[key] != null) {
-                el.textContent = interpolate(String(dict[key]));
-            }
+        const dictionary = await load(lang);
+        document.querySelectorAll('[data-i18n]').forEach((node) => {
+            const translation = dictionary[node.dataset.i18n];
+            if (translation != null) node.textContent = translation;
         });
-
-        // innerHTML replacement (data-i18n-html) — for content with HTML markup
-        document.querySelectorAll('[data-i18n-html]').forEach((el) => {
-            const key = el.getAttribute('data-i18n-html');
-            if (dict[key] != null) {
-                el.innerHTML = interpolate(String(dict[key]));
-            }
-        });
-
-        // Meta tag content attribute (data-i18n-meta="attrName:key")
-        // Arbitrary attribute (data-i18n-attr="attrName:key"); several pairs may be
-        // separated by ";", e.g. data-i18n-attr="src:img_src;alt:img_alt".
-        ['data-i18n-meta', 'data-i18n-attr'].forEach((name) => {
-            document.querySelectorAll('[' + name + ']').forEach((el) => {
-                el.getAttribute(name).split(';').forEach((spec) => {
-                    const [attr, key] = spec.trim().split(':');
-                    if (attr && key && dict[key] != null) {
-                        el.setAttribute(attr, interpolate(String(dict[key])));
-                    }
-                });
+        document.querySelectorAll('[data-i18n-attr], [data-i18n-meta]').forEach((node) => {
+            const specs = node.dataset.i18nAttr || node.dataset.i18nMeta;
+            specs.split(';').forEach((spec) => {
+                const [attribute, key] = spec.trim().split(':');
+                if (dictionary[key] != null) node.setAttribute(attribute, dictionary[key]);
             });
         });
 
-        // Update <html lang="...">
-        document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
-
-        // Update language toggle button
-        const langCurrent = document.getElementById('langCurrent');
-        const langToggle = document.getElementById('langToggle');
-        if (langCurrent) langCurrent.textContent = lang === 'zh' ? 'EN' : '中';
-        if (langToggle) {
-            langToggle.setAttribute(
-                'aria-label',
-                lang === 'zh' ? 'EN，切换到英文' : '中, switch to Chinese'
-            );
-        }
-
-        document.documentElement.removeAttribute('data-pending-lang');
-
-        // Persist preference
-        try { localStorage.setItem('topmind-lang', lang); } catch (e) { /* private mode */ }
+        current = lang;
+        const english = lang === 'en';
+        root.lang = english ? 'en' : 'zh-CN';
+        const toggle = document.getElementById('langToggle');
+        const label = document.getElementById('langCurrent');
+        if (toggle) toggle.setAttribute('aria-label', english ? 'Switch to Chinese' : '切换到英文');
+        if (label) label.textContent = english ? '中' : 'EN';
+        try { localStorage.setItem('topmind-lang', lang); } catch {}
         document.dispatchEvent(new CustomEvent('i18n:applied'));
     }
 
-    /**
-     * Get the current language code.
-     * @returns {string} 'zh' or 'en'
-     */
-    function getLang() {
-        return currentLang;
-    }
-
-    /**
-     * Translate a key to the current language.
-     * Returns the key itself if translation is not found.
-     * @param {string} key - Translation key
-     * @returns {string} Translated string
-     */
-    function t(key) {
-        const dict = cache[currentLang];
-        if (dict && dict[key] != null) {
-            return interpolate(String(dict[key]));
-        }
-        return key;
-    }
-
-    /**
-     * Detect preferred language from OS and browser environment.
-     * Checks (in order of reliability):
-     *   1. navigator.languages — browser's full locale preference list
-     *   2. navigator.language  — browser primary locale
-     *   3. navigator.userAgent — OS locale hints (e.g., Windows zh-CN, Mac zh-CN)
-     *   4. Intl.DateTimeFormat().resolvedOptions().locale — system locale
-     * @returns {string} 'zh' or 'en'
-     */
-    function detectLanguage() {
-        // 1. navigator.languages — most reliable, array of preferred locales
-        if (navigator.languages && navigator.languages.length > 0) {
-            for (const locale of navigator.languages) {
-                if (locale.toLowerCase().startsWith('zh')) return 'zh';
-            }
-        }
-
-        // 2. navigator.language — primary browser locale
-        if (navigator.language && navigator.language.toLowerCase().startsWith('zh')) {
-            return 'zh';
-        }
-
-        // 3. OS locale from userAgent (Windows: Windows NT; Mac: Macintosh)
-        // Some browsers embed OS locale info in userAgent
-        const ua = (navigator.userAgent || '').toLowerCase();
-        if (ua.includes('zh-cn') || ua.includes('zh-tw') || ua.includes('zh-hk')) {
-            return 'zh';
-        }
-
-        // 4. Intl locale — reflects system/OS locale settings
-        try {
-            const intlLocale = Intl.DateTimeFormat().resolvedOptions().locale.toLowerCase();
-            if (intlLocale.startsWith('zh')) return 'zh';
-        } catch {
-            // Intl not available, fall through to default
-        }
-
-        // Default to English for all other locales
-        return 'en';
-    }
-
-    /**
-     * Initialize: load saved preference (or auto-detect) and apply.
-     */
     async function init() {
-        let saved = null;
-        try { saved = localStorage.getItem('topmind-lang'); } catch (e) { /* private mode */ }
-        // Chinese is the default. A saved toggle still wins.
+        let saved;
+        try { saved = localStorage.getItem('topmind-lang'); } catch {}
+        if (saved !== 'en') return;
+        await apply('en');
+        // The initial hash was resolved against the Chinese layout.
         try {
-            await apply(saved === 'en' || saved === 'zh' ? saved : 'zh');
-            // 换成英文后正文变长，浏览器按中文排版跳到的锚点（如 #beautify）会偏下；首次加载时按新排版再定位一次
-            if (location.hash.length > 1) {
-                const target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
-                if (target) target.scrollIntoView();
-            }
-        } catch (err) {
-            document.documentElement.removeAttribute('data-pending-lang');
-            throw err;
+            document.getElementById(decodeURIComponent(location.hash.slice(1)))?.scrollIntoView();
+        } catch {
+            // Malformed URL escapes do not affect the selected language.
         }
     }
 
-    return { init, apply, getLang, detectLanguage, t };
+    return { init, apply, getLang: () => current };
 })();

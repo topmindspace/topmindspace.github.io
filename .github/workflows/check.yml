@@ -18,3 +18,5 @@ jobs:
           python-version: '3.12'
       - name: 全站无产品版本号
         run: python3 scripts/check_no_versions.py
+      - name: 双语覆盖、站内链接与旧入口
+        run: python3 scripts/check_site.py

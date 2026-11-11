@@ -1,65 +1,30 @@
-# Topmindspace 主页
+# AI · Tech · Knowledge
 
-> 围绕本地 Markdown 的开源工具：知识管理、写作与演示。
+mspd 的个人项目站，收录 AI 工作流、互动技术实验与个人知识工具。由 GitHub Pages 从 `main` 根目录发布。[打开站点](https://topmindspace.github.io/)
 
-[Topmindspace](https://topmindspace.github.io/) 的 GitHub Pages，从 `main` 根目录发布。
+[English](README.md)
 
-**[English](./README.md)**
+## 信息架构
 
-## 特性
+- **首页**从个人方向进入。开源代表作展示 AI 复刻、DSH 任务看板与跨工具记忆，分别提供试玩、安装和源码入口。
+- **Grok Bots**介绍 X Pulse 的个人回放与公共话题热度。两个入口直达各自的 x.ai 页面。
+- **项目索引**按知识管理、研究与创作组织工具。使用说明以各项目仓库为准。
+- **演示详情**保留样张、风格矩阵、PPT 美化对照、快捷键与可复制的安装命令。`/tms-skills/`、`showcase.html` 和 `style-gallery.html` 继续跳转到 `/presentation/`。
 
-- **纯静态**：HTML、CSS、原生 JS，无构建工具、无框架依赖；不加载外部字体，无统计脚本，无 Cookie
-- **设计系统**：`assets/css/home.css` 顶部是全部令牌，包括 MD3 色调调色板（种子色 `#4d6bfe`）、明暗两套系统色、字体层级、4px 间距、MD3 圆角与缓动
-- **中英双语**：完整 i18n，可手动切换，偏好保存在 `localStorage`
-- **浅色与深色**：默认跟随系统，手动切换后记住选择
-- **无障碍**：键盘导航、跳转链接、ARIA 标签、对比度符合 WCAG AA；支持「减少动态效果」和「增强对比度」
-- **响应式**：桌面、平板和手机
-- **SEO**：Open Graph、Twitter Cards、JSON-LD、站点地图
+首屏使用暖白底、墨黑文字、青柠色操作入口和线框主视觉。代表作使用公开作品和演示截图，页面在手机上改为单列。站点以 HTML、CSS 和原生 JavaScript 交付。默认中文，主题跟随系统，手动偏好保存在当前浏览器。
 
-## 页面结构
+## 本地预览和检查
 
-首页依次是：首屏、五个项目总览、知识管理（桌面版、Obsidian 插件、技能包，以及三种入口对比）、写作与演示、关于本站。`presentation/` 是 Topmind Presentation 的详细页。
-
-早期的项目页、在线演示和风格画廊链接已改成静态跳转页，统一指向 `presentation/`。
-
-## 版本号
-
-全站**不写任何产品的版本号**。版本标签和 JSON-LD 的 `softwareVersion` 一律改为指向各产品 Releases / npm 页面的链接（JSON-LD 用 `downloadUrl`）。安装命令和技能清单仍以各仓库 README 为准，变化时同步修改 `index.html`、`presentation/index.html`、`i18n/zh.json`、`i18n/en.json` 和 `sitemap.xml` 的 `lastmod`。
-
-`python3 scripts/check_no_versions.py` 扫描全站，发现 `x.y.z` 版本号或 `softwareVersion` 即失败，CI（`.github/workflows/check.yml`）自动运行。非产品版本（如第三方要求「Obsidian 1.13.0+」、CDN 库路径）在 `ALLOW` 白名单里放行。
-
-## 本地预览
-
-```bash
+```sh
 python3 -m http.server 8000
-# 访问 http://localhost:8000
+python3 scripts/check_site.py
+python3 scripts/check_no_versions.py
 ```
 
-## 文件结构
+访问 [本机预览](http://localhost:8000/)。CI 检查双语覆盖、站内资源、锚点和旧入口。产品版本与安装兼容性以各仓库的 Releases 或安装文档为准。
 
-```
-index.html                  # 首页
-presentation/
-  └── index.html            # Topmind Presentation 项目页
-assets/
-  ├── css/home.css          # 全站样式（设计令牌、组件、响应式）
-  ├── js/
-  │   ├── i18n.js           # i18n 引擎（异步加载 JSON，支持 data-i18n、data-i18n-attr 等）
-  │   └── main.js           # 主题、语言、导航、滚动高亮、复制、滚动渐显
-  └── img/                  # 截图与 logo；presentation/ 为演示项目页的样张
-i18n/
-  ├── zh.json               # 中文
-  └── en.json               # 英文
-```
+## 内容维护
 
-## 项目
-
-- [Topmind](https://github.com/topmindspace/topmind)：桌面版
-- [topmind-obsidian](https://github.com/topmindspace/topmind-obsidian)：Obsidian 插件
-- [topmind-skills](https://github.com/topmindspace/topmind-skills)：技能包
-- [topmind-writing-skills](https://github.com/topmindspace/topmind-writing-skills)：写作与出图
-- [topmind-presentation](https://github.com/topmindspace/topmind-presentation)：演示
-
----
-
-© TopMindSpace · MIT License
+- `index.html` 和 `presentation/index.html` 保存中文正文、链接及社交分享元数据。编辑带 `data-i18n` 的文案时，同步 `i18n/zh.json` 与 `i18n/en.json`。
+- `assets/css/home.css` 保存主题、布局和公共组件。修改页面内容后，更新 `sitemap.xml` 对应日期。
+- `assets/img/work/` 保存首页素材。线框主视觉由 ImageGen 生成，`oc8.webp` 来自 [OC-8 复刻](https://github.com/topmindspace/awesome-ai-recreations/tree/main/cases/oc8)，`super-kanban.webp` 来自 [Super Kanban 演示截图](https://github.com/topmindspace/dsh-super-kanban/blob/main/docs/SCREENSHOTS.md)。
